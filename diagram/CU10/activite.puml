@@ -1,0 +1,12 @@
+@startuml
+title CU 10 \nConsultation du client
+
+(*) --> "Identifier le client"
+--> Consulter les infos du client
+if "Modification nécessaires" then
+  -->[true] "Modifier le client"
+  -right-> "Consulter les infos du client"
+else
+  -->[false]  (*)
+endif
+@enduml
