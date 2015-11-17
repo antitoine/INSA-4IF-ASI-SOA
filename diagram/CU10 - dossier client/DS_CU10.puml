@@ -1,57 +1,63 @@
 @startuml
-    Actor Agent
-    group ref
-        Agent -> IHM : Identifier le client
-    end
-    Agent -> IHM : Consulter Dossier Client
-    IHM -> Système : sm3:ConsulterDossierClient(idClient)\n:numéro, dénomination, adresse postale
-    opt Bilan
-        Agent -> IHM : Consulter Bilan Client
-        IHM -> Système : sm4:consulterBilanClient(idClient)\n:cotationsClient, liste Personnes
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceParticipantBorderThickness 1
+skinparam sequenceReferenceBorderThickness 1
+skinparam sequenceGroupBorderThickness 1
+
+title DSS - CU 10
+
+Actor Agent
+ref over Agent, IHM  : Identifier le client
+Agent -> IHM : Consulter Dossier Client
+IHM -> Système : sm3:ConsulterDossierClient(idClient)\n:numéro, dénomination, adresse postale
+opt Bilan
+    Agent -> IHM : Consulter Bilan Client
+    IHM -> Système : sm4:consulterBilanClient(idClient)\n:cotationsClient, liste Personnes
+    opt
+        Agent -> IHM : Sélectionner Personne
+        Agent -> IHM : Consulter Détail Personne
+        IHM -> Système : sm5:consulterDetailPersonne(idPers)\n:données signalétiques...logement
+        Agent -> IHM : Mettre à jour Personne
+        IHM -> Système : sm6:mettreAJourPersonne(idPers,...)
+    else
+        Agent -> IHM : Saisir Informations
+        Agent -> IHM : Ajouter Personne
+        IHM -> Système : sm7:récupérerPersonne(nom, prenom, agence)\n:ListPersonnes
         opt
-            Agent -> IHM : Sélectionner Personne
-            Agent -> IHM : Consulter Détail Personne
-            IHM -> Système : sm5:consulterDetailPersonne(idPers)\n:données signalétiques...logement
-            Agent -> IHM : Mettre à jour Personne
-            IHM -> Système : sm6:mettreAJourPersonne(idPers,...)
+            Agent -> IHM : ajouter Personne Existante
+            IHM -> Système : sm9:ajouterPersonne(idClient, idPersonne)
         else
-            Agent -> IHM : Saisir Informations
-            Agent -> IHM : Ajouter Personne
-            IHM -> Système : sm7:récupérerPersonne(nom, prenom, agence)\n:ListPersonnes
-            opt
-                Agent -> IHM : ajouter Personne Existante
-                IHM -> Système : sm9:ajouterPersonne(idClient, idPersonne)
-            else
-                Agent -> IHM : Ajouter Nouvelle Personne
-                IHM -> Système : sm10: creerEtAjouterNouvellePersonne(infos, idClient)\n:Personne
-            end
-        else
-            Agent -> IHM : Supprimer Personne
-            IHM -> Système : sm9:supprimerPersonne(idPers)
+            Agent -> IHM : Ajouter Nouvelle Personne
+            IHM -> Système : sm10: creerEtAjouterNouvellePersonne(infos, idClient)\n:Personne
         end
     else
-        Agent -> IHM : Saisir Nouvelle Entete
-        Agent -> IHM : Mettre à jour Entete dossier
-        IHM -> Système : sm11:mettreAjourEnteteDossier\n(idClient, numéro, dénomination, adressePostale)
+        Agent -> IHM : Supprimer Personne
+        IHM -> Système : sm9:supprimerPersonne(idPers)
     end
-    opt Produits
-        Agent -> IHM : Consulter Produits
-        IHM -> Système : obtenierProduits(idClient)\n:Liste<Compte, Produit>
-        opt Details compte
-            Agent -> IHM : Sélectionner Compte
-            Agent -> IHM : Consulter Détail Compte
-            IHM -> Système : obtenirDétailCompte(idCompte)\n:détails, historique
-        end
-        opt Détail Produit / Sélectionner Produit
-            Agent -> IHM : consulter Détail Produit
-            IHM -> Système : obtenir Détail Produit(idProduit)\n:details
-        end
-        opt Mise à jour compte
-            Agent -> IHM : Saisir Informations
-            Agent -> IHM : mettre à jour Comptes Concurrences
-            IHM -> Système : mettreAJourComptesConcurrence\n(idClient, txtComptesConcurrence)
-        end
+else
+    Agent -> IHM : Saisir Nouvelle Entete
+    Agent -> IHM : Mettre à jour Entete dossier
+    IHM -> Système : sm11:mettreAjourEnteteDossier\n(idClient, numéro, dénomination, adressePostale)
+end
+opt Produits
+    Agent -> IHM : Consulter Produits
+    IHM -> Système : obtenierProduits(idClient)\n:Liste<Compte, Produit>
+    opt Details compte
+        Agent -> IHM : Sélectionner Compte
+        Agent -> IHM : Consulter Détail Compte
+        IHM -> Système : obtenirDétailCompte(idCompte)\n:détails, historique
+    end
+    opt Détail Produit / Sélectionner Produit
+        Agent -> IHM : consulter Détail Produit
+        IHM -> Système : obtenir Détail Produit(idProduit)\n:details
+    end
+    opt Mise à jour compte
+        Agent -> IHM : Saisir Informations
+        Agent -> IHM : mettre à jour Comptes Concurrences
+        IHM -> Système : mettreAJourComptesConcurrence\n(idClient, txtComptesConcurrence)
+    end
 
-    end
+end
 
 @enduml
