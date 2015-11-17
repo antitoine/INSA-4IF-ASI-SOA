@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-title DSS - CU 10
+title DSS - CU 10\n----
 
 Actor Agent
 ref over Agent, IHM  : Identifier le client

@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-title Diagramme d'état de l'Object Métier Contact
+title Diagramme d'état de \nl'Object Métier Contact\n----
 
 [*] --> PREVU : [CU1] : génération par le système
 
@@ -8,19 +8,19 @@ state "EN TRAITEMENT" as EnTraitement {
 
 state "RDV PRIS" as RdvPris
 
-[*] --> RdvPris : [CU6] : rendez-vous pris par l'agent
+[*] --> RdvPris : [CU6] : rendez-vous pris\npar l'agent
 
 PREVU --> AFFECTE : [CU2] : affectation par le chef d'agence 
 
-AFFECTE --> RdvPris : [CU6] : rendez-vous pris par l'agent
+AFFECTE --> RdvPris : [CU6] : rendez-vous pris\n par l'agent
 
-RdvPris --> PREPARE : [CU8] : préparation par l'agent
+RdvPris --> PREPARE : [CU8] : préparation par\n l'agent
 
 }
 
-PREPARE --> REALISE : [CU9] : conduite de l'entretien par l'agent
+PREPARE --> REALISE : [CU9] : conduite de l'entretien\npar l'agent
 
-EnTraitement --> ANNULE : [CU4] : annulation de l'entretien par l'agent
+EnTraitement --> ANNULE : [CU4] : annulation de l'entretien\n par l'agent
 
 REALISE --> [*]
 ANNULE --> [*] 
