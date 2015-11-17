@@ -1,4 +1,6 @@
 @startuml
+!include ../skin.puml
+title Diagramme d'état de l'Object Métier Contact
 
 [*] --> PREVU : [CU1] : génération par le système
 

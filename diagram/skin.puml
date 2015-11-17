@@ -1,0 +1,5 @@
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceParticipantBorderThickness 1
+skinparam sequenceReferenceBorderThickness 1
+skinparam sequenceGroupBorderThickness 1

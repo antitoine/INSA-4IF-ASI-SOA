@@ -1,10 +1,5 @@
 @startuml
-skinparam shadowing false
-skinparam monochrome true
-skinparam sequenceParticipantBorderThickness 1
-skinparam sequenceReferenceBorderThickness 1
-skinparam sequenceGroupBorderThickness 1
-
+!include ../skin.puml
 title DSS - CU 10
 
 Actor Agent
