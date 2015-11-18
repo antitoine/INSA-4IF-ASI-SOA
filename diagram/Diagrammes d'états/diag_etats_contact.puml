@@ -5,6 +5,7 @@
 state "EN TRAITEMENT" as EnTraitement {
 
 state "RDV PRIS" as RdvPris
+state "RDV ANNULE" as RdvAnnule
 
 [*] --> RdvPris : [CU6] : rendez-vous pris par l'agent
 
@@ -14,8 +15,13 @@ AFFECTE --> RdvPris : [CU6] : rendez-vous pris par l'agent
 
 RdvPris --> PREPARE : [CU8] : préparation par l'agent
 
+RdvPris --> RdvAnnule : [CU?] : annulation du rendez vous par l'agent
+PREPARE --> RdvAnnule : [CU?] : annulation du rendez-vous par l'agent
+RdvAnnule --> RdvPris : [CU?] : report du rendez-vous
+
 }
 
+RdvPris --> REALISE : [CU9] : conduite de l'entretien par l'agent
 PREPARE --> REALISE : [CU9] : conduite de l'entretien par l'agent
 
 EnTraitement --> ANNULE : [CU4] : annulation de l'entretien par l'agent
