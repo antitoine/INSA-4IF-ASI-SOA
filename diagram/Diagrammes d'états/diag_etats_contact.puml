@@ -1,30 +1,32 @@
 @startuml
+!include ../skin.puml
+title Diagramme d'état de \nl'Object Métier Contact\n----
 
-[*] --> PREVU : [CU1] : génération par le système
+[*] --> PREVU : [CU1] : génération\npar le système
 
 state "EN TRAITEMENT" as EnTraitement {
 
 state "RDV PRIS" as RdvPris
 state "RDV ANNULE" as RdvAnnule
 
-[*] --> RdvPris : [CU6] : rendez-vous pris par l'agent
+[*] --> RdvPris : [CU6] : rendez-vous pris\npar l'agent
 
-PREVU --> AFFECTE : [CU2] : affectation par le chef d'agence 
+PREVU --> AFFECTE : [CU2] : affectation\npar le chef d'agence 
 
-AFFECTE --> RdvPris : [CU6] : rendez-vous pris par l'agent
+AFFECTE --> RdvPris : [CU6] : rendez-vous pris\npar l'agent
 
-RdvPris --> PREPARE : [CU8] : préparation par l'agent
+RdvPris --> PREPARE : [CU8] : préparation\npar l'agent
 
-RdvPris --> RdvAnnule : [CU?] : annulation du rendez vous par l'agent
-PREPARE --> RdvAnnule : [CU?] : annulation du rendez-vous par l'agent
+RdvPris --> RdvAnnule : [CU?] : annulation du rendez-vous\npar l'agent
+PREPARE --> RdvAnnule : [CU?] : annulation du rendez-vous\npar l'agent
 RdvAnnule --> RdvPris : [CU?] : report du rendez-vous
 
 }
 
-RdvPris --> REALISE : [CU9] : conduite de l'entretien par l'agent
-PREPARE --> REALISE : [CU9] : conduite de l'entretien par l'agent
+RdvPris --> REALISE : [CU9] : conduite de l'entretien\npar l'agent
+PREPARE --> REALISE : [CU9] : conduite de l'entretien\npar l'agent
 
-EnTraitement --> ANNULE : [CU4] : annulation de l'entretien par l'agent
+EnTraitement --> ANNULE : [CU4] : annulation de l'entretien\npar l'agent
 
 REALISE --> [*]
 ANNULE --> [*] 
