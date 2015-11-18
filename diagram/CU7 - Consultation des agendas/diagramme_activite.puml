@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-title Diagramme de d'activité du CU 7\n----
+title Diagramme d'activité du CU 7\n----
 
 (*) --> "Consulter l'agenda mensuel"
 "Consulter l'agenda mensuel" --> "Voir le mois suivant"

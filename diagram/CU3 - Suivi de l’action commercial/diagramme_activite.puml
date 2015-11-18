@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-title Diagramme de d'activité du CU 3\n----
+title Diagramme d'activité du CU 3\n----
 
 
 (*) --> "Liste des contacts prévus de son agence"

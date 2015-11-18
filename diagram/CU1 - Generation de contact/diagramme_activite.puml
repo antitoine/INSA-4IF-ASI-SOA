@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-title Diagramme de d'activité du CU 1\n----
+title Diagramme d'activité du CU 1\n----
 
 
 (*) --> "Liste des évènements captés"
