@@ -4,7 +4,7 @@ title Diagramme d'activité du CU 1\n----
 
 
 (*) --> "Liste des évènements captés"
-"Liste des évènements captés" --> "Consulter évènement"
+--> "Consulter évènement"
 "Consulter évènement" --> "Générer un motif de contact"
 "Générer un motif de contact" --> "Générer un contact prévu"
 
