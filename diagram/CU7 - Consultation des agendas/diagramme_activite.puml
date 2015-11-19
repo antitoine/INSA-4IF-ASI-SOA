@@ -1,0 +1,25 @@
+@startuml
+!include ../skin.puml
+title Diagramme d'activité du CU 7\n----
+
+(*) --> "Consulter l'agenda mensuel"
+"Consulter l'agenda mensuel" --> "Voir le mois suivant"
+"Consulter l'agenda mensuel" --> "Voir le mois précédent"
+"Consulter l'agenda mensuel" --> "Consulter détails RDV"
+"Consulter l'agenda mensuel" --> "Modifier plage horaire"
+"Consulter l'agenda mensuel" --> "Annuler RDV"
+"Consulter l'agenda mensuel" --> "Reaffecter RDV"
+(*) --> "Liste des agents de l'agence"
+"Liste des agents de l'agence" --> "Consulter l'agenda hebdomadaire d'un agent"
+"Consulter l'agenda hebdomadaire d'un agent" --> "Voir semaine suivante"
+"Consulter l'agenda hebdomadaire d'un agent" --> "Voir semaine précédente"
+"Consulter l'agenda hebdomadaire d'un agent" --> "Consulter détails RDV"
+"Consulter l'agenda hebdomadaire d'un agent" --> "Modifier plage horaire"
+"Consulter l'agenda hebdomadaire d'un agent" --> "Annuler RDV"
+"Consulter l'agenda hebdomadaire d'un agent" --> "Reaffecter RDV"
+"Consulter détails RDV" --> (*)
+"Modifier plage horaire" --> (*)
+"Annuler RDV" --> (*)
+"Reaffecter RDV" --> (*)
+
+@enduml

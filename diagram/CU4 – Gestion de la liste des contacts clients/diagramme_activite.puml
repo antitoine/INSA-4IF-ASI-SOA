@@ -1,0 +1,20 @@
+@startuml
+!include ../skin.puml
+title Diagramme d'activité du CU 4\n----
+
+
+(*) --> "Consulter liste des contacts prévus de l'agence"
+"Consulter liste des contacts prévus de l'agence" -->[si même client] "Regrouper contacts"
+"Regrouper contacts" --> (*)
+"Consulter liste des contacts prévus de l'agence" --> "Consulter détails contact"
+"Consulter détails contact" --> "Enregistrer raison annulation"
+"Enregistrer raison annulation" --> "Annuler contact"
+"Consulter détails contact" --> "Prendre RDV"
+"Consulter détails contact" --> "Preparer RDV"
+"Consulter détails contact" --> "Conduire RDV"
+"Annuler contact" --> (*)
+"Prendre RDV" --> (*)
+"Preparer RDV" --> (*)
+"Conduire RDV" --> (*)
+
+@enduml
