@@ -5,8 +5,8 @@ title Diagramme d'activité du CU 3\n----
 
 (*) --> "Liste des contacts prévus de son agence"
 "Liste des contacts prévus de son agence" --> "Liste des agents de l'agence"
-"Liste des agents de l'agence" --> "Détails agent"
-"Détails agent" --> "Liste des contacts d'un agent"
+"Liste des agents de l'agence" --> "Consulter détails agent"
+"Consulter détails agent" --> "Liste des contacts d'un agent"
 "Liste des contacts d'un agent" --> "Détails d'un contact (historique)"
 "Détails d'un contact (historique)" --> (*)
 

@@ -1,8 +1,0 @@
-@startuml
-!include ../skin.puml
-title DSS : Consultation des informations \ndu client
-
-actor conseiller
-conseiller -> "IHM" : Identifier le client
-"IHM" -> "Système" : 
-@enduml
