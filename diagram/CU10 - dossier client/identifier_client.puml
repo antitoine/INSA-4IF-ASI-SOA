@@ -1,0 +1,15 @@
+@startuml
+!include ../skin.puml
+title Identifier le client\n----
+
+
+start
+
+if (Client identifié ?) then (oui)
+else (non)
+  :Rechercher le client;
+  :Choisir client;
+endif
+
+stop
+@enduml
