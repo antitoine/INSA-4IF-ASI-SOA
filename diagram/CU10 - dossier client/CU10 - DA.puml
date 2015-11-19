@@ -1,0 +1,42 @@
+@startuml
+!include ../skin.puml
+title Identifier le client\n----
+
+
+start
+:Identifier le client;
+:Consulter Dossier client;
+split
+:Consulter Bilant Client\n(Cotation, bilan,\nliste de personnes);
+split
+:consulter details\nd'une personne;
+:maj personne;
+split again
+:ajouter une personne;
+if(Personne existante ?) then(oui)
+else (non)
+:Créer nouvelle personne;
+endif
+split again
+:supprimer une personne;
+stop
+end split
+split again
+:Consulter Produits du\nclient à la banque\net à la concurrence;
+split
+:Consulter détails\nd'un compte;
+split again
+:Consulter détail\n d'un produit;
+split again
+:MAJ compte/produit\nà la concurrence;
+end split
+split again
+:Maj entête client;
+stop
+split again
+:Consulter Relations\n Banque-client;
+stop
+end split
+
+stop
+@enduml

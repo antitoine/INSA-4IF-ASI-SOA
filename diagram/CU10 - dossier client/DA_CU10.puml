@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-title CU 10 - DA \nConsultation du client\n----
+title CU 10 - DACUCVVVCC \nConsultation du client\n----
 
 (*) --> "Identifier le client"
 --> Consulter le dossier\ndu client
