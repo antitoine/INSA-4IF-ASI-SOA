@@ -3,11 +3,10 @@
 title Diagramme d'activité du CU 3\n----
 
 
-(*) --> "Liste des contacts prévus de son agence"
---> "Liste des agents de l'agence"
+(*) --> "Consulter la liste des agents de l'agence"
 --> "Consulter détails agent"
---> "Liste des contacts d'un agent"
---> "Détails d'un contact (historique)"
+--> "Consulter les contacts d'un agent"
+--> "Détails d'un contact"
 --> (*)
 
 @enduml

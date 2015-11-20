@@ -1,12 +1,10 @@
 @startuml
 !include ../skin.puml
-title Identifier le client\n----
+title Diagramme d'activité CU 10\n Consulation du dossier client\n----
 
 
 start
-:Identifier le client;
-note left: Voir DA Identifier Client
-:Consulter dossier client;
+:Liste contacts prévus de l'agent;
 split
 :Consulter bilant client\n(Cotation, bilan,\nliste de personnes);
 split
