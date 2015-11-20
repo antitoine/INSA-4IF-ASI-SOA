@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-title Diagramme d'activité du CU 7\n----
+title DSS du CU 7\n----
 
 actor User
 
