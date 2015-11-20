@@ -3,7 +3,7 @@
 title Diagramme d'activité du CU 7\n----
 
 (*) --> "Consulter l'agenda quotidien\nde l'agence"
-"Consulter l'agenda quotidien\nde l'agence" --> "Voir la semaine\nsuivante"
+"Consulter l'agenda quotidien\nde l'agence" -> "Voir la semaine\nsuivante"
 "Consulter l'agenda quotidien\nde l'agence" --> "Voir la semaine\nprécédente"
 "Consulter l'agenda quotidien\nde l'agence" --> "Consulter détails\nRDV"
 "Consulter l'agenda quotidien\nde l'agence" --> "Modifier plage\nhoraire"

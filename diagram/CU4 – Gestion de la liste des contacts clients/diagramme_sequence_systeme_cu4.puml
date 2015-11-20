@@ -1,0 +1,32 @@
+@startuml
+!include ../skin.puml
+title Diagramme d'activité du CU 4\n----
+
+actor User
+
+User -> IHM : Consulter liste contacts prévus de son agence
+IHM -> Système : ObtenirContactsPrevus(idAgence) \n: Liste<Contact>
+alt même client
+	User -> IHM : Regrouper contacts
+	IHM -> Système : RegrouperContacts(Liste<idContact>)
+else clients différents
+	User -> IHM : Consulter détails contact
+	IHM -> Système : ObtenirDetailsContact(idContact) \n: Details
+	alt annuler contact
+		User -> IHM : Enregistrer raison annulation
+		IHM -> Système : EnregistrerAnnulation(raison)
+		User -> IHM : Annuler contact
+		IHM -> Système : AnnulerContact(idContact)
+	else prendre rdv
+		User -> IHM : Prendre rdv
+		IHM -> Système : PrendreRdv(idContact)
+	else préparer rdv
+		User -> IHM : Préparer rdv
+		IHM -> Système : PreparerRdv(idContact)
+	else conduire rdv
+		User -> IHM : Conduire rdv
+		IHM -> Système : ConduireRdv(idContact)
+	end
+end
+
+@enduml
