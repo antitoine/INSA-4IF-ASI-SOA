@@ -3,7 +3,7 @@
 title Diagramme d'activité du CU 7\n----
 
 (*) --> "Consulter l'agenda quotidien\nde l'agence"
-"Consulter l'agenda quotidien\nde l'agence" -> "Voir la semaine\nsuivante"
+"Consulter l'agenda quotidien\nde l'agence" -left-> "Voir la semaine\nsuivante"
 "Consulter l'agenda quotidien\nde l'agence" --> "Voir la semaine\nprécédente"
 "Consulter l'agenda quotidien\nde l'agence" --> "Consulter détails\nRDV"
 "Consulter l'agenda quotidien\nde l'agence" --> "Modifier plage\nhoraire"
@@ -13,12 +13,12 @@ title Diagramme d'activité du CU 7\n----
 "Liste des agents de l'agence" --> "Consulter l'agenda\n hebdomadaire d'un agent"
 "Consulter l'agenda\n hebdomadaire d'un agent" --> "Voir jour\nsuivant"
 "Consulter l'agenda\n hebdomadaire d'un agent" --> "Voir jour\nprécédent"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Consulter détails RDV"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Modifier plage horaire"
+"Consulter l'agenda\n hebdomadaire d'un agent" --> "Consulter détails\nRDV"
+"Consulter l'agenda\n hebdomadaire d'un agent" --> "Modifier plage\nhoraire"
 "Consulter l'agenda\n hebdomadaire d'un agent" --> "Annuler RDV"
 "Consulter l'agenda\n hebdomadaire d'un agent" --> "Reaffecter RDV"
-"Consulter détails RDV" --> (*)
-"Modifier plage horaire" --> (*)
+"Consulter détails\nRDV" --> (*)
+"Modifier plage\nhoraire" --> (*)
 "Annuler RDV" --> (*)
 "Reaffecter RDV" --> (*)
 
