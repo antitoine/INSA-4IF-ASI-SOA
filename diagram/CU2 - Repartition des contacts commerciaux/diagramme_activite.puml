@@ -3,13 +3,12 @@
 title Diagramme d'activité du CU 2\n----
 
 
-(*) --> "Liste des contacts prévus de son agence"
---> "Consulter détails contact"
---> "Consulter dossier client"
---> "Liste des agents de l'agence"
---> "Consulter détails agent"
---> "Affecter un contact"
---> "Mettre à jour les indicateurs de l'agent"
-"Mettre à jour les indicateurs de l'agent" --> (*)
+(*) --> "Consulter la liste des contacts\n prévus de son agence"
+--> "Consulter détails d'un contact"
+--> "Consulter son dossier client (CU10)"
+--> "Consulter la liste des agents de l'agence"
+--> "Consulter les détails d'un agent"
+--> "Affecter le contact à l'agent\nsélectionné (Mise à jour des indicateurs)"
+--> (*)
 
 @enduml
