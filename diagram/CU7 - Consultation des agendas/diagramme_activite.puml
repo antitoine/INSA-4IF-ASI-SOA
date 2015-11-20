@@ -2,24 +2,24 @@
 !include ../skin.puml
 title Diagramme d'activité du CU 7\n----
 
-(*) --> "Consulter l'agenda quotidien\nde l'agence"
-"Consulter l'agenda quotidien\nde l'agence" -left-> "Voir la semaine\nsuivante"
-"Consulter l'agenda quotidien\nde l'agence" --> "Voir la semaine\nprécédente"
-"Consulter l'agenda quotidien\nde l'agence" --> "Consulter détails\nRDV"
-"Consulter l'agenda quotidien\nde l'agence" --> "Modifier plage\nhoraire"
-"Consulter l'agenda quotidien\nde l'agence" --> "Annuler RDV"
-"Consulter l'agenda quotidien\nde l'agence" --> "Reaffecter RDV"
+(*) --> "Consulter l'agenda quotidien\nde l'agence" as ConsulterAgendaQuotidien
+ConsulterAgendaQuotidien -left-> "Voir la semaine\nsuivante" as VoirSemSuivante
+ConsulterAgendaQuotidien --> "Voir la semaine\nprécédente" as VoirSemPrec
+ConsulterAgendaQuotidien --> "Consulter détails\nRDV" as VoirDetailsRDV
+ConsulterAgendaQuotidien --> "Modifier plage\nhoraire" as ModifierPlageHoraire
+ConsulterAgendaQuotidien --> "Annuler RDV" as AnnulerRDV
+ConsulterAgendaQuotidien --> "Reaffecter RDV" as ReaffecterRDV
 (*) --> "Liste des agents de l'agence"
-"Liste des agents de l'agence" --> "Consulter l'agenda\n hebdomadaire d'un agent"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Voir jour\nsuivant"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Voir jour\nprécédent"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Consulter détails\nRDV"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Modifier plage\nhoraire"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Annuler RDV"
-"Consulter l'agenda\n hebdomadaire d'un agent" --> "Reaffecter RDV"
-"Consulter détails\nRDV" --> (*)
-"Modifier plage\nhoraire" --> (*)
-"Annuler RDV" --> (*)
-"Reaffecter RDV" --> (*)
+"Liste des agents de l'agence" --> "Consulter l'agenda\n hebdomadaire d'un agent" as ConsulterAgendaHebdomadaire
+ConsulterAgendaHebdomadaire--> "Voir jour\nsuivant"
+ConsulterAgendaHebdomadaire--> "Voir jour\nprécédent"
+ConsulterAgendaHebdomadaire--> VoirDetailsRDV
+ConsulterAgendaHebdomadaire--> ModifierPlageHoraire
+ConsulterAgendaHebdomadaire--> AnnulerRDV
+ConsulterAgendaHebdomadaire--> ReaffecterRDV
+VoirDetailsRDV--> (*)
+ModifierPlageHoraire--> (*)
+AnnulerRDV--> (*)
+ReaffecterRDV--> (*)
 
 @enduml

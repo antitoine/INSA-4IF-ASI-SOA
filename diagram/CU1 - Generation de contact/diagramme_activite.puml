@@ -3,15 +3,15 @@
 title Diagramme d'activité du CU 1\n----
 
 
-(*) --> "Lister les évènements captés"
---> "Traiter évènement"
-"Traiter évènement" --> "Générer un motif de contact"
-"Générer un motif de contact" --> "Générer un contact prévu"
+(*)--> "Lister les évènements captés" as ListeEvt
+ListeEvt--> "Traiter évènement" as TraiterEvt
+TraiterEvt--> "Générer un motif de contact" as GenererMotif
+GenererMotif--> "Générer un contact prévu" as GenererContact
 
 if "Tous les évènements\nont été traités ?" then
-  -->[oui] (*)
+  -->[oui](*)
 else
-  -->[non] "Traiter évènement"
+  -->[non]TraiterEvt
 endif
 
 @enduml

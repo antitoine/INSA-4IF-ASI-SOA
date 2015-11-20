@@ -8,8 +8,7 @@ User -> IHM : Consulter liste des événements
 IHM -> Système : RecupererEvenements() \n: Liste <Evenements>
 loop il reste des événements
 User -> IHM : Consulter un événement
-IHM -> Système : Générer motif de contact
-IHM -> Système : Générer contact prévu
+IHM -> Système : GenererContact(idEvenement, idClient)\n: Contact
 end
 
 

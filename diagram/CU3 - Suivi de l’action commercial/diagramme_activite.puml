@@ -3,10 +3,10 @@
 title Diagramme d'activité du CU 3\n----
 
 
-(*) --> "Consulter la liste des agents de l'agence"
---> "Consulter détails agent"
---> "Consulter les contacts d'un agent"
---> "Détails d'un contact"
---> (*)
+(*) --> "Consulter la liste des agents de l'agence" as ListeAgents
+ListeAgents-->"Consulter détails agent" as DetailAgent
+DetailAgent-->"Consulter les contacts d'un agent" as ContactsAgent
+ContactsAgent-->"Détails d'un contact" as DetailContact
+DetailContact-->(*)
 
 @enduml

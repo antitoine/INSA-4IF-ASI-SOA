@@ -3,12 +3,12 @@
 title Diagramme d'activité du CU 2\n----
 
 
-(*) --> "Consulter la liste des contacts\n prévus de son agence"
---> "Consulter détails d'un contact"
---> "Consulter son dossier client (CU10)"
---> "Consulter la liste des agents de l'agence"
---> "Consulter les détails d'un agent"
---> "Affecter le contact à l'agent\nsélectionné (Mise à jour des indicateurs)"
+(*) --> "Consulter la liste des contacts\n prévus de son agence" as ListeContacts
+--> "Consulter détails d'un contact" as DetailContact
+--> "Consulter son dossier client (CU10)" as DossierClient
+--> "Consulter la liste des agents de l'agence" as ListeAgents
+--> "Consulter les détails d'un agent" as DetailAgent
+--> "Affecter le contact à l'agent\nsélectionné (Mise à jour des indicateurs)" as AffecterAgent
 --> (*)
 
 @enduml

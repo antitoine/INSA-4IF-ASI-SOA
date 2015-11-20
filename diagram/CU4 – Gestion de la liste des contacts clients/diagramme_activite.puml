@@ -3,18 +3,18 @@
 title Diagramme d'activité du CU 4\n----
 
 
-(*) --> "Consulter liste des contacts prévus de l'agence"
-"Consulter liste des contacts prévus de l'agence" -->[si même client] "Regrouper contacts"
-"Regrouper contacts" --> (*)
-"Consulter liste des contacts prévus de l'agence" --> "Consulter détails contact"
-"Consulter détails contact" --> "Enregistrer raison annulation"
-"Enregistrer raison annulation" --> "Annuler contact"
-"Consulter détails contact" --> "Prendre RDV"
-"Consulter détails contact" --> "Preparer RDV"
-"Consulter détails contact" --> "Conduire RDV"
-"Annuler contact" --> (*)
-"Prendre RDV" --> (*)
-"Preparer RDV" --> (*)
-"Conduire RDV" --> (*)
+(*) --> "Consulter liste des contacts prévus de l'agence" as ListeContactsPrevus
+ListeContactsPrevus-->[si même client] "Regrouper contacts" as RegrouperContacts
+RegrouperContacts--> (*)
+ListeContactsPrevus--> "Consulter détails contact" as DetailContact
+DetailContact--> "Enregistrer raison annulation" as RaisonAnnulation
+RaisonAnnulation--> "Annuler contact" as AnnulerContact
+DetailContact--> "Prendre RDV" as PrendreRDV
+DetailContact--> "Preparer RDV" as PreparerRDV
+DetailContact--> "Conduire RDV" as ConduireRDV
+AnnulerContact--> (*)
+PrendreRDV--> (*)
+PreparerRDV--> (*)
+ConduireRDV--> (*)
 
 @enduml
