@@ -11,8 +11,8 @@ ConsulterAgendaQuotidien --> "Annuler RDV" as AnnulerRDV
 ConsulterAgendaQuotidien --> "Reaffecter RDV" as ReaffecterRDV
 (*) --> "Liste des agents de l'agence"
 "Liste des agents de l'agence" --> "Consulter l'agenda\n hebdomadaire d'un agent" as ConsulterAgendaHebdomadaire
-ConsulterAgendaHebdomadaire--> "Voir jour\nsuivant"
-ConsulterAgendaHebdomadaire--> "Voir jour\nprécédent"
+ConsulterAgendaHebdomadaire--> "Voir jour\nsuivant" as VoirJourSuiv
+ConsulterAgendaHebdomadaire--> "Voir jour\nprécédent" as VoirJourPrec
 ConsulterAgendaHebdomadaire--> VoirDetailsRDV
 ConsulterAgendaHebdomadaire--> ModifierPlageHoraire
 ConsulterAgendaHebdomadaire--> AnnulerRDV
