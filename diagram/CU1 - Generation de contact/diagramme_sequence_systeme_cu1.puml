@@ -5,7 +5,7 @@ title Diagramme de séquence système du CU 1\n----
 actor User
 
 User -> IHM : Consulter liste des événements
-IHM -> Système : RecupererEvenements() : Liste <Evenements>
+IHM -> Système : RecupererEvenements() \n: Liste <Evenements>
 loop il reste des événements
 User -> IHM : Consulter un événement
 IHM -> Système : Générer motif de contact
