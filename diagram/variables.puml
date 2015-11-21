@@ -1,5 +1,3 @@
-@startuml
-
 !define ACTEUR_SYS Déclenché par le\nsystème (horloge/timer)
 !define ACTEUR_CHEF_AG Acteur : Le chef de l'agence
 !define ACTEUR_AGENT Acteur : Un agent de l'agence
@@ -35,5 +33,3 @@
 !define PreparerRDV "Preparer le RDV\n(CU 8)"
 !define ConduireRDV "Conduire le RDV\n(CU 9)"
 !define NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
-
-@enduml
