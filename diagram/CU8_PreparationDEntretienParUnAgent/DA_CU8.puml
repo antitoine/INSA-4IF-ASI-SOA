@@ -3,11 +3,15 @@
 !include ../variables.puml
 title Diagramme d'activité\ndu CU 8\n----
 
-(*) --> "ListeContatcsAgent"
---> "VoirDetailsContact"
+(*) --> "ListeClient"
 --> "DetailsClient"
---> "VoirPlagesLibres"
---> "AssocierPlageEtContact"
---> "EditerLettreConfirmation"
+--> "ListeContacts"
+--> "DetailsContact"
+--> "ConsulterDossierClient"
+--> "MAJInfos"
+--> "EnregistrerCompteRenduDePreparation"
+"ConsulterDossierClient" --> "ListerOffres"
+--> "DetailsDesOffresCatalogue"
+--> "EnregistrerCompteRenduDePreparation"
 --> (*)
 @enduml

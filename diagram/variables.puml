@@ -91,13 +91,25 @@
 '''''''
 ' CU8 '
 '''''''
+!define ListeClient Consulter la liste des clients
+!define DetailsClient Voir les détails du client
+!define ListeContacts Consulter la liste des contacts
+!define DetailsContact Voir les détails du contact
+!define ConsulterDossierClient Consulter le dossier du client
+!define MAJInfos Mettre à jour les informations
+!define EnregistrerCompteRenduDePreparation Enregistrer le compte rendu du préparation
+!define ListerOffres Consulter la liste des offres
+!define DetailsDesOffresCatalogue Voir le détails des offres du catalogue
+!define EnregistrerCompteRenduDePreparation Enregistrer le compte rendu de préparation
 
 
 '''''''
 ' CU9 '
 '''''''
-
-
+!define IdentifierContact Identifier le contact
+!define AfficherPreparation Afficher la préparation
+!define ConsulterDossierClient Consulter le dossier du\nclient (cf CU10)
+!define EnregistrerRapportActiviteCommerciale Enregistrer le rapport\nd'activité commerciale
 
 ''''''''
 ' CU10 '
