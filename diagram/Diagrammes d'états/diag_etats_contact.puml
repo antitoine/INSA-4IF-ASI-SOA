@@ -7,9 +7,8 @@ title Diagramme d'état de \nl'Object Métier Contact\n----
 state "EN TRAITEMENT" as EnTraitement {
 
 state "RDV PRIS" as RdvPris
-state "RDV ANNULE" as RdvAnnule
 
-[*] --> RdvPris : [CU6] : rendez-vous pris\npar l'agent
+[*] --> RdvPris : [CU6] : contact spontané
 
 PREVU --> AFFECTE : [CU2] : affectation\npar le chef d'agence 
 
@@ -17,9 +16,8 @@ AFFECTE --> RdvPris : [CU6] : rendez-vous pris\npar l'agent
 
 RdvPris --> PREPARE : [CU8] : préparation\npar l'agent
 
-RdvPris --> RdvAnnule : [CU7] : annulation du rendez-vous\npar l'agent
-PREPARE --> RdvAnnule : [CU7] : annulation du rendez-vous\npar l'agent
-RdvAnnule --> RdvPris : [CU?] : report du rendez-vous
+RdvPris --> AFFECTE : [CU7] : report du rendez-vous\npar l'agent
+PREPARE --> AFFECTE : [CU7] : report du rendez-vous\npar l'agent
 
 }
 
