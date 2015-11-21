@@ -1,20 +1,21 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title Diagramme d'activité du CU 4\n----
 
-
-(*) --> "Consulter liste des contacts prévus de l'agence" as ListeContactsPrevus
-ListeContactsPrevus-->[si même client] "Regrouper contacts" as RegrouperContacts
-RegrouperContacts--> (*)
-ListeContactsPrevus--> "Consulter détails contact" as DetailContact
-DetailContact--> "Enregistrer raison annulation" as RaisonAnnulation
-RaisonAnnulation--> "Annuler contact" as AnnulerContact
-DetailContact--> "Prendre RDV" as PrendreRDV
-DetailContact--> "Preparer RDV" as PreparerRDV
-DetailContact--> "Conduire RDV" as ConduireRDV
-AnnulerContact--> (*)
+note left: ACTEUR_AGENT
+(*) --> ListeContactsATraiter
+-->RegrouperContacts
+note top: NoteRegroupementContacts
+--> (*)
+ListeContactsATraiter--> DetailContact
+DetailContact--> AnnulerContact
+AnnulerContact --> RaisonAnnulation
+DetailContact--> PrendreRDV
+DetailContact--> PreparerRDV
+DetailContact--> ConduireRDV
+RaisonAnnulation--> (*)
 PrendreRDV--> (*)
 PreparerRDV--> (*)
 ConduireRDV--> (*)
-
 @enduml

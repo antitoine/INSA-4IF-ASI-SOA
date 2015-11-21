@@ -34,12 +34,10 @@
 
 '
 ' CU4
+' CU2 !define DetailContact
 '
 !define ListeContactsATraiter "Consulter la liste des contacts à traiter de l'agent"
 !define RegrouperContacts "Regrouper les contacts\n(si même client)"
-'
-' CU2 !define DetailContact
-'
 !define RaisonAnnulation "Enregistrer le motif d'annulation"
 !define AnnulerContact "Annuler le contact"
 !define PrendreRDV "Prendre RDV\n(CU 6)"
