@@ -48,7 +48,7 @@
 '
 ' CU7
 '
-!define ConsulterAgendaHebdo Consultation de l'agenda hebdomadaire de l'agent
+!define ConsulterAgendaHebdoDeLAgent Consultation de l'agenda hebdomadaire de l'agent connecté
 !define ConsulterAgendaQuotidien Consulter l'agenda quotidien\nde l'agence
 !define ChangerAgent Changer d'agent
 !define ChangerDate Changer de date
