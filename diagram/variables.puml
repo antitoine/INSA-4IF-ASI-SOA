@@ -46,6 +46,23 @@
 !define NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
 
 '
+' CU7
+'
+!define ConsulterAgendaHebdo Consultation de l'agenda hebdomadaire de l'agent
+!define ConsulterAgendaQuotidien "Consulter l'agenda quotidien\nde l'agence"
+!define ChangerAgent "Changer d'agent"
+!define ChangerDate "Changer de date"
+!define ChangerSemaine "Changer de semaine"
+!define VoirDetailsRDV "Consulter détails\nRDV"
+!define ModifierPlageHoraire "Modifier plage\nhoraire"
+!define AnnulerRDV "Annuler RDV"
+!define ReaffecterRDV "Reaffecter RDV"
+!define ConsulterAgendaHebdomadaire "Consulter l'agenda\n hebdomadaire d'un agent"
+!define VoirJourSuiv "Voir jour\nsuivant"
+!define VoirJourPrec "Voir jour\nprécédent"
+
+
+'
 ' Services Metier
 '
 !define SM_GenererContacts GenererContacts(void) : void
