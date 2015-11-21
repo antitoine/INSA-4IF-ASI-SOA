@@ -12,8 +12,8 @@ note top: NoteRegroupementContacts
 "DetailContact" --> "AnnulerContact"
 "AnnulerContact" --> "RaisonAnnulation"
 "DetailContact"--> "PrendreRDV"
-"DetailContact" --> PreparerRDV"
-"DetailContact" --> ConduireRDV"
+"DetailContact" --> "PreparerRDV"
+"DetailContact" --> "ConduireRDV"
 "RaisonAnnulation" --> (*)
 "PrendreRDV" --> (*)
 "PreparerRDV" --> (*)

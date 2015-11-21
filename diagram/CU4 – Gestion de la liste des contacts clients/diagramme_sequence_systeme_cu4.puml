@@ -1,31 +1,32 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title DSS du CU 4\n----
 
-actor User
+actor "ACTEUR_USER"
 
-User -> IHM : Consulter liste contacts prévus de son agence
-IHM -> Système : ObtenirContactsPrevus(idAgence) \n: Liste<Contact>
+"ACTEUR_USER" -> "ACTEUR_IHM" : ListeContactsATraiter
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffectes
 alt même client
-	User -> IHM : Regrouper contacts
-	IHM -> Système : RegrouperContacts(Liste<idContact>)
+	"ACTEUR_USER" -> "ACTEUR_IHM" : GrouperContacts
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_GrouperContacts
 else clients différents
-	User -> IHM : Consulter détails contact
-	IHM -> Système : ObtenirDetailsContact(idContact) \n: Details
-	alt annuler contact
-		User -> IHM : Enregistrer raison annulation
-		IHM -> Système : EnregistrerAnnulation(raison)
-		User -> IHM : Annuler contact
-		IHM -> Système : AnnulerContact(idContact)
-	else prendre rdv
-		User -> IHM : Prendre rdv
-		IHM -> Système : PrendreRdv(idContact)
-	else préparer rdv
-		User -> IHM : Préparer rdv
-		IHM -> Système : PreparerRdv(idContact)
-	else conduire rdv
-		User -> IHM : Conduire rdv
-		IHM -> Système : ConduireRdv(idContact)
+	"ACTEUR_USER" -> "ACTEUR_IHM" : DetailContact
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+	alt annulation contact
+		"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerContact
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerContact
+		"ACTEUR_USER" -> "ACTEUR_IHM" : RaisonAnnulation
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerMotifAnnulation
+	else prise RDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : PrendreRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_PrendreRdv
+	else preparation RDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : PreparerRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_PreparerRdv
+	else conduire RDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : ConduireRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConduireRdv
 	end
 end
 

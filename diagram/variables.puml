@@ -69,9 +69,17 @@
 !define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure) : Liste <Contact>
 !define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact) \n: Details
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient) : Client
-!define SM_ObtenirAgents ObtenirAgents(idAgence) \n: Liste<Agent>
-!define SM_ObtenirDetailsAgent ObtenirDetai55KlsAgent(idAgent) \n: Details
+!define SM_ObtenirAgents ObtenirAgents(idAgence) : Liste<Agent>
+!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: Details
 !define SM_AffecterContact AffecterContact(idContact, idAgent) : void
+!define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent) \n: Liste<Contact>
+!define SM_ObtenirContactsAffecte ObtenirContactsAffectes(idAgent) : Liste<Contact>
+!define SM_GrouperContacts GrouperContacts(Liste<idContact>) : void
+!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(motif) : void
+!define SM_AnnulerContact AnnulerContact(idContact) : void
+!define SM_PrendreRdv PrendreRdv(idContact) : void
+!define SM_PreparerRdv PreparerRdv(idContact) : void
+!define SM_ConduireRdv ConduireRdv(idContact) : void
 
 '
 ' Acteurs DSS

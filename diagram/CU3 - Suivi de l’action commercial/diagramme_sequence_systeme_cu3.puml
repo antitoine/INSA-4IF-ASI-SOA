@@ -1,19 +1,20 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title Diagramme de séquence système du CU 3\n----
 
-actor User
+actor ACTEUR_USER
 
-User -> IHM : Consulter liste contacts prévus de son agence
-IHM -> Système : ObtenirContactsPrevus(idAgence) \n: Liste<Contact>
-User -> IHM : Consulter agents de son agence
-IHM -> Système : ObtenirAgents(idAgence) \n: Liste<Agent>
-User -> IHM : Consulter détails agent
-IHM -> Système : ObtenirDetailsAgent(idAgent) \n: Details
-User -> IHM : Consulter liste des contacts de l'agent
-IHM -> Système : ObtenirContactsAgent(idAgent) \n: Liste<Contact>
-User -> IHM : Consulter l'historique des détails d'un contact
-IHM -> Système : ObtenirDetailsContact(idContact) \n: Details
+"ACTEUR_USER" -> "ACTEUR_IHM" : ListeContacts
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsPrevus
+"ACTEUR_USER" -> "ACTEUR_IHM" : ListeAgents
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
+"ACTEUR_USER" -> "ACTEUR_IHM" : DetailAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsAgent
+"ACTEUR_USER" -> "ACTEUR_IHM" : ContactsAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
+"ACTEUR_USER" -> "ACTEUR_IHM" : DetailContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
 
 
 @enduml
