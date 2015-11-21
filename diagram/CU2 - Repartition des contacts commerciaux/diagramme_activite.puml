@@ -3,13 +3,14 @@
 !include ../variables.puml
 title Diagramme d'activité du CU 2\n----
 
-
+note left: ACTEUR_CHEF_AG
 (*) --> ListeContacts
 --> DetailContact
 --> DossierClient
 --> ListeAgents
 --> DetailAgent
 --> AffecterAgent
+note left: NoteIncContact
 --> (*)
 
 @enduml

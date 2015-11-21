@@ -3,7 +3,7 @@
 !include ../variables.puml
 title Diagramme d'activité du CU 1\n----
 
-note left: DECLENCHE_CU1
+note left: ACTEUR_SYS
 (*)--> ListeEvt
 --> TraiterEvt
 --> GenererMotif

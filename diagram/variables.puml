@@ -1,18 +1,21 @@
 @startuml
 
+!define ACTEUR_SYS Déclenché par le\nsystème (horloge/timer)
+!define ACTEUR_CHEF_AG Acteur : Le chef de l'agence
+
 'CU1
-!define DECLENCHE_CU1 Déclenché par le\nsystème (horloge/timer)
 !define ListeEvt "Consulter la liste des évènements captés"
 !define TraiterEvt "Traiter évènement"
 !define GenererMotif "Générer un motif de contact"
 !define GenererContact "Générer un contact prévu"
 
 'CU2
-!define ListeContacts "Consulter la liste des contacts\n prévus de son agence"
-!define DetailContact "Consulter détails d'un contact"
-!define DossierClient "Consulter son dossier client (CU10)"
+!define ListeContacts "Consulter la liste des contacts\n prévus de l'agence"
+!define DetailContact "Consulter le détail d'un contact"
+!define DossierClient "Consulter le dossier client du contact\n(CU10)"
 !define ListeAgents "Consulter la liste des agents de l'agence"
-!define DetailAgent "Consulter les détails d'un agent"
-!define AffecterAgent "Affecter le contact à l'agent\nsélectionné (Mise à jour des indicateurs)"
+!define DetailAgent "Consulter le détail d'un agent"
+!define AffecterAgent "Affecter le contact à l'agent sélectionné"
+!define NoteIncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
 
 @enduml
