@@ -48,11 +48,10 @@
 '''''''
 ' CU5 '
 '''''''
-!define ListeAgents Consulter la liste des agents
-!define SelectAgent Sélectionner un agent
-!define ListePlages Consulter l'agenda
+!define ModePlanification Passer en mode planification
+!define SortirPlanification Sortir du mode planification
+!define ConsulterAgenda Consulter l'agenda\n(CU 7)
 !define SelectPlage Sélectionner une plage\nhoraire libre
-!define ListeActivites Lister les activités
 !define SelectActivite Sélectionner le type d'activité\nà plannifier
 !define MajNbContacts Mettre à jour le nombre de\ncontacts potentiels
 

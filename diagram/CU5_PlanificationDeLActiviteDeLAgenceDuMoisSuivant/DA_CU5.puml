@@ -5,18 +5,15 @@
 title Diagramme d'activité du CU 5\n----
 
 note left: ACTEUR_CHEF_AG
-(*) --> "ListeAgents"
-"ListeAgents" --> "SelectAgent"
-"SelectAgent" --> "ListePlages"
-"ListePlages" --> "SelectPlage"
-"SelectPlage" --> "ListeActivites"
-"ListeActivites" --> "SelectActivite"
-
-if "encore des activités\nà plannifier"
-    --> [oui] "ListePlages"
-else
-    --> "MajNbContacts"
-endif
-"MajNbContacts" --> (*)
+(*) --> "ConsulterAgenda"
+note left: Il peut s'agir\nde l'agenda quotidien\nou hebdomadaire
+--> "ModePlanification"
+--> "SelectPlage"
+--> "SelectActivite"
+--> "Créer plage agenda"
+--> "MajNbContacts"
+--> "ModePlanification"
+--> "SortirPlanification"
+--> (*)
 
 @enduml
