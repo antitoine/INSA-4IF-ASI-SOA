@@ -1,14 +1,21 @@
+'
+' Acteurs
+'
 !define ACTEUR_SYS Déclenché par le\nsystème (horloge/timer)
 !define ACTEUR_CHEF_AG Acteur : Le chef de l'agence
 !define ACTEUR_AGENT Acteur : Un agent de l'agence
 
-'CU1
+'
+' CU1
+'
 !define ListeEvt "Consulter la liste des évènements captés"
 !define TraiterEvt "Traiter évènement"
 !define GenererMotif "Générer un motif de contact"
 !define GenererContact "Générer un contact prévu"
 
-'CU2
+' 
+' CU2
+'
 !define ListeContacts "Consulter la liste des contacts\n prévus de l'agence"
 !define DetailContact "Consulter le détail d'un contact"
 !define DossierClient "Consulter le dossier client du contact\n(CU10)"
@@ -17,16 +24,22 @@
 !define ListeAgents "Consulter la liste des agents de l'agence"
 !define DetailAgent "Consulter le détail d'un agent"
 
-'CU3
-'CU2 -> !define ListeAgents
-'CU2 -> !define DetailAgent
+'
+' CU3
+' CU2 -> !define ListeAgents
+' CU2 -> !define DetailAgent
+'
 !define ContactsAgent "Consulter les contacts d'un agent"
 !define DetailContact "Détails d'un contact"
 
-'CU4
+'
+' CU4
+'
 !define ListeContactsATraiter "Consulter la liste des contacts à traiter de l'agent"
 !define RegrouperContacts "Regrouper les contacts\n(si même client)"
-'CU2 !define DetailContact
+'
+' CU2 !define DetailContact
+'
 !define RaisonAnnulation "Enregistrer le motif d'annulation"
 !define AnnulerContact "Annuler le contact"
 !define PrendreRDV "Prendre RDV\n(CU 6)"
