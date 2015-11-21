@@ -1,21 +1,22 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
+
 title Diagramme d'activité du CU 5\n----
 
-
-(*) --> "Lister les agents" as ListeAgents
-ListeAgents --> "Sélectionner un agent" as SelectAgent
-SelectAgent --> "Lister les plages horaires" as ListePlages
-ListePlages --> "Sélectionner une plage\nhoraire libre" as SelectPlage
-SelectPlage --> "Lister les activités" as ListeActivites
-ListeActivites --> "Sélectionner le type d'activité\nà plannifier" as SelectActivite
+note left: ACTEUR_CHEF_AG
+(*) --> "ListeAgents"
+"ListeAgents" --> "SelectAgent"
+"SelectAgent" --> "ListePlages"
+"ListePlages" --> "SelectPlage"
+"SelectPlage" --> "ListeActivites"
+"ListeActivites" --> "SelectActivite"
 
 if "encore des activités\nà plannifier"
-    --> [oui] ListePlages
+    --> [oui] "ListePlages"
 else
-    --> "Mettre à jour le nombre de\ncontacts potentiels" as MajNbContacts
+    --> "MajNbContacts"
 endif
-
-MajNbContacts --> (*)
+"MajNbContacts" --> (*)
 
 @enduml

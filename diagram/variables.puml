@@ -46,6 +46,33 @@
 !define NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
 
 '
+' CU5
+'
+!define ListeAgents Consulter la liste des agents
+!define SelectAgent Sélectionner un agent
+!define ListePlages Consulter l'agenda
+!define SelectPlage Sélectionner une plage\nhoraire libre
+!define ListeActivites Lister les activités
+!define SelectActivite Sélectionner le type d'activité\nà plannifier
+!define MajNbContacts Mettre à jour le nombre de\ncontacts potentiels
+
+'''''''
+' CU6 '
+'''''''
+''' CU6 - Partie Agent
+!define ListeContatcsAgent Consulter la liste des contacts\nprévus de l'agent
+!define VoirDetailsContact Voir les details d'un contact
+!define DetailsClient Voir les détails du client
+!define VoirPlagesLibres Voir les plages agenda libres
+!define AssocierPlageEtContact Associer plage agenda\net contact prévu commercial
+!define EditerLettreConfirmation Editer la lettre\nde confirmation du rendez-vous
+
+''' CU6 - Partie Client
+!define ListeContactClient Consuler la liste des\ncontacts du client
+!define AssocierPlageEtContactSpontane Associer plage agenda\net contact spontané
+
+
+'
 ' CU7
 '
 !define ConsulterAgendaHebdoDeLAgent Consultation de l'agenda hebdomadaire de l'agent connecté
