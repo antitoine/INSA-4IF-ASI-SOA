@@ -114,7 +114,20 @@
 ''''''''
 ' CU10 '
 ''''''''
-
+!define IdentifierClient Identifier le client
+!define ConsulterClient Consulter dossier client
+!define ConsulterBilanClient Consulter bilant client\n(Cotation, bilan,\nliste de personnes)
+!define ConsulterDetailsPersonne Consulter details\nd'une personne
+!define MAJPersonne Mise à jour personne
+!define AjouterPersonne Ajouter une personne
+!define CreerNouvellePersonne Créer nouvelle personne
+!define SupprPersonne Supprimer une personne
+!define ConsulerProduitsClient Consulter produits du\nclient à la banque\net à la concurrence
+!define ConsulterDetailsCompte Consulter détails\nd'un compte
+!define ConsulterDetailsProduit Consulter détail\n d'un produit
+!define MAJCompteConcurrence Maj compte/produit\nà la concurrence
+!define MAJCompteEnteteClient Maj entête client
+!define ConsulterRelationBanqueClient Consulter relations\n banque-client
 
 '''''''''''''''''''
 ' Services Metier '

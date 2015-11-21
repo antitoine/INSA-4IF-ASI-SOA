@@ -1,43 +1,43 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
+
 title Identifier le client\n----
 
-
 start
-:Identifier le client;
-note left: Voir DA Identifier Client
-:Consulter dossier client;
+:IdentifierClient;
+note left: ACTEUR_AGENT\nVoir DA Identifier Client
+:ConsulterClient;
 split
-:Consulter bilant client\n(Cotation, bilan,\nliste de personnes);
+:ConsulterBilanClient;
 split
-:Consulter details\nd'une personne;
-:Maj personne;
+:ConsulterDetailsPersonne;
+:MAJPersonne;
 split again
 :Ajouter une personne;
 if(Personne existante ?) then(oui)
 else (non)
-:Créer nouvelle personne;
+:CreerNouvellePersonne;
 endif
 split again
 :Supprimer une personne;
 stop
 end split
 split again
-:Consulter produits du\nclient à la banque\net à la concurrence;
+:ConsulerProduitsClient;
 split
-:Consulter détails\nd'un compte;
+:ConsulterDetailsCompte;
 split again
-:Consulter détail\n d'un produit;
+:ConsulterDetailsProduit;
 split again
-:Maj compte/produit\nà la concurrence;
+:MAJCompteConcurrence;
 end split
 split again
-:Maj entête client;
+:MAJCompteEnteteClient;
 stop
 split again
-:Consulter relations\n banque-client;
+:ConsulterRelationBanqueClient;
 stop
 end split
-
 stop
 @enduml
