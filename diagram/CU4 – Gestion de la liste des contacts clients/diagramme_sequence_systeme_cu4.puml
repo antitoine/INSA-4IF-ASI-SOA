@@ -8,7 +8,7 @@ actor "ACTEUR_USER"
 "ACTEUR_USER" -> "ACTEUR_IHM" : ListeContactsATraiter
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffectes
 alt même client
-	"ACTEUR_USER" -> "ACTEUR_IHM" : GrouperContacts
+	"ACTEUR_USER" -> "ACTEUR_IHM" : RegrouperContacts
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_GrouperContacts
 else clients différents
 	"ACTEUR_USER" -> "ACTEUR_IHM" : DetailContact
