@@ -46,3 +46,16 @@
 !define PreparerRDV "Preparer le RDV\n(CU 8)"
 !define ConduireRDV "Conduire le RDV\n(CU 9)"
 !define NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
+
+'
+' Services Metier
+'
+!define SM_GenererContacts GenererContacts(void) : void
+
+'
+' Acteurs DSS
+'
+!define ACTEUR_SI "Système d'Information"
+!define ACTEUR_STS "Tâches programmées\ndu système"
+!define ACTEUR_USER "Utilisateur"
+!define ACTEUR_IHM "Interface Utilisateur"

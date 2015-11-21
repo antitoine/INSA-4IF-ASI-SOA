@@ -1,15 +1,13 @@
 @startuml
+!include ../variables.puml
 !include ../skin.puml
 title Diagramme de séquence système du CU 1\n----
 
-actor User
+actor ACTEUR_STS
 
-User -> IHM : Consulter liste des événements
-IHM -> Système : RecupererEvenements() \n: Liste <Evenements>
-loop il reste des événements
-User -> IHM : Consulter un événement
-IHM -> Système : GenererContact(idEvenement, idClient)\n: Contact
-end
+ACTEUR_STS -> ACTEUR_IHM : Générer les contacts
+ACTEUR_IHM -> ACTEUR_SI : SM_GenererContacts
+
 
 
 @enduml
