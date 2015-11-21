@@ -20,7 +20,7 @@ def makePNG(plantumlJar, plantumlOptions, absolutePath):
 
 # CONFIGURATION -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-EXCLUDED = ['skin.puml']
+EXCLUDED = ['skin.puml', 'variables.puml']
 
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__));
 print(ROOT_DIR)
