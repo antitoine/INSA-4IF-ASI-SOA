@@ -1,22 +1,22 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title Diagramme de séquence système du CU 2\n----
 
-actor User
+actor ACTEUR_USER
 
-User -> IHM : Consulter liste des contacts prévus de son agence
-IHM -> Système : ObtenirContactsPrevus(idStructure) \n: Liste <Contact>
-User -> IHM : Consulter détails contact
-IHM -> Système : ObtenirDetailsContact(idContact) \n: Details
-User -> IHM : Consulter dossier client
-IHM -> Système : ObtenirDossierClient(idClient) : Client
-User -> IHM : Consulter liste des agents de son agence
-IHM -> Système : ObtenirAgents(idAgence) \n: Liste<Agent>
-User -> IHM : Consulter détails agent
-IHM -> Système : ObtenirDetailsAgent(idAgent) \n: Details
-User -> IHM : Affecter le contact à cet agent
-IHM -> Système : AffecterContact(idContact, idAgent)
-IHM -> Système : MettreAJourIndicateursAgent(idAgent)
+ACTEUR_USER -> ACTEUR_IHM : ListeContacts
+ACTEUR_IHM -> ACTEUR_SI : SM_ObtenirContactsPrevus
+ACTEUR_USER -> ACTEUR_IHM : DetailContact
+ACTEUR_IHM -> ACTEUR_SI : SM_ObtenirDetailsContact
+ACTEUR_USER -> ACTEUR_IHM : DossierClient
+ACTEUR_IHM -> ACTEUR_SI : SM_ObtenirDossierClient
+ACTEUR_USER -> ACTEUR_IHM : ListeAgents
+ACTEUR_IHM -> ACTEUR_SI : SM_ObtenirAgents
+ACTEUR_USER -> ACTEUR_IHM : DetailAgent
+ACTEUR_IHM -> ACTEUR_SI : SM_ObtenirDetailsAgent
+ACTEUR_USER -> ACTEUR_IHM : AffecterAgent
+ACTEUR_IHM -> ACTEUR_SI : SM_AffecterContact
 
 
 @enduml

@@ -49,6 +49,12 @@
 ' Services Metier
 '
 !define SM_GenererContacts GenererContacts(void) : void
+!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure) : Liste <Contact>
+!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact) \n: Details
+!define SM_ObtenirDossierClient ObtenirDossierClient(idClient) : Client
+!define SM_ObtenirAgents ObtenirAgents(idAgence) \n: Liste<Agent>
+!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: Details
+!define SM_AffecterContact AffecterContact(idContact, idAgent) : void
 
 '
 ' Acteurs DSS
