@@ -2,7 +2,7 @@
 !include ../skin.puml
 title Diagramme d'état de \nl'Object Métier Contact\n----
 
-[*] --> PREVU : [CU1] : génération\npar le système
+[*] -> PREVU : [CU1] : génération\npar le système
 
 state "EN TRAITEMENT" as EnTraitement {
 
@@ -10,7 +10,7 @@ state "RDV PRIS" as RdvPris
 
 [*] --> RdvPris : [CU6] : contact spontané
 
-PREVU --> AFFECTE : [CU2] : affectation\npar le chef d'agence 
+PREVU -> AFFECTE : [CU2] : affectation\npar le chef d'agence
 
 AFFECTE --> RdvPris : [CU6] : rendez-vous pris\npar l'agent
 

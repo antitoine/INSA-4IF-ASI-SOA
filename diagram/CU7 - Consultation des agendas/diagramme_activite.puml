@@ -4,27 +4,27 @@
 title Diagramme d'activité du CU 7\n----
 
 (*) --> "ConsulterAgendaHebdo"
-"ConsulterAgendaHebdo" --> ConsulterAgendaQuotidien
-ConsulterAgendaQuotidien --> ChangerDate
-ChangerDate --> ConsulterAgendaQuotidien
-ConsulterAgendaQuotidien --> VoirDetailsRDV
-ConsulterAgendaQuotidien --> ModifierPlageHoraire
-ConsulterAgendaQuotidien --> AnnulerRDV
-ConsulterAgendaQuotidien --> ReaffecterRDV
-"ConsulterAgendaHebdo" --> ChangerAgent
-ChangerAgent --> ConsulterAgendaHebdomadaire
-ConsulterAgendaHebdomadaire --> ChangerAgent
-ConsulterAgendaHebdomadaire --> ChangerSemaine
-ChangerSemaine --> ConsulterAgendaHebdomadaire
-ConsulterAgendaHebdomadaire --> VoirDetailsRDV
-ConsulterAgendaHebdomadaire --> ModifierPlageHoraire
-ConsulterAgendaHebdomadaire --> AnnulerRDV
-ConsulterAgendaHebdomadaire --> ReaffecterRDV
-ConsulterAgendaHebdomadaire --> ConsulterAgendaQuotidien
-ConsulterAgendaQuotidien --> ConsulterAgendaHebdomadaire
-VoirDetailsRDV--> (*)
-ModifierPlageHoraire--> (*)
-AnnulerRDV--> (*)
-ReaffecterRDV--> (*)
+"ConsulterAgendaHebdo" --> "ConsulterAgendaQuotidien"
+"ConsulterAgendaQuotidien" --> "ChangerDate"
+"ChangerDate" --> "ConsulterAgendaQuotidien"
+"ConsulterAgendaQuotidien" --> "VoirDetailsRDV"
+"ConsulterAgendaQuotidien" --> "ModifierPlageHoraire"
+"ConsulterAgendaQuotidien" --> "AnnulerRDV"
+"ConsulterAgendaQuotidien" --> "ReaffecterRDV"
+"ConsulterAgendaHebdo" --> "ChangerAgent"
+"ChangerAgent" --> "ConsulterAgendaHebdomadaire"
+"ConsulterAgendaHebdomadaire" --> "ChangerAgent"
+"ConsulterAgendaHebdomadaire" --> "ChangerSemaine"
+"ChangerSemaine" --> "ConsulterAgendaHebdomadaire"
+"ConsulterAgendaHebdomadaire" --> "VoirDetailsRDV"
+"ConsulterAgendaHebdomadaire" --> "ModifierPlageHoraire"
+"ConsulterAgendaHebdomadaire" --> "AnnulerRDV"
+"ConsulterAgendaHebdomadaire" --> "ReaffecterRDV"
+"ConsulterAgendaHebdomadaire" --> "ConsulterAgendaQuotidien"
+"ConsulterAgendaQuotidien" --> "ConsulterAgendaHebdomadaire"
+"VoirDetailsRDV" --> (*)
+"ModifierPlageHoraire" --> (*)
+"AnnulerRDV" --> (*)
+"ReaffecterRDV" --> (*)
 
 @enduml

@@ -4,18 +4,18 @@
 title Diagramme d'activité du CU 4\n----
 
 note left: ACTEUR_AGENT
-(*) --> ListeContactsATraiter
--->RegrouperContacts
+(*) --> "ListeContactsATraiter"
+--> "RegrouperContacts"
 note top: NoteRegroupementContacts
 --> (*)
-ListeContactsATraiter--> DetailContact
-DetailContact--> AnnulerContact
-AnnulerContact --> RaisonAnnulation
-DetailContact--> PrendreRDV
-DetailContact--> PreparerRDV
-DetailContact--> ConduireRDV
-RaisonAnnulation--> (*)
-PrendreRDV--> (*)
-PreparerRDV--> (*)
-ConduireRDV--> (*)
+"ListeContactsATraiter"--> "DetailContact"
+"DetailContact" --> "AnnulerContact"
+"AnnulerContact" --> "RaisonAnnulation"
+"DetailContact"--> "PrendreRDV"
+"DetailContact" --> PreparerRDV"
+"DetailContact" --> ConduireRDV"
+"RaisonAnnulation" --> (*)
+"PrendreRDV" --> (*)
+"PreparerRDV" --> (*)
+"ConduireRDV" --> (*)
 @enduml
