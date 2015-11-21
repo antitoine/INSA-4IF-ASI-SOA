@@ -12,7 +12,7 @@ def getPUMLFiles(rootDir, excluded):
     for root, directories, filenames in os.walk(rootDir):
         for fname in filenames:
             if (".puml" in fname and not fname in excluded):
-                PUMLFiles.append(root.replace(' ', '\ ') + '/' + fname);
+                PUMLFiles.append(root.replace(' ', '\ ').replace("'","\\'") + '/' + fname);
     return PUMLFiles;
 
 def makePNG(plantumlJar, plantumlOptions, absolutePath):
