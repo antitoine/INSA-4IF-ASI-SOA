@@ -1,12 +1,13 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title Diagramme d'activité du CU 1\n----
 
-
-(*)--> "Lister les évènements captés" as ListeEvt
-ListeEvt--> "Traiter évènement" as TraiterEvt
-TraiterEvt--> "Générer un motif de contact" as GenererMotif
-GenererMotif--> "Générer un contact prévu" as GenererContact
+note left: DECLENCHE_CU1
+(*)--> ListeEvt
+--> TraiterEvt
+--> GenererMotif
+--> GenererContact
 
 if "Tous les évènements\nont été traités ?" then
   -->[oui](*)

@@ -1,14 +1,15 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title Diagramme d'activité du CU 2\n----
 
 
-(*) --> "Consulter la liste des contacts\n prévus de son agence" as ListeContacts
---> "Consulter détails d'un contact" as DetailContact
---> "Consulter son dossier client (CU10)" as DossierClient
---> "Consulter la liste des agents de l'agence" as ListeAgents
---> "Consulter les détails d'un agent" as DetailAgent
---> "Affecter le contact à l'agent\nsélectionné (Mise à jour des indicateurs)" as AffecterAgent
+(*) --> ListeContacts
+--> DetailContact
+--> DossierClient
+--> ListeAgents
+--> DetailAgent
+--> AffecterAgent
 --> (*)
 
 @enduml
