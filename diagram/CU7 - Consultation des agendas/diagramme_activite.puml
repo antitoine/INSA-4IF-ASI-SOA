@@ -3,16 +3,16 @@
 !include ../variables.puml
 title Diagramme d'activité du CU 7\n----
 
-(*) --> "ConsulterAgendaHebdo"
-"ConsulterAgendaHebdo" --> "ConsulterAgendaQuotidien"
+note left: ACTEUR_AGENT
+(*) --> "ConsulterAgendaHebdomadaire"
 "ConsulterAgendaQuotidien" --> "ChangerDate"
 "ChangerDate" --> "ConsulterAgendaQuotidien"
 "ConsulterAgendaQuotidien" --> "VoirDetailsRDV"
 "ConsulterAgendaQuotidien" --> "ModifierPlageHoraire"
 "ConsulterAgendaQuotidien" --> "AnnulerRDV"
 "ConsulterAgendaQuotidien" --> "ReaffecterRDV"
-"ConsulterAgendaHebdo" --> "ChangerAgent"
 "ChangerAgent" --> "ConsulterAgendaHebdomadaire"
+note left: Par défaut, l'agent connecté
 "ConsulterAgendaHebdomadaire" --> "ChangerAgent"
 "ConsulterAgendaHebdomadaire" --> "ChangerSemaine"
 "ChangerSemaine" --> "ConsulterAgendaHebdomadaire"
