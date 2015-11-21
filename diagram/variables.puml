@@ -13,9 +13,15 @@
 !define ListeContacts "Consulter la liste des contacts\n prévus de l'agence"
 !define DetailContact "Consulter le détail d'un contact"
 !define DossierClient "Consulter le dossier client du contact\n(CU10)"
-!define ListeAgents "Consulter la liste des agents de l'agence"
-!define DetailAgent "Consulter le détail d'un agent"
 !define AffecterAgent "Affecter le contact à l'agent sélectionné"
 !define NoteIncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
+!define ListeAgents "Consulter la liste des agents de l'agence"
+!define DetailAgent "Consulter le détail d'un agent"
+
+'CU3
+'CU2 -> !define ListeAgents "Consulter la liste des agents de l'agence"
+'CU2 -> !define DetailAgent "Consulter le détail d'un agent"
+!define ContactsAgent "Consulter les contacts d'un agent"
+!define DetailContact "Détails d'un contact"
 
 @enduml

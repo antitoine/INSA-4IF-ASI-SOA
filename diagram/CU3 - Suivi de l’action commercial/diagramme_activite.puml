@@ -1,12 +1,13 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title Diagramme d'activité du CU 3\n----
 
-
-(*) --> "Consulter la liste des agents de l'agence" as ListeAgents
-ListeAgents-->"Consulter détails agent" as DetailAgent
-DetailAgent-->"Consulter les contacts d'un agent" as ContactsAgent
-ContactsAgent-->"Détails d'un contact" as DetailContact
-DetailContact-->(*)
+note left: ACTEUR_CHEF_AG
+(*) --> ListeAgents
+-->DetailAgent
+-->ContactsAgent
+-->DetailContact
+-->(*)
 
 @enduml
