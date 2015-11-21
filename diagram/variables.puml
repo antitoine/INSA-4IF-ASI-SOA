@@ -8,58 +8,58 @@
 '
 ' CU1
 '
-!define ListeEvt "Consulter la liste des évènements captés"
-!define TraiterEvt "Traiter évènement"
-!define GenererMotif "Générer un motif de contact"
-!define GenererContact "Générer un contact prévu"
+!define ListeEvt Consulter la liste des évènements captés
+!define TraiterEvt Traiter évènement
+!define GenererMotif Générer un motif de contact
+!define GenererContact Générer un contact prévu
 
 ' 
 ' CU2
 '
-!define ListeContacts "Consulter la liste des contacts\n prévus de l'agence"
-!define DetailContact "Consulter le détail d'un contact"
-!define DossierClient "Consulter le dossier client du contact\n(CU10)"
-!define AffecterAgent "Affecter le contact à l'agent sélectionné"
+!define ListeContacts Consulter la liste des contacts\n prévus de l'agence
+!define DetailContact Consulter le détail d'un contact
+!define DossierClient Consulter le dossier client du contact\n(CU10)
+!define AffecterAgent Affecter le contact à l'agent sélectionné
 !define NoteIncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
-!define ListeAgents "Consulter la liste des agents de l'agence"
-!define DetailAgent "Consulter le détail d'un agent"
+!define ListeAgents Consulter la liste des agents de l'agence
+!define DetailAgent Consulter le détail d'un agent
 
 '
 ' CU3
 ' CU2 -> !define ListeAgents
 ' CU2 -> !define DetailAgent
 '
-!define ContactsAgent "Consulter les contacts d'un agent"
-!define DetailContact "Détails d'un contact"
+!define ContactsAgent Consulter les contacts d'un agent
+!define DetailContact Détails d'un contact
 
 '
 ' CU4
 ' CU2 !define DetailContact
 '
-!define ListeContactsATraiter "Consulter la liste des contacts à traiter de l'agent"
-!define RegrouperContacts "Regrouper les contacts\n(si même client)"
-!define RaisonAnnulation "Enregistrer le motif d'annulation"
-!define AnnulerContact "Annuler le contact"
-!define PrendreRDV "Prendre RDV\n(CU 6)"
-!define PreparerRDV "Preparer le RDV\n(CU 8)"
-!define ConduireRDV "Conduire le RDV\n(CU 9)"
+!define ListeContactsATraiter Consulter la liste des contacts à traiter de l'agent
+!define RegrouperContacts Regrouper les contacts\n(si même client)
+!define RaisonAnnulation Enregistrer le motif d'annulation
+!define AnnulerContact Annuler le contact
+!define PrendreRDV Prendre RDV\n(CU 6)
+!define PreparerRDV Preparer le RDV\n(CU 8)
+!define ConduireRDV Conduire le RDV\n(CU 9)
 !define NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
 
 '
 ' CU7
 '
 !define ConsulterAgendaHebdo Consultation de l'agenda hebdomadaire de l'agent
-!define ConsulterAgendaQuotidien "Consulter l'agenda quotidien\nde l'agence"
-!define ChangerAgent "Changer d'agent"
-!define ChangerDate "Changer de date"
-!define ChangerSemaine "Changer de semaine"
-!define VoirDetailsRDV "Consulter détails\nRDV"
-!define ModifierPlageHoraire "Modifier plage\nhoraire"
-!define AnnulerRDV "Annuler RDV"
-!define ReaffecterRDV "Reaffecter RDV"
-!define ConsulterAgendaHebdomadaire "Consulter l'agenda\n hebdomadaire d'un agent"
-!define VoirJourSuiv "Voir jour\nsuivant"
-!define VoirJourPrec "Voir jour\nprécédent"
+!define ConsulterAgendaQuotidien Consulter l'agenda quotidien\nde l'agence
+!define ChangerAgent Changer d'agent
+!define ChangerDate Changer de date
+!define ChangerSemaine Changer de semaine
+!define VoirDetailsRDV Consulter détails\nRDV
+!define ModifierPlageHoraire Modifier plage\nhoraire
+!define AnnulerRDV Annuler RDV
+!define ReaffecterRDV Reaffecter RDV
+!define ConsulterAgendaHebdomadaire Consulter l'agenda\n hebdomadaire d'un agent
+!define VoirJourSuiv Voir jour\nsuivant
+!define VoirJourPrec Voir jour\nprécédent
 
 
 '
@@ -70,13 +70,13 @@
 !define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact) \n: Details
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient) : Client
 !define SM_ObtenirAgents ObtenirAgents(idAgence) \n: Liste<Agent>
-!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: Details
+!define SM_ObtenirDetailsAgent ObtenirDetai55KlsAgent(idAgent) \n: Details
 !define SM_AffecterContact AffecterContact(idContact, idAgent) : void
 
 '
 ' Acteurs DSS
 '
-!define ACTEUR_SI "Système d'Information"
-!define ACTEUR_STS "Tâches programmées\ndu système"
-!define ACTEUR_USER "Utilisateur"
-!define ACTEUR_IHM "Interface Utilisateur"
+!define ACTEUR_SI Système d'Information
+!define ACTEUR_STS Tâches programmées\ndu système
+!define ACTEUR_USER Utilisateur
+!define ACTEUR_IHM Interface Utilisateur
