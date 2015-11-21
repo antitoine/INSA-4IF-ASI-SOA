@@ -1,0 +1,13 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+title Diagramme d'activité\ndu CU 9\n----
+
+(*) --> "ListeContatcsAgent"
+--> "VoirDetailsContact"
+--> "DetailsClient"
+--> "VoirPlagesLibres"
+--> "AssocierPlageEtContact"
+--> "EditerLettreConfirmation"
+--> (*)
+@enduml
