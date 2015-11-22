@@ -131,7 +131,7 @@
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
-!define SM_GenererContacts GenererContacts(void) : void
+!define SM_GenererContacts GenererContacts(void)\n: void
 !define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure) : Liste <Contact>
 !define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact) \n: Details
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient) : Client
@@ -157,6 +157,7 @@
 '''''''''''''''''''''''''
 ' Services Objet Metier '
 '''''''''''''''''''''''''
+!define SOM_GenererContacts GenererContacts(void)\n: void
 !define SOM_ObtenirAgents ObtenirAgents(idStructure)\n: Liste<idAgent>
 !define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(Liste<idAgent>)\n: Liste<Contact>
 !define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: motif, etat, etc.
