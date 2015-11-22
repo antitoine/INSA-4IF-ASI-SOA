@@ -1,0 +1,65 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+
+title Diagramme de séquence détaillé du CU 7\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : ConsulterAgendaHebdoDeLAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
+"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
+
+alt changer agent
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerAgent
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
+	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
+else changer semaine
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerSemaine
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
+	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
+else reaffecter rdv
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ReaffecterRDV
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
+	"ACTEUR_SI" -> Agenda : SOM_ReaffecterRdv
+else consulter détails rdv
+	"ACTEUR_USER" -> "ACTEUR_IHM" : VoirDetailsRDV
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
+	"ACTEUR_SI" -> Agenda : SOM_ObtenirDetailsRdv 
+else modifier plage horaire
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ModifierPlageHoraire
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
+	"ACTEUR_SI" -> Agenda : SOM_ModifierPlageHoraire
+else agenda de l'agence
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ConsulterAgendaQuotidien
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
+	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
+	alt réaffecter rdv
+		"ACTEUR_USER" -> "ACTEUR_IHM" : ReaffecterRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
+		"ACTEUR_SI" -> Agenda : SOM_ReaffecterRdv
+	else consulter détails rdv
+		"ACTEUR_USER" -> "ACTEUR_IHM" : VoirDetailsRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
+		"ACTEUR_SI" -> Agenda : SOM_ObtenirDetailsRdv 
+	else modifier plage horaire
+		"ACTEUR_USER" -> "ACTEUR_IHM" : ModifierPlageHoraire
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
+		"ACTEUR_SI" -> Agenda : SOM_ModifierPlageHoraire
+	else changer date
+		"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerDate
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
+		"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
+	else annuler rdv
+		"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
+		"ACTEUR_SI" -> Agenda : SOM_AnnulerRdv
+	end
+else annuler RDV
+	"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerRDV
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
+	"ACTEUR_SI" -> Agenda : SOM_AnnulerRdv
+end
+
+@enduml
