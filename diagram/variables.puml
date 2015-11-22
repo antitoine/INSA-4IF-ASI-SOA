@@ -154,6 +154,18 @@
 !define SM_AnnulerRdv AnnulerRdv(idRdv)\n: void
 
 
+'''''''''''''''''''''''''
+' Services Objet Metier '
+'''''''''''''''''''''''''
+!define SOM_ObtenirAgents ObtenirAgents(idStructure)\n: Liste<idAgent>
+!define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(Liste<idAgent>)\n: Liste<Contact>
+!define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: motif, etat, etc.
+!define SOM_ObtenirDossierClient ObtenirDetailsContact(idContact)\n: motif, etat, etc.
+!define SOM_ObtenirAgents ObtenirAgents(idStructure)\n: Liste<idAgent>
+!define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: nom, potentiel, objectif, etc.
+!define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
+
+
 
 
 
