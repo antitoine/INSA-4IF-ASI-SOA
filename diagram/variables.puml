@@ -1,9 +1,20 @@
-'''''''''''
-' Acteurs '
-'''''''''''
+''''''''''''''
+' Acteurs CU '
+''''''''''''''
 !define ACTEUR_SYS Déclenché par le\nsystème (horloge/timer)
 !define ACTEUR_CHEF_AG Acteur : Le chef de l'agence
 !define ACTEUR_AGENT Acteur : Un agent de l'agence
+
+
+'''''''''''''''
+' Acteurs DSS '
+'''''''''''''''
+!define ACTEUR_SI Système d'Information
+!define ACTEUR_STS Tâches programmées\ndu système
+!define ACTEUR_USER Utilisateur
+!define ACTEUR_IHM Interface Utilisateur
+
+'''''''''''''''' CU '''''''''''''''
 
 '''''''
 ' CU1 '
@@ -27,15 +38,12 @@
 '''''''
 ' CU3 '
 '''''''
-' CU2 -> !define ListeAgents
-' CU2 -> !define DetailAgent
 !define ContactsAgent Consulter les contacts d'un agent
 !define DetailContact Détails d'un contact
 
 '''''''
 ' CU4 '
 '''''''
-''' CU2 !define DetailContact
 !define ListeContactsATraiter Consulter la liste des contacts à traiter de l'agent
 !define RegrouperContacts Regrouper les contacts\n(si même client)
 !define RaisonAnnulation Enregistrer le motif d'annulation
@@ -130,6 +138,8 @@
 !define MAJCompteEnteteClient Maj entête client
 !define ConsulterRelationBanqueClient Consulter relations\n banque-client
 
+'''''''''''''''' SERVICES '''''''''''''''
+
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
@@ -175,7 +185,6 @@
 !define SOM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SOM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SOM_ConduireRdv ConduireRdv(idContact)\n: void
-
 !define SOM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine)\n: Agenda
 !define SOM_ReaffecterRdv ReaffecterRdv(idRdv, idAutreAgent)\n: void
 !define SOM_ObtenirDetailsRdv ObtenirDetailsRdv(idRdv)\n: motif, date, etc.
@@ -183,12 +192,3 @@
 !define SOM_ObtenirAgendaQuotidien ObtenirAgendaQuotidien(idAgence, date)\n: Agenda
 !define SOM_AnnulerRdv AnnulerRdv(idRdv)\n: void
 
-
-
-'''''''''''''''
-' Acteurs DSS '
-'''''''''''''''
-!define ACTEUR_SI Système d'Information
-!define ACTEUR_STS Tâches programmées\ndu système
-!define ACTEUR_USER Utilisateur
-!define ACTEUR_IHM Interface Utilisateur
