@@ -164,9 +164,7 @@
 !define SOM_ObtenirAgents ObtenirAgents(idStructure)\n: Liste<idAgent>
 !define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: nom, potentiel, objectif, etc.
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
-
-
-
+!define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
 
 
 '''''''''''''''

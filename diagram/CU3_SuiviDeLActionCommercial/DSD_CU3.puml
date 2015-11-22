@@ -1,0 +1,31 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+title Diagramme de séquence détaillé du CU 3\n----
+
+actor ACTEUR_USER
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : ListeContacts
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsPrevus
+"ACTEUR_SI" -> Structure : SOM_ObtenirAgents
+Structure -> Contact : SOM_ObtenirContactsPrevus
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : ListeAgents
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
+"ACTEUR_SI" -> Structure : SOM_ObtenirAgents
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : DetailAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsAgent
+"ACTEUR_SI" -> Structure : SOM_ObtenirDetailsAgent
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : ContactsAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
+"ACTEUR_SI" -> Structure : SOM_ObtenirContactsAgent
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : DetailContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+"ACTEUR_SI" -> Contact : SOM_ObtenirDetailsContact
+
+
+@enduml
