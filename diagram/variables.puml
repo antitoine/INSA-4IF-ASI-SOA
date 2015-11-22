@@ -79,8 +79,8 @@
 !define ChangerAgent Changer d'agent
 !define ChangerDate Changer de date
 !define ChangerSemaine Changer de semaine
-!define VoirDetailsRDV Consulter détails\nRDV
-!define ModifierPlageHoraire Modifier plage\nhoraire
+!define VoirDetailsRDV Consulter détails RDV
+!define ModifierPlageHoraire Modifier plage horaire
 !define AnnulerRDV Annuler RDV
 !define ReaffecterRDV Reaffecter RDV
 !define ConsulterAgendaHebdomadaire Consulter l'agenda\n hebdomadaire d'un agent
@@ -141,11 +141,21 @@
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent) \n: Liste<Contact>
 !define SM_ObtenirContactsAffecte ObtenirContactsAffectes(idAgent) : Liste<Contact>
 !define SM_GrouperContacts GrouperContacts(Liste<idContact>) : void
-!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(motif) : void
-!define SM_AnnulerContact AnnulerContact(idContact) : void
-!define SM_PrendreRdv PrendreRdv(idContact) : void
-!define SM_PreparerRdv PreparerRdv(idContact) : void
-!define SM_ConduireRdv ConduireRdv(idContact) : void
+!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(motif) \n: void
+!define SM_AnnulerContact AnnulerContact(idContact)\n: void
+!define SM_PrendreRdv PrendreRdv(idContact)\n: void
+!define SM_PreparerRdv PreparerRdv(idContact)\n: void
+!define SM_ConduireRdv ConduireRdv(idContact)\n: void
+!define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine) \n: Agenda
+!define SM_ReaffecterRdv ReaffecterRdv(idRdv, idAutreAgent)\n: void
+!define SM_ObtenirDetailsRdv ObtenirDetailsRdv(idRdv) \n: date, motif de contact, etc.
+!define SM_ModifierPlageHoraire ModifierPlageHoraire(Date plageHoraireDeb, Date plageHoraireFin) \n: Agenda
+!define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, date) \n: Agenda
+!define SM_AnnulerRdv AnnulerRdv(idRdv)\n: void
+
+
+
+
 
 '''''''''''''''
 ' Acteurs DSS '

@@ -1,55 +1,51 @@
 @startuml
 !include ../skin.puml
-title DSS du CU 7\n----
+!include ../variables.puml
 
-actor User
+title Diagramme de séquence système du CU 7\n----
 
-alt agenda de l'agence
-	User -> IHM : Consulter agenda quotidien agence
-	IHM -> Système : ObtenirAgendaAgence(idAgence, idJour) \n: Agenda
-	alt journée suivante
-		User -> IHM : Voir journée suivante
-		IHM -> Système : ObtenirAgendaAgence(idAgence, idJourSuivant) \n: Agenda
-	else journée précédente
-		User -> IHM : Voir journée précédente
-		IHM -> Système : ObtenirAgendaAgence(idAgence, idJourPrecedent) \n: Agenda
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : ConsulterAgendaHebdoDeLAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : ObtenirAgendaAgent(idAgent, idSemaine) \n: Agenda
+
+alt changer agent
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerAgent
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
+else changer semaine
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerSemaine
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
+else reaffecter rdv
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ReaffecterRDV
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
+else consulter détails rdv
+		"ACTEUR_USER" -> "ACTEUR_IHM" : VoirDetailsRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
+else modifier plage horaire
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ModifierPlageHoraire
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
+else agenda de l'agence
+	"ACTEUR_USER" -> "ACTEUR_IHM" : ConsulterAgendaQuotidien
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
+	alt réaffecter rdv
+		"ACTEUR_USER" -> "ACTEUR_IHM" : ReaffecterRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
+	else consulter détails rdv
+		"ACTEUR_USER" -> "ACTEUR_IHM" : VoirDetailsRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
+	else modifier plage horaire
+		"ACTEUR_USER" -> "ACTEUR_IHM" : ModifierPlageHoraire
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
+	else changer date
+		"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerDate
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
 	else annuler rdv
-		User -> IHM : Annuler rdv
-		IHM -> Système : AnnulerRdv(idRdv)
-	else réaffecter rdv
-		User -> IHM : Réaffecter rdv
-		IHM -> Système : ReaffecterRdv(idRdv, idAutreAgent)
-	else consulter détails rdv
-		User -> IHM : Consulter détails rdv
-		IHM -> Système : ObtenirDetailsRdv(idRdv) \n: Details
-	else modifier plage horaire
-		User -> IHM : Modifier plage horaire
-		IHM -> Système : ModifierPlageHoraire(idAgenda) \n: Agenda
+		"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
 	end
-else agenda d'un agent
-	User -> IHM : Consulter liste des agents de l'agence
-	IHM -> Système : ObtenirAgents(idAgence) \n: Liste<Agent>
-	User -> IHM : Consulter agenda hebdo d'un agent
-	IHM -> Système : ObtenirAgendaAgent(idAgent, idSemaine) \n: Agenda
-	alt annuler rdv
-		User -> IHM : Annuler rdv
-		IHM -> Système : AnnulerRdv(idRdv)
-	else réaffecter rdv
-		User -> IHM : Réaffecter rdv
-		IHM -> Système : ReaffecterRdv(idRdv, idAutreAgent)
-	else consulter détails rdv
-		User -> IHM : Consulter détails rdv
-		IHM -> Système : ObtenirDetailsRdv(idRdv) \n: Details
-	else modifier plage horaire
-		User -> IHM : Modifier plage horaire
-		IHM -> Système : ModifierPlageHoraire(idAgenda) \n: Agenda
-	else semaine suivante
-		User -> IHM : Voir semaine suivante
-		IHM -> Système : ObtenirAgendaAgent(idAgent, idSemaineSuivante) \n: Agenda
-	else semaine précédente
-		User -> IHM : Voir semaine précédente
-		IHM -> Système : ObtenirAgendaAgent(idAgent, idSemainePrecedente) \n: Agenda
-	end
+else annuler RDV
+	"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerRDV
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
 end
 
 @enduml
