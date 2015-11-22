@@ -18,6 +18,9 @@ def getPUMLFiles(rootDir, excluded):
 def makePNG(plantumlJar, plantumlOptions, absolutePath):
     os.system("java -jar %s %s %s" % (plantumlJar, plantumlOptions, absolutePath));
 
+def movePNG(src, dest):
+    os.system("mv -f %s %s" % (src, dest));
+
 # CONFIGURATION -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 EXCLUDED = ['skin.puml', 'variables.puml']
@@ -25,7 +28,9 @@ EXCLUDED = ['skin.puml', 'variables.puml']
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__));
 print(ROOT_DIR)
 ROOT_DIR = ROOT_DIR[:-7] + "diagram";
+DEST_DIR = ROOT_DIR[:-7] + "report/figures/"
 print("Root dir is %s" % ROOT_DIR);
+print("Destination dir is %s" % DEST_DIR);
 
 PLANTUML_OPTIONS = "";
 
@@ -42,3 +47,5 @@ files = getPUMLFiles(ROOT_DIR, EXCLUDED);
 for f in files:
     print("Making PNG for %s" % f);
     makePNG(PLANTUML_PATH, PLANTUML_OPTIONS, f);
+    print("Moving PNG to report/figures");
+    movePNG(f.replace("puml", "png"), DEST_DIR);

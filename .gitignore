@@ -142,3 +142,4 @@ sympy-plots-for-*.tex/
 *.sav
 
 # Created by .ignore support plugin (hsz.mobi)
+*.png
