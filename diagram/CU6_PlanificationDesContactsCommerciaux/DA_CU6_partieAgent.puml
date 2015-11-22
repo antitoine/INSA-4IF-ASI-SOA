@@ -3,10 +3,13 @@
 !include ../variables.puml
 title Diagramme d'activité du CU 6\nPartie Agent\n----
 
+note left: ACTEUR_AGENT
 (*) --> "ListeContatcsAgent"
 --> "VoirDetailsContact"
---> "DetailsClient"
+--> "DossierClient"
+note right: NoteDetailsClient
 --> "VoirPlagesLibres"
+note right: NotePropositionCreneau
 --> "AssocierPlageEtContact"
 --> "EditerLettreConfirmation"
 --> (*)

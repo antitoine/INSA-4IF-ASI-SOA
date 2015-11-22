@@ -49,9 +49,10 @@
 ' CU5 '
 '''''''
 !define ModePlanification Passer en mode planification
-!define SortirPlanification Sortir du mode planification
+!define SortirPlanification Valider et sortir du mode planification
 !define ConsulterAgenda Consulter l'agenda\n(CU 7)
 !define SelectPlage Sélectionner une plage\nhoraire libre
+!define CreerPlage Créer une plage agenda
 !define SelectActivite Sélectionner le type d'activité\nà plannifier
 !define MajNbContacts Mettre à jour le nombre de\ncontacts potentiels
 
@@ -61,14 +62,18 @@
 ''' CU6 - Partie Agent
 !define ListeContatcsAgent Consulter la liste des contacts\nprévus de l'agent
 !define VoirDetailsContact Voir les details d'un contact
-!define DetailsClient Voir les détails du client
 !define VoirPlagesLibres Voir les plages agenda libres
-!define AssocierPlageEtContact Associer plage agenda\net contact prévu commercial
+!define AssocierPlageEtContact Créer un rendez-vous commercial
 !define EditerLettreConfirmation Editer la lettre\nde confirmation du rendez-vous
+!define NoteDetailsClient Utilisation des informations\npour contacter le client
+!define NotePropositionCreneau Propositions de plusieurs\ncréneaux au client
 
 ''' CU6 - Partie Client
-!define ListeContactClient Consuler la liste des\ncontacts du client
-!define AssocierPlageEtContactSpontane Associer plage agenda\net contact spontané
+!define RechercheClient Rechercher le client
+!define ListeContactClient Consuler la liste des contacts du client
+!define CreerContactSpontane Créer un nouveau contact
+!define DossierClientSpontane Consulter son dossier client\n(CU10)
+!define CreerRDVSpontane Créer un rendez-vous spontané
 
 
 '''''''
@@ -90,31 +95,28 @@
 '''''''
 ' CU8 '
 '''''''
-!define ListeClient Consulter la liste des clients
-!define DetailsClient Voir les détails du client
-!define ListeContacts Consulter la liste des contacts
+!define IdentifierContact Identifier le contact (CU4 ou CU7)
 !define DetailsContact Voir les détails du contact
 !define ConsulterDossierClient Consulter le dossier du client
 !define MAJInfos Mettre à jour les informations
 !define EnregistrerCompteRenduDePreparation Enregistrer le compte rendu du préparation
 !define ListerOffres Consulter la liste des offres
-!define DetailsDesOffresCatalogue Voir le détails des offres du catalogue
+!define DetailsDesOffresCatalogue Voir le détails d'une offre du catalogue
+!define CreerPropositionOffre Créer une proposition commerciale
 !define EnregistrerCompteRenduDePreparation Enregistrer le compte rendu de préparation
 
 
 '''''''
 ' CU9 '
 '''''''
-!define IdentifierContact Identifier le contact
-!define AfficherPreparation Afficher la préparation
-!define ConsulterDossierClient Consulter le dossier du\nclient (cf CU10)
+!define AfficherPreparation Afficher les propositions commerciales\net annotations enregistrées
 !define EnregistrerRapportActiviteCommerciale Enregistrer le rapport\nd'activité commerciale
+!define NoteContactTermine Enregistrer le contact\ncomme étant terminé
 
 ''''''''
 ' CU10 '
 ''''''''
 !define IdentifierClient Identifier le client
-!define ConsulterClient Consulter dossier client
 !define ConsulterBilanClient Consulter bilant client\n(Cotation, bilan,\nliste de personnes)
 !define ConsulterDetailsPersonne Consulter details\nd'une personne
 !define MAJPersonne Mise à jour personne
@@ -139,9 +141,9 @@
 !define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: Details
 !define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent) \n: Liste<Contact>
-!define SM_ObtenirContactsAffecte ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
+!define SM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
 !define SM_GrouperContacts GrouperContacts(Liste<idContact>)\n: void
-!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(motif) \n: void
+!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif) \n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SM_PreparerRdv PreparerRdv(idContact)\n: void
@@ -169,7 +171,7 @@
 !define SOM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
 !define SOM_GrouperContacts GrouperContacts( Liste<idContact>)\n: void
 !define SOM_AnnulerContact AnnulerContact(idContact)\n: void
-!define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(motif)\n: void
+!define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SOM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SOM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SOM_ConduireRdv ConduireRdv(idContact)\n: void

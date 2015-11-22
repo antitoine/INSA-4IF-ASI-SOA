@@ -3,10 +3,12 @@
 !include ../variables.puml
 title Diagramme d'activité du CU 6\nPartie Client\n----
 
-(*) --> "ListeContactClient"
---> "DetailsClient"
+note left: ACTEUR_AGENT
+(*) --> "RechercheClient"
+--> "DossierClientSpontane"
 --> "VoirPlagesLibres"
---> "AssocierPlageEtContactSpontane"
+--> "CreerContactSpontane"
+--> "CreerRDVSpontane"
 --> "EditerLettreConfirmation"
 --> (*)
 @enduml

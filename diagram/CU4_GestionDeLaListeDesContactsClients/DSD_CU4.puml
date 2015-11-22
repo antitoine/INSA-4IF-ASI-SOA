@@ -7,7 +7,7 @@ title Diagramme de séquence détaillé du CU 4\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : ListeContactsATraiter
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffecte
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffectes
 "ACTEUR_SI" -> Structure : SOM_ObtenirContactsAffectes
 alt même client
 	"ACTEUR_USER" -> "ACTEUR_IHM" : RegrouperContacts
@@ -23,7 +23,7 @@ else clients différents
 		"ACTEUR_SI" -> Client : SOM_AnnulerContact
 		"ACTEUR_USER" -> "ACTEUR_IHM" : RaisonAnnulation
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerMotifAnnulation
-		"ACTEUR_SI" -> "ACTEUR_SI" : SOM_EnregistrerMotifAnnulation
+		"ACTEUR_SI" -> Client : SOM_EnregistrerMotifAnnulation
 	else prise RDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : PrendreRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_PrendreRdv

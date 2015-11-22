@@ -4,13 +4,13 @@
 
 title Diagramme d'activité du CU 5\n----
 
-note left: ACTEUR_CHEF_AG
+note left: ACTEUR_AGENT
 (*) --> "ConsulterAgenda"
 note left: Il peut s'agir\nde l'agenda quotidien\nou hebdomadaire
 --> "ModePlanification"
 --> "SelectPlage"
 --> "SelectActivite"
---> "Créer plage agenda"
+--> "CreerPlage"
 --> "MajNbContacts"
 --> "ModePlanification"
 --> "SortirPlanification"

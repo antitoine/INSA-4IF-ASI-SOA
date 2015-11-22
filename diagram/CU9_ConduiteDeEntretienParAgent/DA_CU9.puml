@@ -3,13 +3,20 @@
 !include ../variables.puml
 title Diagramme d'activité\ndu CU 9\n----
 
+note left: ACTEUR_AGENT
 (*) --> "IdentifierContact"
+--> "DetailsContact"
 if "Preparation faite ?" then
   -->[oui]"AfficherPreparation"
-  --> "ConsulterDossierClient"
+  --> "DossierClient"
 else
-  -->[non]"ConsulterDossierClient"
+  -->[non]"DossierClient"
 endif
+--> "ListerOffres"
+--> "DetailsDesOffresCatalogue"
+--> "CreerPropositionOffre"
 --> "EnregistrerRapportActiviteCommerciale"
+"DossierClient" --> "EnregistrerRapportActiviteCommerciale"
+note right: NoteContactTermine
 --> (*)
 @enduml
