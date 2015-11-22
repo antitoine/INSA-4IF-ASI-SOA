@@ -132,15 +132,15 @@
 ' Services Metier '
 '''''''''''''''''''
 !define SM_GenererContacts GenererContacts(void)\n: void
-!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure) : Liste <Contact>
+!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure)\n: Liste <Contact>
 !define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact) \n: Details
-!define SM_ObtenirDossierClient ObtenirDossierClient(idClient) : Client
-!define SM_ObtenirAgents ObtenirAgents(idAgence) : Liste<Agent>
+!define SM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: Client
+!define SM_ObtenirAgents ObtenirAgents(idAgence)\n: Liste<Agent>
 !define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: Details
-!define SM_AffecterContact AffecterContact(idContact, idAgent) : void
+!define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent) \n: Liste<Contact>
-!define SM_ObtenirContactsAffecte ObtenirContactsAffectes(idAgent) : Liste<Contact>
-!define SM_GrouperContacts GrouperContacts(Liste<idContact>) : void
+!define SM_ObtenirContactsAffecte ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
+!define SM_GrouperContacts GrouperContacts(Liste<idContact>)\n: void
 !define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(motif) \n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
@@ -166,6 +166,13 @@
 !define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: nom, potentiel, objectif, etc.
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
+!define SOM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
+!define SOM_GrouperContacts GrouperContacts( Liste<idContact>)\n: void
+!define SOM_AnnulerContact AnnulerContact(idContact)\n: void
+!define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(motif)\n: void
+!define SOM_PrendreRdv PrendreRdv(idContact)\n: void
+!define SOM_PreparerRdv PreparerRdv(idContact)\n: void
+!define SOM_ConduireRdv ConduireRdv(idContact)\n: void
 
 
 '''''''''''''''
