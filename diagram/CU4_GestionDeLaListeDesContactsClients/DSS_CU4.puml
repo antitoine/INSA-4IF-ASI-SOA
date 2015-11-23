@@ -21,12 +21,15 @@ else clients différents
 	else prise RDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : PrendreRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_PrendreRdv
+		note left: TODO -> A retirer
 	else preparation RDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : PreparerRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_PreparerRdv
+		note left: TODO -> A retirer
 	else conduire RDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : ConduireRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConduireRdv
+		note left: TODO -> A retirer
 	end
 end
 
