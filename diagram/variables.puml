@@ -169,7 +169,9 @@
 '''''''''''''''''''''''''
 ' Services Objet Metier '
 '''''''''''''''''''''''''
-!define SOM_GenererContacts GenererContacts(void)\n: void
+!define SOM_TraiterEvt RecevoirEvenement(void)\n: evenement
+!define SOM_GenererMotif GenererMotifContact(evenement)\n: motif
+!define SOM_GenererContactPrevu GenererContactPrevu(motif)\n: contact
 !define SOM_ObtenirAgents ObtenirAgents(idStructure)\n: Liste<idAgent>
 !define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(Liste<idAgent>)\n: Liste<Contact>
 !define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: motif, etat, etc.

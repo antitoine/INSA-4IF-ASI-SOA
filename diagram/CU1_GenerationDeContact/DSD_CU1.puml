@@ -4,10 +4,9 @@
 
 title Diagramme de séquence détaillé du CU 1\n----
 
-actor "ACTEUR_STS"
-
-"ACTEUR_STS" -> "ACTEUR_IHM" : Générer les contacts
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_GenererContacts
-"ACTEUR_SI" -> Contact : SOM_GenererContacts
+"ACTEUR_STS" -> "ACTEUR_SI" : SM_GenererContacts
+"ACTEUR_SI" -> "ACTEUR_SI" : SOM_TraiterEvt
+"ACTEUR_SI" -> Contact : SOM_GenererMotif
+"ACTEUR_SI" -> Contact : SOM_GenererContactPrevu
 
 @enduml
