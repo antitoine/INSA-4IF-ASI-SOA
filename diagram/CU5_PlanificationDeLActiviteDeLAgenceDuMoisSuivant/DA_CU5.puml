@@ -10,10 +10,11 @@ title Diagramme d'activité du CU 5\n----
 
 note left: ACTEUR_AGENT
 (*) --> "ConsulterAgenda"
-note left: Il peut s'agir de \nl'agenda quotidien\n ou hebdomadaire (defaut)
+note left: Il peut s'agir de l'agenda quotidien\nou hebdomadaire (defaut). De plus, \nUn agent est sélectionné.
 --> "ModePlanification"
 --> "SelectPlage"
 --> "SelectActivite"
+note bottom: Il est alors possible de spécifier\nles congés dans un premier temps\npuis d'indiquer les horaires\ndes guichets.
 --> "CreerPlage"
 --> "MajNbContacts"
 --> "ModePlanification"
