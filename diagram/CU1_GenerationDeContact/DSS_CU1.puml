@@ -1,10 +1,10 @@
 @startuml
 !include ../variables.puml
 !include ../skin.puml
+
 title Diagramme de séquence système du CU 1\n----
+hide footbox
 
 "ACTEUR_STS" -> "ACTEUR_SI" : SM_GenererContacts
-
-
 
 @enduml
