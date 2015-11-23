@@ -143,6 +143,7 @@
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
+'' TODO Retourner que des blocs (à vérifier)
 !define SM_GenererContacts GenererContacts(void)\n: void
 !define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure)\n: Liste <Contact>
 !define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact) \n: Details
@@ -156,7 +157,7 @@
 !define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif) \n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
-'' Ces SM servent (les deux suivant) :
+'' TODO Ces SM servent ?? (les deux suivant) :
 !define SM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SM_ConduireRdv ConduireRdv(idContact)\n: void
 !define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine) \n: Agenda
