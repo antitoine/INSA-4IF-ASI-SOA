@@ -2,10 +2,6 @@
 !include ../skin.puml
 !include ../variables.puml
 
-'' Montrer peut etre l'ordre des différentes activités : (workflow de l'agent) ???
-'' d'abord mettre les congés et formations puis indiquer les horaires de guichet
-'' puis le reste
-
 title Diagramme d'activité du CU 5\n----
 
 note left: ACTEUR_AGENT
