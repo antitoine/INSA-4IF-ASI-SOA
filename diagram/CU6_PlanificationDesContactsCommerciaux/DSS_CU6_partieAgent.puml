@@ -1,6 +1,6 @@
 @startuml
 !include ../skin.puml
-!include ../varaiables.puml
+!include ../variables.puml
 
 
 title Diagramme de séquence système du CU 6 (partie agent)\n----
