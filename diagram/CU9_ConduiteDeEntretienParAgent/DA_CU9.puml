@@ -12,11 +12,14 @@ if "Preparation faite ?" then
 else
   -->[non]"DossierClient"
 endif
+--> ===B1===
 --> "ListerOffres"
 --> "DetailsDesOffresCatalogue"
 --> "CreerPropositionOffre"
+--> ===B2===
+===B1=== --> "RedigerEtSoumettrePropositions"
+--> ===B2===
 --> "EnregistrerRapportActiviteCommerciale"
-"DossierClient" --> "EnregistrerRapportActiviteCommerciale"
 note right: NoteContactTermine
 --> (*)
 @enduml

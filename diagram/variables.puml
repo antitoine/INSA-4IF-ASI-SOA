@@ -120,6 +120,7 @@
 !define AfficherPreparation Afficher les propositions commerciales\net annotations enregistrées
 !define EnregistrerRapportActiviteCommerciale Enregistrer le rapport\nd'activité commerciale
 !define NoteContactTermine Enregistrer le contact\ncomme étant terminé
+!define RedigerEtSoumettrePropositions Rédiger et soumettre des propositions\ncommerciales
 
 ''''''''
 ' CU10 '
