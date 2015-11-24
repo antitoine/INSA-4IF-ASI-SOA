@@ -7,7 +7,6 @@ title Identifier le client\n----
 start
 :LB_IdentifierClient;
 note left: ACTEUR_AGENT\nVoir DA Identifier Client
-:LB_ConsulterClient;
 split
 :LB_ConsulterBilanClient;
 split
