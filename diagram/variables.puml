@@ -152,6 +152,8 @@
 !define SAISIE_SelectionnerRDV Sélectionner un rendez-vous
 !define SAISIE_SelectionnerPlageHoraire Sélectionner une plage horaire
 !define SAISIE_SelectionnerDate Sélectionner une date
+!define SAISIE_SelectPlage Sélectionner une plage horaire libre
+!define SAISIE_SelectActivite Sélectionner le type d'activité à planifier
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
