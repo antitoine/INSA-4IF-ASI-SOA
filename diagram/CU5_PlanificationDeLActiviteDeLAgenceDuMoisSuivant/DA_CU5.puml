@@ -12,9 +12,9 @@ note left: Il peut s'agir de l'agenda quotidien\nou hebdomadaire (defaut). De pl
 --> "SelectActivite"
 note bottom: Il est alors possible de spécifier\nles congés dans un premier temps\npuis d'indiquer les horaires\ndes guichets.
 --> "CreerPlage"
---> "MajNbContacts"
 --> "ModePlanification"
---> "SortirPlanification"
+--> "SortirPlanification \n(MajNbContacts)"
+
 --> (*)
 
 @enduml
