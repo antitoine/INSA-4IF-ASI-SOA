@@ -4,27 +4,27 @@
 title Diagramme d'activité du CU 7\n----
 
 note left: ACTEUR_AGENT
-(*) --> "ConsulterAgendaHebdomadaire"
-"ConsulterAgendaQuotidien" --> "ChangerDate"
-"ChangerDate" --> "ConsulterAgendaQuotidien"
-"ConsulterAgendaQuotidien" --> "VoirDetailsRDV"
-"ConsulterAgendaQuotidien" --> "ModifierPlageHoraire"
-"ConsulterAgendaQuotidien" --> "AnnulerRDV"
-"ConsulterAgendaQuotidien" --> "ReaffecterRDV"
-"ChangerAgent" --> "ConsulterAgendaHebdomadaire"
+(*) --> "LB_ConsulterAgendaHebdomadaire"
+"LB_ConsulterAgendaQuotidien" --> "LB_ChangerDate"
+"LB_ChangerDate" --> "LB_ConsulterAgendaQuotidien"
+"LB_ConsulterAgendaQuotidien" --> "LB_VoirDetailsRDV"
+"LB_ConsulterAgendaQuotidien" --> "LB_ModifierPlageHoraire"
+"LB_ConsulterAgendaQuotidien" --> "LB_AnnulerRDV"
+"LB_ConsulterAgendaQuotidien" --> "LB_ReaffecterRDV"
+"LB_ChangerAgent" --> "LB_ConsulterAgendaHebdomadaire"
 note left: Par défaut, l'agent connecté
-"ConsulterAgendaHebdomadaire" --> "ChangerAgent"
-"ConsulterAgendaHebdomadaire" --> "ChangerSemaine"
-"ChangerSemaine" --> "ConsulterAgendaHebdomadaire"
-"ConsulterAgendaHebdomadaire" --> "VoirDetailsRDV"
-"ConsulterAgendaHebdomadaire" --> "ModifierPlageHoraire"
-"ConsulterAgendaHebdomadaire" --> "AnnulerRDV"
-"ConsulterAgendaHebdomadaire" --> "ReaffecterRDV"
-"ConsulterAgendaHebdomadaire" --> "ConsulterAgendaQuotidien"
-"ConsulterAgendaQuotidien" --> "ConsulterAgendaHebdomadaire"
-"VoirDetailsRDV" --> (*)
-"ModifierPlageHoraire" --> (*)
-"AnnulerRDV" --> (*)
-"ReaffecterRDV" --> (*)
+"LB_ConsulterAgendaHebdomadaire" --> "LB_ChangerAgent"
+"LB_ConsulterAgendaHebdomadaire" --> "LB_ChangerSemaine"
+"LB_ChangerSemaine" --> "LB_ConsulterAgendaHebdomadaire"
+"LB_ConsulterAgendaHebdomadaire" --> "LB_VoirDetailsRDV"
+"LB_ConsulterAgendaHebdomadaire" --> "LB_ModifierPlageHoraire"
+"LB_ConsulterAgendaHebdomadaire" --> "LB_AnnulerRDV"
+"LB_ConsulterAgendaHebdomadaire" --> "LB_ReaffecterRDV"
+"LB_ConsulterAgendaHebdomadaire" --> "LB_ConsulterAgendaQuotidien"
+"LB_ConsulterAgendaQuotidien" --> "LB_ConsulterAgendaHebdomadaire"
+"LB_VoirDetailsRDV" --> (*)
+"LB_ModifierPlageHoraire" --> (*)
+"LB_AnnulerRDV" --> (*)
+"LB_ReaffecterRDV" --> (*)
 
 @enduml

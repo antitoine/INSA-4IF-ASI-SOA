@@ -4,13 +4,13 @@
 title Diagramme d'activité du CU 2\n----
 
 note left: ACTEUR_CHEF_AG
-(*) --> ListeContacts
---> DetailContact
---> DossierClient
---> ListeAgents
---> DetailAgent
---> AffecterAgent
-note left: NoteIncContact
+(*) --> LB_ListeContacts
+--> LB_DetailContact
+--> LB_DossierClient
+--> LB_ListeAgents
+--> LB_DetailAgent
+--> LB_AffecterAgent
+note left: NOTE_IncContact
 --> (*)
 
 @enduml

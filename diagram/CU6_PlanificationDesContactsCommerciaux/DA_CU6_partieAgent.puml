@@ -4,13 +4,13 @@
 title Diagramme d'activité du CU 6\nPartie Agent\n----
 
 note left: ACTEUR_AGENT
-(*) --> "ListeContatcsAgent"
---> "VoirDetailsContact"
---> "DossierClient"
-note right: NoteDetailsClient
---> "VoirPlagesLibres"
-note right: NotePropositionCreneau
---> "AssocierPlageEtContact"
---> "EditerLettreConfirmation"
+(*) --> "LB_ListeContatcsAgent"
+--> "LB_VoirDetailsContact"
+--> "LB_DossierClient"
+note right: NOTE_DetailsClient
+--> "LB_VoirPlagesLibres"
+note right: NOTE_PropositionCreneau
+--> "LB_AssocierPlageEtContact"
+--> "LB_EditerLettreConfirmation"
 --> (*)
 @enduml

@@ -4,21 +4,21 @@
 title Diagramme d'activité\ndu CU 9\n----
 
 note left: ACTEUR_AGENT
-(*) --> "IdentifierContact"
---> "DetailsContact"
+(*) --> "LB_IdentifierContact"
+--> "LB_DetailsContact"
 if "Preparation faite ?" then
-  -->[oui]"AfficherPreparation"
-  --> "DossierClient"
+  -->[oui]"LB_AfficherPreparation"
+  --> "LB_DossierClient"
 else
-  -->[non]"DossierClient"
+  -->[non]"LB_DossierClient"
 endif
 --> ===B1===
---> "ListerOffres"
---> "DetailsDesOffresCatalogue"
+--> "LB_ListerOffres"
+--> "LB_DetailsDesOffresCatalogue"
 --> ===B2===
-===B1=== --> "RedigerEtSoumettrePropositions"
+===B1=== --> "LB_RedigerEtSoumettrePropositions"
 --> ===B2===
---> "EnregistrerRapportActiviteCommerciale"
-note right: NoteContactTermine
+--> "LB_EnregistrerRapportActiviteCommerciale"
+note right: NOTE_ContactTermine
 --> (*)
 @enduml

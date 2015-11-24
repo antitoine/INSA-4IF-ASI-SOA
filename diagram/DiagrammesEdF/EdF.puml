@@ -1,0 +1,12 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+title ceci est un test\n----
+
+(*) --> "Vue accueil"
+--> "Vue contact"
+--> "Vue edition contact"
+--> "Vue prise de RDV"
+--> "Vue préparation entretien"
+
+@enduml

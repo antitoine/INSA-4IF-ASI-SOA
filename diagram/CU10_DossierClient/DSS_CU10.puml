@@ -1,56 +1,57 @@
 @startuml
 !include ../skin.puml
+!include ../variables.puml
 title DSS - CU 10\n----
 
-Actor Agent
-ref over Agent, IHM  : Identifier le client
-Agent -> IHM : Consulter Dossier Client
-IHM -> Système : sm3:ConsulterDossierClient(idClient)\n:numéro, dénomination, adresse postale
+Actor "ACTEUR_USER"
+ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_IdentifierClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDossierClient
 opt Bilan
-    Agent -> IHM : Consulter Bilan Client
-    IHM -> Système : sm4:consulterBilanClient(idClient)\n:cotationsClient, liste Personnes
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterBilanClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterBilanClient
     opt
-        Agent -> IHM : Sélectionner Personne
-        Agent -> IHM : Consulter Détail Personne
-        IHM -> Système : sm5:consulterDetailPersonne(idPers)\n:données signalétiques...logement
-        Agent -> IHM : Mettre à jour Personne
-        IHM -> Système : sm6:mettreAJourPersonne(idPers,...)
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Personne
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDetailsPersonne
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJPersonne
     else
-        Agent -> IHM : Saisir Informations
-        Agent -> IHM : Ajouter Personne
-        IHM -> Système : sm7:récupérerPersonne(nom, prenom, agence)\n:ListPersonnes
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Informations
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_RecupererPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_RecupererPersonne
         opt
-            Agent -> IHM : ajouter Personne Existante
-            IHM -> Système : sm9:ajouterPersonne(idClient, idPersonne)
+            "ACTEUR_USER" -> "ACTEUR_IHM" : LB_AjouterPersonne
+            "ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPersonne
         else
-            Agent -> IHM : Ajouter Nouvelle Personne
-            IHM -> Système : sm10: creerEtAjouterNouvellePersonne(infos, idClient)\n:Personne
+            "ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerNouvellePersonne
+            "ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerEtAjouterNouvellePersonne
         end
     else
-        Agent -> IHM : Supprimer Personne
-        IHM -> Système : sm9:supprimerPersonne(idPers)
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_SupprPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_SupprimerPersonne
     end
 else
-    Agent -> IHM : Saisir Nouvelle Entete
-    Agent -> IHM : Mettre à jour Entete dossier
-    IHM -> Système : sm11:mettreAjourEnteteDossier\n(idClient, numéro, dénomination, adressePostale)
+    "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Nouvelle Entete
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteEnteteClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJEnteteDossier
 end
 opt Produits
-    Agent -> IHM : Consulter Produits
-    IHM -> Système : obtenierProduits(idClient)\n:Liste<Compte, Produit>
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulerProduitsClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirProduits
     opt Details compte
-        Agent -> IHM : Sélectionner Compte
-        Agent -> IHM : Consulter Détail Compte
-        IHM -> Système : obtenirDétailCompte(idCompte)\n:détails, historique
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Compte
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsCompte
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailCompte
     end
     opt Détail Produit / Sélectionner Produit
-        Agent -> IHM : consulter Détail Produit
-        IHM -> Système : obtenir Détail Produit(idProduit)\n:details
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsProduit
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailProduit
     end
     opt Mise à jour compte
-        Agent -> IHM : Saisir Informations
-        Agent -> IHM : mettre à jour Comptes Concurrences
-        IHM -> Système : mettreAJourComptesConcurrence\n(idClient, txtComptesConcurrence)
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Informations
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteConcurrence
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJComptesConcurrence
     end
 
 end

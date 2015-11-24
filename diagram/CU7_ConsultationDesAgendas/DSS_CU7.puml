@@ -6,60 +6,60 @@ title Diagramme de séquence système du CU 7\n----
 
 actor "ACTEUR_USER"
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : ConsulterAgendaHebdoDeLAgent
-"ACTEUR_IHM" -> "ACTEUR_SI" : ObtenirAgendaAgent(idAgent, idSemaine) \n: Agenda
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaHebdoDeLAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 
 alt changer agent
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
-	"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerAgent
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerAgent
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 else changer semaine
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerSemaine
-	"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerSemaine
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerSemaine
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 else reaffecter rdv
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
-	"ACTEUR_USER" -> "ACTEUR_IHM" : ReaffecterRDV
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ReaffecterRDV
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
 else consulter détails rdv
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
-	"ACTEUR_USER" -> "ACTEUR_IHM" : VoirDetailsRDV
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirDetailsRDV
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
 else modifier plage horaire
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
-	"ACTEUR_USER" -> "ACTEUR_IHM" : ModifierPlageHoraire
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ModifierPlageHoraire
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
 else agenda de l'agence
-	"ACTEUR_USER" -> "ACTEUR_IHM" : ConsulterAgendaQuotidien
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaQuotidien
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
 	alt réaffecter rdv
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
-		"ACTEUR_USER" -> "ACTEUR_IHM" : ReaffecterRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ReaffecterRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
 	else consulter détails rdv
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
-		"ACTEUR_USER" -> "ACTEUR_IHM" : VoirDetailsRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirDetailsRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
 	else modifier plage horaire
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
-		"ACTEUR_USER" -> "ACTEUR_IHM" : ModifierPlageHoraire
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ModifierPlageHoraire
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
 	else changer date
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerDate
-		"ACTEUR_USER" -> "ACTEUR_IHM" : ChangerDate
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerDate
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
 	else annuler rdv
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
-		"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AnnulerRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
 	end
 else annuler RDV
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
-	"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerRDV
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AnnulerRDV
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
 end
 

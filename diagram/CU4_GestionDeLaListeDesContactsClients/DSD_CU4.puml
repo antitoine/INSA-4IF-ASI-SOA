@@ -6,39 +6,39 @@ title Diagramme de séquence détaillé du CU 4\n----
 
 actor "ACTEUR_USER"
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : ListeContactsATraiter
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContactsATraiter
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffectes
 "ACTEUR_SI" -> Structure : SOM_ObtenirContactsAffectes
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
 alt sélection d'autres contacts d'un même client
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContacts
-	"ACTEUR_USER" -> "ACTEUR_IHM" : RegrouperContacts
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RegrouperContacts
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_GrouperContacts
 	"ACTEUR_SI" -> Client : SOM_GrouperContacts
 else sélection d'un seul contact
-	"ACTEUR_USER" -> "ACTEUR_IHM" : DetailContact
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
 	"ACTEUR_SI" -> Contact : SOM_ObtenirDetailsContact
 	alt annulation contact
-		"ACTEUR_USER" -> "ACTEUR_IHM" : AnnulerContact
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AnnulerContact
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerContact
 		"ACTEUR_SI" -> Client : SOM_AnnulerContact
 
 		"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_MotifAnnulation
-		"ACTEUR_USER" -> "ACTEUR_IHM" : RaisonAnnulation
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RaisonAnnulation
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerMotifAnnulation
 		"ACTEUR_SI" -> Client : SOM_EnregistrerMotifAnnulation
 	else prise RDV
-		"ACTEUR_USER" -> "ACTEUR_IHM" : PrendreRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_PrendreRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_PrendreRdv
 		"ACTEUR_SI" -> Contact : SOM_PrendreRdv
 	else preparation RDV
-		"ACTEUR_USER" -> "ACTEUR_IHM" : PreparerRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_PreparerRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_PreparerRdv
 		"ACTEUR_SI" -> Contact : SOM_PreparerRdv
 	else conduire RDV
-		"ACTEUR_USER" -> "ACTEUR_IHM" : ConduireRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConduireRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConduireRdv
 		"ACTEUR_SI" -> Contact : SOM_ConduireRdv
 	end

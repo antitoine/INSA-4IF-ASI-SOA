@@ -4,11 +4,11 @@
 title Diagramme d'activité du CU 6\nPartie Client\n----
 
 note left: ACTEUR_AGENT
-(*) --> "RechercheClient"
---> "DossierClientSpontane"
---> "VoirPlagesLibres"
---> "CreerContactSpontane"
---> "CreerRDVSpontane"
---> "EditerLettreConfirmation"
+(*) --> "LB_RechercheClient"
+--> "LB_DossierClientSpontane"
+--> "LB_VoirPlagesLibres"
+--> "LB_CreerContactSpontane"
+--> "LB_CreerRDVSpontane"
+--> "LB_EditerLettreConfirmation"
 --> (*)
 @enduml
