@@ -148,6 +148,10 @@
 !define SAISIE_SelectionnerContacts Sélectionner des contacts
 !define SAISIE_SelectionnerAgent Sélectionner un agent
 !define SAISIE_MotifAnnulation Saisir le motif d'annulation
+!define SAISIE_SelectionnerSemaine Sélectionner une semaine
+!define SAISIE_SelectionnerRDV Sélectionner un rendez-vous
+!define SAISIE_SelectionnerPlageHoraire Sélectionner une plage horaire
+!define SAISIE_SelectionnerDate Sélectionner une date
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
