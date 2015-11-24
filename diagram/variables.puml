@@ -136,8 +136,8 @@
 !define ConsulerProduitsClient Consulter produits du\nclient à la banque\net à la concurrence
 !define ConsulterDetailsCompte Consulter détails\nd'un compte
 !define ConsulterDetailsProduit Consulter détail\n d'un produit
-!define MAJCompteConcurrence Maj compte/produit\nà la concurrence
-!define MAJCompteEnteteClient Maj entête client
+!define MAJCompteConcurrence Mise à jour compte/produit\nà la concurrence
+!define MAJCompteEnteteClient Mise à jour entête client
 !define ConsulterRelationBanqueClient Consulter relations\n banque-client
 
 '''''''''''''''' SERVICES '''''''''''''''
