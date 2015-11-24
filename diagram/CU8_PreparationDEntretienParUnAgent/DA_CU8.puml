@@ -4,16 +4,16 @@
 title Diagramme d'activité\ndu CU 8\n----
 
 note left: ACTEUR_AGENT
-(*) --> "IdentifierContact"
---> "DetailsContact"
---> "DossierClient"
+(*) --> "LB_IdentifierContact"
+--> "LB_DetailsContact"
+--> "LB_DossierClient"
 --> ===B1===
---> "MAJInfos"
+--> "LB_MAJInfos"
 --> ===B2===
-===B1=== --> "ListerOffres"
---> "DetailsDesOffresCatalogue"
---> "CreerPropositionOffre"
+===B1=== --> "LB_ListerOffres"
+--> "LB_DetailsDesOffresCatalogue"
+--> "LB_CreerPropositionOffre"
 --> ===B2===
---> "EnregistrerCompteRenduDePreparation"
+--> "LB_EnregistrerCompteRenduDePreparation"
 --> (*)
 @enduml

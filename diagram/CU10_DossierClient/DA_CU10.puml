@@ -5,38 +5,38 @@
 title Identifier le client\n----
 
 start
-:IdentifierClient;
+:LB_IdentifierClient;
 note left: ACTEUR_AGENT\nVoir DA Identifier Client
-:ConsulterClient;
+:LB_ConsulterClient;
 split
-:ConsulterBilanClient;
+:LB_ConsulterBilanClient;
 split
-:ConsulterDetailsPersonne;
-:MAJPersonne;
+:LB_ConsulterDetailsPersonne;
+:LB_MAJPersonne;
 split again
 :Ajouter une personne;
 if(Personne existante ?) then(oui)
 else (non)
-:CreerNouvellePersonne;
+:LB_CreerNouvellePersonne;
 endif
 split again
 :Supprimer une personne;
 stop
 end split
 split again
-:ConsulerProduitsClient;
+:LB_ConsulerProduitsClient;
 split
-:ConsulterDetailsCompte;
+:LB_ConsulterDetailsCompte;
 split again
-:ConsulterDetailsProduit;
+:LB_ConsulterDetailsProduit;
 split again
-:MAJCompteConcurrence;
+:LB_MAJCompteConcurrence;
 end split
 split again
-:MAJCompteEnteteClient;
+:LB_MAJCompteEnteteClient;
 stop
 split again
-:ConsulterRelationBanqueClient;
+:LB_ConsulterRelationBanqueClient;
 stop
 end split
 stop

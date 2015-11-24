@@ -4,15 +4,15 @@
 title Diagramme d'activité du CU 1\n----
 
 note left: ACTEUR_SYS
-(*)--> ListeEvt
---> TraiterEvt
---> GenererMotif
---> GenererContact
+(*)--> LB_ListeEvt
+--> LB_TraiterEvt
+--> LB_GenererMotif
+--> LB_GenererContact
 
 if "Tous les évènements\nont été traités ?" then
   -->[oui](*)
 else
-  -->[non]TraiterEvt
+  -->[non]LB_TraiterEvt
 endif
 
 @enduml

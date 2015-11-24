@@ -1,0 +1,37 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+title Diagramme de séquence système du CU 9\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContact
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+
+alt Préparation faite
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AfficherPreparation
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirPropositionCommerciale
+end
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
+
+par
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListerOffres
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirOffres
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsDesOffresCatalogue
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsOffre
+else
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RedigerEtSoumettrePropositions
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPropositionCommerciale
+end
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_EnregistrerRapportActiviteCommerciale
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerRapportActivite
+
+
+@enduml

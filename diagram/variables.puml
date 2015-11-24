@@ -19,126 +19,126 @@
 '''''''
 ' CU1 '
 '''''''
-!define ListeEvt Consulter la liste des évènements captés
-!define TraiterEvt Traiter évènement
-!define GenererMotif Générer un motif de contact
-!define GenererContact Générer un contact prévu
+!define LB_ListeEvt Consulter la liste des évènements captés
+!define LB_TraiterEvt Traiter évènement
+!define LB_GenererMotif Générer un motif de contact
+!define LB_GenererContact Générer un contact prévu
 
 '''''''
 ' CU2 '
 '''''''
-!define ListeContacts Consulter la liste des contacts\n prévus de l'agence
-!define DetailContact Consulter le détail d'un contact
-!define DossierClient Consulter le dossier client du contact\n(CU10)
-!define AffecterAgent Affecter le contact à l'agent sélectionné
-!define NoteIncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
-!define ListeAgents Consulter la liste des agents de l'agence
-!define DetailAgent Consulter le détail d'un agent
+!define LB_ListeContacts Consulter la liste des contacts\n prévus de l'agence
+!define LB_DetailContact Consulter le détail d'un contact
+!define LB_DossierClient Consulter le dossier client du contact\n(CU10)
+!define LB_AffecterAgent Affecter le contact à l'agent sélectionné
+!define LB_NoteIncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
+!define LB_ListeAgents Consulter la liste des agents de l'agence
+!define LB_DetailAgent Consulter le détail d'un agent
 
 '''''''
 ' CU3 '
 '''''''
-!define ContactsAgent Consulter les contacts d'un agent
-!define DetailContact Détails d'un contact
+!define LB_ContactsAgent Consulter les contacts d'un agent
+!define LB_DetailContact Détails d'un contact
 
 '''''''
 ' CU4 '
 '''''''
-!define ListeContactsATraiter Consulter la liste des contacts à traiter de l'agent
-!define RegrouperContacts Regrouper les contacts\n(si même client)
-!define RaisonAnnulation Enregistrer le motif d'annulation
-!define AnnulerContact Annuler le contact
-!define PrendreRDV Prendre RDV\n(CU 6)
-!define PreparerRDV Preparer le RDV\n(CU 8)
-!define ConduireRDV Conduire le RDV\n(CU 9)
-!define NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
+!define LB_ListeContactsATraiter Consulter la liste des contacts à traiter de l'agent
+!define LB_RegrouperContacts Regrouper les contacts\n(si même client)
+!define LB_RaisonAnnulation Enregistrer le motif d'annulation
+!define LB_AnnulerContact Annuler le contact
+!define LB_PrendreRDV Prendre RDV\n(CU 6)
+!define LB_PreparerRDV Preparer le RDV\n(CU 8)
+!define LB_ConduireRDV Conduire le RDV\n(CU 9)
+!define LB_NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
 
 '''''''
 ' CU5 '
 '''''''
-!define ModePlanification Passer en mode planification
-!define SortirPlanification Valider et sortir du mode planification
-!define ConsulterAgenda Consulter l'agenda\n(CU 7)
-!define SelectPlage Sélectionner une plage\nhoraire libre
-!define CreerPlage Créer une plage agenda
-!define SelectActivite Sélectionner le type d'activité\nà plannifier
-!define MajNbContacts Mettre à jour le nombre de\ncontacts potentiels
+!define LB_ModePlanification Passer en mode planification
+!define LB_SortirPlanification Valider et sortir du mode planification
+!define LB_ConsulterAgenda Consulter l'agenda\n(CU 7)
+!define LB_SelectPlage Sélectionner une plage\nhoraire libre
+!define LB_CreerPlage Créer une plage agenda
+!define LB_SelectActivite Sélectionner le type d'activité\nà plannifier
+!define LB_MajNbContacts Mettre à jour le nombre de\ncontacts potentiels
 
 '''''''
 ' CU6 '
 '''''''
 ''' CU6 - Partie Agent
-!define ListeContatcsAgent Consulter la liste des contacts\nprévus de l'agent
-!define VoirDetailsContact Voir les details d'un contact
-!define VoirPlagesLibres Voir les plages agenda libres
-!define AssocierPlageEtContact Créer un rendez-vous commercial
-!define EditerLettreConfirmation Editer la lettre\nde confirmation du rendez-vous
-!define NoteDetailsClient Utilisation des informations\npour contacter le client
-!define NotePropositionCreneau Propositions de plusieurs\ncréneaux au client
+!define LB_ListeContatcsAgent Consulter la liste des contacts\nprévus de l'agent
+!define LB_VoirDetailsContact Voir les details d'un contact
+!define LB_VoirPlagesLibres Voir les plages agenda libres
+!define LB_AssocierPlageEtContact Créer un rendez-vous commercial
+!define LB_EditerLettreConfirmation Editer la lettre\nde confirmation du rendez-vous
+!define LB_NoteDetailsClient Utilisation des informations\npour contacter le client
+!define LB_NotePropositionCreneau Propositions de plusieurs\ncréneaux au client
 
 ''' CU6 - Partie Client
-!define RechercheClient Rechercher le client
-!define ListeContactClient Consuler la liste des contacts du client
-!define CreerContactSpontane Créer un nouveau contact
-!define DossierClientSpontane Consulter son dossier client\n(CU10)
-!define CreerRDVSpontane Créer un rendez-vous spontané
+!define LB_RechercheClient Rechercher le client
+!define LB_ListeContactClient Consuler la liste des contacts du client
+!define LB_CreerContactSpontane Créer un nouveau contact
+!define LB_DossierClientSpontane Consulter son dossier client\n(CU10)
+!define LB_CreerRDVSpontane Créer un rendez-vous spontané
 
 
 '''''''
 ' CU7 '
 '''''''
-!define ConsulterAgendaHebdoDeLAgent Consultation de l'agenda hebdomadaire de l'agent connecté
-!define ConsulterAgendaQuotidien Consulter l'agenda quotidien\nde l'agence
-!define ChangerAgent Changer d'agent
-!define ChangerDate Changer de date
-!define ChangerSemaine Changer de semaine
-!define VoirDetailsRDV Consulter détails RDV
-!define ModifierPlageHoraire Modifier plage horaire
-!define AnnulerRDV Annuler RDV
-!define ReaffecterRDV Reaffecter RDV
-!define ConsulterAgendaHebdomadaire Consulter l'agenda\n hebdomadaire d'un agent
-!define VoirJourSuiv Voir jour\nsuivant
-!define VoirJourPrec Voir jour\nprécédent
+!define LB_ConsulterAgendaHebdoDeLAgent Consultation de l'agenda hebdomadaire de l'agent connecté
+!define LB_ConsulterAgendaQuotidien Consulter l'agenda quotidien\nde l'agence
+!define LB_ChangerAgent Changer d'agent
+!define LB_ChangerDate Changer de date
+!define LB_ChangerSemaine Changer de semaine
+!define LB_VoirDetailsRDV Consulter détails RDV
+!define LB_ModifierPlageHoraire Modifier plage horaire
+!define LB_AnnulerRDV Annuler RDV
+!define LB_ReaffecterRDV Reaffecter RDV
+!define LB_ConsulterAgendaHebdomadaire Consulter l'agenda\n hebdomadaire d'un agent
+!define LB_VoirJourSuiv Voir jour\nsuivant
+!define LB_VoirJourPrec Voir jour\nprécédent
 
 '''''''
 ' CU8 '
 '''''''
-!define IdentifierContact Identifier le contact (CU4 ou CU7)
-!define DetailsContact Voir les détails du contact
-!define ConsulterDossierClient Consulter le dossier du client
-!define MAJInfos Mettre à jour les informations
-!define EnregistrerCompteRenduDePreparation Enregistrer le compte rendu du préparation
-!define ListerOffres Consulter la liste des offres
-!define DetailsDesOffresCatalogue Voir le détails d'une offre du catalogue
-!define CreerPropositionOffre Créer une proposition commerciale
-!define EnregistrerCompteRenduDePreparation Enregistrer le compte rendu de préparation
+!define LB_IdentifierContact Identifier le contact (CU4 ou CU7)
+!define LB_DetailsContact Voir les détails du contact
+!define LB_ConsulterDossierClient Consulter le dossier du client
+!define LB_MAJInfos Mettre à jour les informations
+!define LB_EnregistrerCompteRenduDePreparation Enregistrer le compte rendu du préparation
+!define LB_ListerOffres Consulter la liste des offres
+!define LB_DetailsDesOffresCatalogue Voir le détails d'une offre du catalogue
+!define LB_CreerPropositionOffre Créer une proposition commerciale
+!define LB_EnregistrerCompteRenduDePreparation Enregistrer le compte rendu de préparation
 
 
 '''''''
 ' CU9 '
 '''''''
-!define AfficherPreparation Afficher les propositions commerciales\net annotations enregistrées
-!define EnregistrerRapportActiviteCommerciale Enregistrer le rapport\nd'activité commerciale
-!define NoteContactTermine Enregistrer le contact\ncomme étant terminé
-!define RedigerEtSoumettrePropositions Rédiger et soumettre des propositions\ncommerciales
+!define LB_AfficherPreparation Afficher les propositions commerciales\net annotations enregistrées
+!define LB_EnregistrerRapportActiviteCommerciale Enregistrer le rapport\nd'activité commerciale
+!define LB_NoteContactTermine Enregistrer le contact\ncomme étant terminé
+!define LB_RedigerEtSoumettrePropositions Rédiger et soumettre des propositions\ncommerciales
 
 ''''''''
 ' CU10 '
 ''''''''
-!define IdentifierClient Identifier le client
-!define ConsulterBilanClient Consulter bilan client\n(Cotation, bilan,\nliste de personnes)
-!define ConsulterDetailsPersonne Consulter details\nd'une personne
-!define MAJPersonne Mise à jour personne
-!define RecupererPersonne Récupérer personne
-!define AjouterPersonne Ajouter une personne
-!define CreerNouvellePersonne Créer nouvelle personne
-!define SupprPersonne Supprimer une personne
-!define ConsulerProduitsClient Consulter produits du\nclient à la banque\net à la concurrence
-!define ConsulterDetailsCompte Consulter détails\nd'un compte
-!define ConsulterDetailsProduit Consulter détail\n d'un produit
-!define MAJCompteConcurrence Maj compte/produit\nà la concurrence
-!define MAJCompteEnteteClient Maj entête client
-!define ConsulterRelationBanqueClient Consulter relations\n banque-client
+!define LB_IdentifierClient Identifier le client
+!define LB_ConsulterBilanClient Consulter bilan client\n(Cotation, bilan,\nliste de personnes)
+!define LB_ConsulterDetailsPersonne Consulter details\nd'une personne
+!define LB_MAJPersonne Mise à jour personne
+!define LB_RecupererPersonne Récupérer personne
+!define LB_AjouterPersonne Ajouter une personne
+!define LB_CreerNouvellePersonne Créer nouvelle personne
+!define LB_SupprPersonne Supprimer une personne
+!define LB_ConsulerProduitsClient Consulter produits du\nclient à la banque\net à la concurrence
+!define LB_ConsulterDetailsCompte Consulter détails\nd'un compte
+!define LB_ConsulterDetailsProduit Consulter détail\n d'un produit
+!define LB_MAJCompteConcurrence Maj compte/produit\nà la concurrence
+!define LB_MAJCompteEnteteClient Maj entête client
+!define LB_ConsulterRelationBanqueClient Consulter relations\n banque-client
 
 '''''''''''''''' SERVICES '''''''''''''''
 
@@ -172,7 +172,6 @@
 !define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif) \n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
-'' TODO Ces SM servent ?? (les deux suivant) :
 !define SM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SM_ConduireRdv ConduireRdv(idContact)\n: void
 !define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine) \n: Agenda
@@ -191,6 +190,19 @@
 !define SM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(idContact) : void
 !define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact) : Liste<PropositionCommerciale>
 !define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact) : void
+!define SM_ConsulterDossierClient ConsulterDossierClient(idClient)\n:numero, denomination, adresse postale
+!define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n:cotationsClient, liste Personnes
+!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPers)\n:données signalétiques...logement
+!define SM_MAJPersonne MettreAJourPersonne(idPers,...)\n: void
+!define SM_RecupererPersonne RecupererPersonne(nom, prenom, agence)\n:ListPersonnes
+!define SM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
+!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(infos, idClient)\n:Personne
+!define SM_SupprimerPersonne SupprimerPersonne(idPers)\n: void
+!define SM_MAJEnteteDossier MAJEnteteDossier\n(idClient, numero, denomination, adressePostale)\n:
+!define SM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
+!define SM_ObtenirDetailCompte ObtenirDetailCompte(idCompte)\n: details, historique
+!define SM_ObtenirDetailProduit ObtenirDetailProduit(idProduit)\n: details
+!define SM_MAJComptesConcurrence MAJComptesConcurrence(idClient, txtComptesConcurrence)\n: 
 
 
 '''''''''''''''''''''''''
