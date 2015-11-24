@@ -6,7 +6,6 @@ title Diagramme de séquence système du CU 8\n----
 
 actor "ACTEUR_USER"
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EntrerInfosContact
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContact
 
@@ -27,11 +26,12 @@ else Proposition commerciale
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerOffre
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsDesOffresCatalogue
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsOffre
-	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfoPropositionOffre
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_RedigerProposition
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerPropositionOffre
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPropositionCommerciale
 end
 
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_AnnotationsCRPreparation
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_EnregistrerCompteRenduDePreparation
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerCompteRendu
 

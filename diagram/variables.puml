@@ -159,9 +159,8 @@
 !define SAISIE_SelectionnerClient Sélectionner un client
 !define SAISIE_SaisirInfosClient Saisir les informations du client
 !define SAISIE_SelectionnerOffre Sélectionner une offre
-!define SAISIE_SaisirInfoPropositionOffre Saisir les informations concernant l'offre
 !define SAISIE_RedigerProposition Rédiger une proposition d'offre
-
+!define SAISIE_AnnotationsCRPreparation Saisir les annotations du compte-rendu de préparation
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
