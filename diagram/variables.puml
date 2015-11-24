@@ -120,7 +120,7 @@
 !define LB_AfficherPreparation Afficher les propositions commerciales\net annotations enregistrées
 !define LB_EnregistrerRapportActiviteCommerciale Enregistrer le rapport\nd'activité commerciale
 !define LB_NoteContactTermine Enregistrer le contact\ncomme étant terminé
-!define LB_RedigerEtSoumettrePropositions Rédiger et soumettre des propositions\ncommerciales
+!define LB_RedigerEtSoumettrePropositions Soumettre des propositions commerciales
 
 ''''''''
 ' CU10 '
@@ -155,6 +155,13 @@
 !define SAISIE_SelectionnerDate Sélectionner une date
 !define SAISIE_SelectPlage Sélectionner une plage horaire libre
 !define SAISIE_SelectActivite Sélectionner le type d'activité à planifier
+!define SAISIE_EntrerInfosContact Saisir les informations du contact
+!define SAISIE_SelectionnerClient Sélectionner un client
+!define SAISIE_SaisirInfosClient Saisir les informations du client
+!define SAISIE_SelectionnerOffre Sélectionner une offre
+!define SAISIE_SaisirInfoPropositionOffre Saisir les informations concernant l'offre
+!define SAISIE_RedigerProposition Rédiger une proposition d'offre
+
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
