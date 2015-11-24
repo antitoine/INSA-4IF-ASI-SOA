@@ -5,8 +5,11 @@
 title Diagramme de séquence détaillé du CU 1\n----
 
 "ACTEUR_STS" -> "ACTEUR_SI" : SM_GenererContacts
-"ACTEUR_SI" -> "ACTEUR_SI" : SOM_TraiterEvt
+
+loop tant qu'il reste des événements non traités
+"ACTEUR_SI" -> Evenement : SOM_TraiterEvt
 "ACTEUR_SI" -> Contact : SOM_GenererMotif
 "ACTEUR_SI" -> Contact : SOM_GenererContactPrevu
+end
 
 @enduml
