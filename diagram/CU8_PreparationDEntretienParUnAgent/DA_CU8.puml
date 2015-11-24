@@ -7,11 +7,13 @@ note left: ACTEUR_AGENT
 (*) --> "IdentifierContact"
 --> "DetailsContact"
 --> "DossierClient"
+--> ===B1===
 --> "MAJInfos"
---> "EnregistrerCompteRenduDePreparation"
-"DossierClient" --> "ListerOffres"
+--> ===B2===
+===B1=== --> "ListerOffres"
 --> "DetailsDesOffresCatalogue"
 --> "CreerPropositionOffre"
+--> ===B2===
 --> "EnregistrerCompteRenduDePreparation"
 --> (*)
 @enduml
