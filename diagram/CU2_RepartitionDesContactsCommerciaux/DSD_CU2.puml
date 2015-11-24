@@ -13,6 +13,8 @@ actor "ACTEUR_USER"
 Structure -> Contact : SOM_ObtenirContactsPrevus
 
 loop pour chaque contact
+    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
+
 	"ACTEUR_USER" -> "ACTEUR_IHM" : DetailContact
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
 	"ACTEUR_SI" -> Contact : SOM_ObtenirDetailsContact
@@ -24,6 +26,8 @@ loop pour chaque contact
 	"ACTEUR_USER" -> "ACTEUR_IHM" : ListeAgents
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
 	"ACTEUR_SI" -> Structure : SOM_ObtenirAgents
+
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : DetailAgent
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsAgent

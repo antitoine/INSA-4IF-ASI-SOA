@@ -7,9 +7,9 @@ title Diagramme de séquence détaillé du CU 3\n----
 actor ACTEUR_USER
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : ListeContacts
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsPrevus
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsPrevus motif client plage agenda agent
 "ACTEUR_SI" -> Structure : SOM_ObtenirAgents
-Structure -> Contact : SOM_ObtenirContactsPrevus
+Structure -> Contact : SOM_ObtenirContactsPrevus idclient idtacheElementaire
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : ListeAgents
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
