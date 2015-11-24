@@ -159,11 +159,11 @@
 !define SAISIE_SelectionnerClient Sélectionner un client
 !define SAISIE_SaisirInfosClient Saisir les informations du client
 !define SAISIE_SelectionnerOffre Sélectionner une offre
-!define SAISIE_SaisirInfoPropositionOffre Saisir les informations concernant l'offre
 !define SAISIE_RedigerProposition Rédiger une proposition d'offre
 !define SAISIE_EcrireLettreConfirmation Ecrire lettre de confirmation de rendez-vous
 !define SAISIE_InformationsContactSpontane Saisir les infos concernant le contact
 !define SAISIE_InformationsRDVSpontane Saisir les informations concernant le rendez-vous
+!define SAISIE_AnnotationsCRPreparation Saisir les annotations du compte-rendu de préparation
 
 '''''''''''''''''''
 ' Services Metier '
