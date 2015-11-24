@@ -126,9 +126,10 @@
 ' CU10 '
 ''''''''
 !define IdentifierClient Identifier le client
-!define ConsulterBilanClient Consulter bilant client\n(Cotation, bilan,\nliste de personnes)
+!define ConsulterBilanClient Consulter bilan client\n(Cotation, bilan,\nliste de personnes)
 !define ConsulterDetailsPersonne Consulter details\nd'une personne
 !define MAJPersonne Mise à jour personne
+!define RecupererPersonne Récupérer personne
 !define AjouterPersonne Ajouter une personne
 !define CreerNouvellePersonne Créer nouvelle personne
 !define SupprPersonne Supprimer une personne
@@ -173,6 +174,14 @@
 !define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, date) \n: Agenda
 !define SM_AnnulerRdv AnnulerRdv(idRdv)\n: void
 !define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: Agenda
+!define SM_IdentifierContact IdentifierContact(idContact) : Contact
+!define SM_MAJInfos MAJInfos(saisie, idClient) : void
+!define SM_ObtenirOffres ObtenirOffres() : Liste<Offre>
+!define SM_ObtenirDetailsOffre ObtenirDetailsOffre(idOffre) : Détails
+!define SM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idOffre, idContact) : void
+!define SM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(idContact) : void
+!define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact) : Liste<PropositionCommerciale>
+!define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact) : void
 
 
 '''''''''''''''''''''''''
@@ -225,3 +234,4 @@
 !define V_AGENDA_VUE_AGENT Agenda Agent
 !define V_POPUP_AJOUT_TACHE Popup ajout tâche
 !define V_CONTACTS Onglet de gestion des contacts
+
