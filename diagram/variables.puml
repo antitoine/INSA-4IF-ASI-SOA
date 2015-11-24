@@ -142,6 +142,11 @@
 '''''''''''''''' SERVICES '''''''''''''''
 
 '''''''''''''''''''
+' Saisies '
+'''''''''''''''''''
+!define SAISIE_SelectionnerContact Sélectionner un contact
+!define SAISIE_SelectionnerAgent Sélectionner un agent
+'''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
 '' TODO Retourner que des blocs (à vérifier)
