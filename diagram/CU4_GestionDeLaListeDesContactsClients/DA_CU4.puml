@@ -6,7 +6,7 @@ title Diagramme d'activité du CU 4\n----
 note left: ACTEUR_AGENT
 (*) --> "LB_ListeContactsATraiter"
 --> "LB_RegrouperContacts"
-note top: NoteRegroupementContacts
+note top: NOTE_RegroupementContacts
 --> (*)
 "LB_ListeContactsATraiter"--> "LB_DetailContact"
 "LB_DetailContact" --> "LB_AnnulerContact"

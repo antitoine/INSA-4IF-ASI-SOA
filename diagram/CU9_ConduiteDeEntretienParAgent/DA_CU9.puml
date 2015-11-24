@@ -19,6 +19,6 @@ endif
 ===B1=== --> "LB_RedigerEtSoumettrePropositions"
 --> ===B2===
 --> "LB_EnregistrerRapportActiviteCommerciale"
-note right: NoteContactTermine
+note right: NOTE_ContactTermine
 --> (*)
 @enduml

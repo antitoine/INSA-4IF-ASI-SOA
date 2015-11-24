@@ -10,7 +10,7 @@ note left: ACTEUR_CHEF_AG
 --> LB_ListeAgents
 --> LB_DetailAgent
 --> LB_AffecterAgent
-note left: NoteIncContact
+note left: NOTE_IncContact
 --> (*)
 
 @enduml

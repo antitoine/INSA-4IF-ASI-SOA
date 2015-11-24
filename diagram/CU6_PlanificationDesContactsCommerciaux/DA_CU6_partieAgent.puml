@@ -7,9 +7,9 @@ note left: ACTEUR_AGENT
 (*) --> "LB_ListeContatcsAgent"
 --> "LB_VoirDetailsContact"
 --> "LB_DossierClient"
-note right: NoteDetailsClient
+note right: NOTE_DetailsClient
 --> "LB_VoirPlagesLibres"
-note right: NotePropositionCreneau
+note right: NOTE_PropositionCreneau
 --> "LB_AssocierPlageEtContact"
 --> "LB_EditerLettreConfirmation"
 --> (*)

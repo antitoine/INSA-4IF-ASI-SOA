@@ -1,0 +1,26 @@
+@startuml
+!include ../skin.puml
+!include ../varaiables.puml
+
+
+title Diagramme de séquence système du CU 6 (partie agent)\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContatcsAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirDetailsContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_VoirPlagesLibres
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AssocierPlageEtContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AssocierPlageEtContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EcrireLettreConfirmation
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_EditerLettreConfirmation
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EditerLettreConfirmation
+
+@enduml

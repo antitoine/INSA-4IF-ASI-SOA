@@ -31,7 +31,7 @@
 !define LB_DetailContact Consulter le détail d'un contact
 !define LB_DossierClient Consulter le dossier client du contact\n(CU10)
 !define LB_AffecterAgent Affecter le contact à l'agent sélectionné
-!define LB_NoteIncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
+!define NOTE_IncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
 !define LB_ListeAgents Consulter la liste des agents de l'agence
 !define LB_DetailAgent Consulter le détail d'un agent
 
@@ -51,7 +51,7 @@
 !define LB_PrendreRDV Prendre RDV\n(CU 6)
 !define LB_PreparerRDV Preparer le RDV\n(CU 8)
 !define LB_ConduireRDV Conduire le RDV\n(CU 9)
-!define LB_NoteRegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
+!define NOTE_RegroupementContacts Définition d'un contact principal\net de contact(s) secondaire(s)
 
 '''''''
 ' CU5 '
@@ -73,8 +73,8 @@
 !define LB_VoirPlagesLibres Voir les plages agenda libres
 !define LB_AssocierPlageEtContact Créer un rendez-vous commercial
 !define LB_EditerLettreConfirmation Editer la lettre\nde confirmation du rendez-vous
-!define LB_NoteDetailsClient Utilisation des informations\npour contacter le client
-!define LB_NotePropositionCreneau Propositions de plusieurs\ncréneaux au client
+!define NOTE_DetailsClient Utilisation des informations\npour contacter le client
+!define NOTE_PropositionCreneau Propositions de plusieurs\ncréneaux au client
 
 ''' CU6 - Partie Client
 !define LB_RechercheClient Rechercher le client
@@ -119,7 +119,7 @@
 '''''''
 !define LB_AfficherPreparation Afficher les propositions commerciales\net annotations enregistrées
 !define LB_EnregistrerRapportActiviteCommerciale Enregistrer le rapport\nd'activité commerciale
-!define LB_NoteContactTermine Enregistrer le contact\ncomme étant terminé
+!define NOTE_ContactTermine Enregistrer le contact\ncomme étant terminé
 !define LB_RedigerEtSoumettrePropositions Soumettre des propositions commerciales
 
 ''''''''
@@ -161,6 +161,9 @@
 !define SAISIE_SelectionnerOffre Sélectionner une offre
 !define SAISIE_SaisirInfoPropositionOffre Saisir les informations concernant l'offre
 !define SAISIE_RedigerProposition Rédiger une proposition d'offre
+!define SAISIE_EcrireLettreConfirmation Ecrire lettre de confirmation de rendez-vous
+!define SAISIE_InformationsContactSpontane Saisir les infos concernant le contact
+!define SAISIE_InformationsRDVSpontane Saisir les informations concernant le rendez-vous
 
 '''''''''''''''''''
 ' Services Metier '
@@ -210,7 +213,12 @@
 !define SM_ObtenirDetailCompte ObtenirDetailCompte(idCompte)\n: details, historique
 !define SM_ObtenirDetailProduit ObtenirDetailProduit(idProduit)\n: details
 !define SM_MAJComptesConcurrence MAJComptesConcurrence(idClient, txtComptesConcurrence)\n: 
-
+!define SM_VoirPlagesLibres ObtenirPlagesLibres(idAgenda) : Liste<PlageAgenda>
+!define SM_AssocierPlageEtContact AssocierPlageEtContact(idPlage, idContact) : void
+!define SM_EditerLettreConfirmation ConfirmerLettre(saisie, idContact) : void
+!define SM_RechercherClient RechercherClient(prenom, nom, etc) : Client
+!define SM_CreerContactSpontane CreerContactSpontane(saisie)\n: Contact
+!define SM_CreerRDVSpontane CreerRDVSpontane(saisie, idContact)\n: void
 
 '''''''''''''''''''''''''
 ' Services Objet Metier '
