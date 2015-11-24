@@ -142,6 +142,13 @@
 '''''''''''''''' SERVICES '''''''''''''''
 
 '''''''''''''''''''
+' Saisies '
+'''''''''''''''''''
+!define SAISIE_SelectionnerContact Sélectionner un contact
+!define SAISIE_SelectionnerContacts Sélectionner des contacts
+!define SAISIE_SelectionnerAgent Sélectionner un agent
+!define SAISIE_MotifAnnulation Saisir le motif d'annulation
+'''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
 '' TODO Retourner que des blocs (à vérifier)
