@@ -146,7 +146,15 @@
 ' Saisies '
 '''''''''''''''''''
 !define SAISIE_SelectionnerContact Sélectionner un contact
+!define SAISIE_SelectionnerContacts Sélectionner des contacts
 !define SAISIE_SelectionnerAgent Sélectionner un agent
+!define SAISIE_MotifAnnulation Saisir le motif d'annulation
+!define SAISIE_SelectionnerSemaine Sélectionner une semaine
+!define SAISIE_SelectionnerRDV Sélectionner un rendez-vous
+!define SAISIE_SelectionnerPlageHoraire Sélectionner une plage horaire
+!define SAISIE_SelectionnerDate Sélectionner une date
+!define SAISIE_SelectPlage Sélectionner une plage horaire libre
+!define SAISIE_SelectActivite Sélectionner le type d'activité à planifier
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
@@ -173,7 +181,8 @@
 !define SM_ModifierPlageHoraire ModifierPlageHoraire(Date plageHoraireDeb, Date plageHoraireFin) \n: Agenda
 !define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, date) \n: Agenda
 !define SM_AnnulerRdv AnnulerRdv(idRdv)\n: void
-!define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: Agenda
+!define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: PlageAgenda
+!define SM_MettreAJourNbContactsPotentiels MettreAJourNbContactsPotentiels(List<idAgent>)\n: void
 !define SM_IdentifierContact IdentifierContact(idContact) : Contact
 !define SM_MAJInfos MAJInfos(saisie, idClient) : void
 !define SM_ObtenirOffres ObtenirOffres() : Liste<Offre>

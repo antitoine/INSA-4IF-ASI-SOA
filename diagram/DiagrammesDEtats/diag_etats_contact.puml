@@ -16,8 +16,8 @@ AFFECTE --> RdvPris : [CU6] : rendez-vous pris\npar l'agent
 
 RdvPris --> PREPARE : [CU8] : préparation\npar l'agent
 
-RdvPris --> AFFECTE : [CU7] : report du rendez-vous\npar l'agent
-PREPARE --> AFFECTE : [CU7] : report du rendez-vous\npar l'agent
+RdvPris --> AFFECTE : [CU7] : annulation du rendez-vous\npar l'agent
+PREPARE --> PREPARE : [CU7] : annulation du rendez-vous\npar l'agent
 
 }
 
