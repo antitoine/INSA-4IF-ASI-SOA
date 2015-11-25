@@ -259,8 +259,9 @@
 !define V_BilanDossierClientE Onglet Bilan dossier client (editable)
 !define V_ProduitClient Onglet Produit
 !define V_RelationsClient Onglet Relations
-!define V_OngletAgendaAgence Onglet Agenda Agence
-!define V_OngletAgendaAgent Onglet Agenda Agent
+!define V_OngletAgenda Onglet Agenda
+!define V_OngletAgendaAgence Mode Agence
+!define V_OngletAgendaAgent Mode Agent
 !define V_PopupActivite Popup d'ajout d'activite
 !define V_PopupAjoutContactCommercial Popup d'ajout d'un contact commercial
 !define V_PopupAjoutContactSpontane Popup d'ajout d'un contact spontane

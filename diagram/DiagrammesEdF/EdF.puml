@@ -4,7 +4,7 @@
 title Diagramme d'Enchainement de Fenêtres\n----
 
 (*) --> "V_LoginPage"
-"V_LoginPage" --> "V_OngletClient"
+"V_LoginPage" --> "V_OngletAgendaAgent"
 '
 ' Navigation entre les onglets du menu de gauche
 '
@@ -23,7 +23,7 @@ title Diagramme d'Enchainement de Fenêtres\n----
 '
 ' Navigation sous l'onglet Client
 '
-"V_OngletClient" --> "V_ResultatRecherche"
+"V_OngletClient" -> "V_ResultatRecherche"
 "V_ResultatRecherche" --> "V_BilanDossierClientNE"
 "V_BilanDossierClientNE" --> "V_BilanDossierClientE"
 "V_BilanDossierClientNE" --> "V_ProduitClient"
@@ -35,7 +35,7 @@ title Diagramme d'Enchainement de Fenêtres\n----
 "V_ProduitClient" --> "V_BilanDossierClientE"
 "V_ProduitClient" --> "V_RelationsClient"
 "V_RelationsClient" --> "V_ProduitClient"
-"V_RelationsClient" --> "V_BilanDossierClientE"  
+"V_RelationsClient" --> "V_BilanDossierClientE"
 "V_RelationsClient" --> "V_BilanDossierClientNE"
 '
 ' Navigation sous l'onglet Agenda"
