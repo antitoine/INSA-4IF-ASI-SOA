@@ -252,21 +252,22 @@
 '  EdF   '
 ''''''''''
 
-!define V_LOGIN Page de connexion
-!define V_ONGLET_CLIENT Onglet client
-!define V_CLIENT_RECHERCHE Recherche
-!define V_CLIENT_RESULTATS Resultats recherche
-!define V_CLIENT_DOSSIER Dossier client
-!define V_CLIENT_DOSSIER_BILAN Onglet Bilan
-!define V_CLIENT_DOSSIER_PRODUITS Onglet Produits
-!define V_CLIENT_DOSSIER_RELATIONS Onglet Relations
-!define V_POPUP_DETAILS_PERSONNE Popup détails personne
-!define V_POPUP_EDITION_PERSONNE Popup édition personne
-!define V_POPUP_AJOUTER_PERSONNE Popup ajout personne
-!define V_POPUP_DETAILS_PRODUIT Popup détails produit
-!define V_POPUP_EDITION_PROPRIETES_PRODUIT Popup édition propriétés produit
-!define V_ONGLET_AGENDA Onglet agenda
-!define V_AGENDA_VUE_AGENCE Agenda Agence
-!define V_AGENDA_VUE_AGENT Agenda Agent
-!define V_POPUP_AJOUT_TACHE Popup ajout tâche
-!define V_CONTACTS Onglet de gestion des contacts
+!define V_LoginPage Page d'authentification
+!define V_OngletClient Onglet Client
+!define V_ResultatRecherche Resultat recherche client
+!define V_BilanDossierClientNE Onglet Bilan dossier client (non-editable)
+!define V_BilanDossierClientE Onglet Bilan dossier client (editable)
+!define V_ProduitClient Onglet Produit
+!define V_RelationsClient Onglet Relations
+!define V_OngletAgendaAgence Onglet Agenda Agence
+!define V_OngletAgendaAgent Onglet Agenda Agent
+!define V_PopupActivite Popup d'ajout d'activite
+!define V_PopupAjoutContactCommercial Popup d'ajout d'un contact commercial
+!define V_PopupAjoutContactSpontane Popup d'ajout d'un contact spontane
+!define V_PopupChoixContact Popup de selection d'un contact
+!define V_PopupChoixClient Popup de selection d'un client
+!define V_PopupAjoutTache Popup d'ajout d'une tâche
+!define V_PopupConsultationTache Popup de consultation d'une tache
+!define V_OngletPersonnes Onglet Personnes
+!define V_OngletContacts Onglet Contacts
+
