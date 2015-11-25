@@ -1,12 +1,67 @@
 @startuml
 !include ../skin.puml
 !include ../variables.puml
-title ceci est un test\n----
+title Diagramme d'Enchainement de Fenêtres\n----
 
-(*) --> "Vue accueil"
---> "Vue contact"
---> "Vue edition contact"
---> "Vue prise de RDV"
---> "Vue préparation entretien"
+(*) --> "V_LoginPage"
+"V_LoginPage" --> "V_OngletClient"
+'
+' Navigation entre les onglets du menu de gauche
+'
+"V_OngletClient" --> "V_OngletAgendaAgence"
+"V_OngletClient" --> "V_OngletPersonnes"
+"V_OngletClient" --> "V_OngletContacts"
+"V_OngletAgendaAgence" --> "V_OngletClient"
+"V_OngletAgendaAgence" --> "V_OngletPersonnes"
+"V_OngletAgendaAgence" --> "V_OngletContacts"
+"V_OngletPersonnes" --> "V_OngletClient"
+"V_OngletPersonnes" --> "V_OngletAgendaAgence"
+"V_OngletPersonnes" --> "V_OngletContacts"
+"V_OngletContacts" --> "V_OngletClient"
+"V_OngletContacts" --> "V_OngletAgendaAgence"
+"V_OngletContacts" --> "V_OngletPersonnes"
+'
+' Navigation sous l'onglet Client
+'
+"V_OngletClient" --> "V_ResultatRecherche"
+"V_ResultatRecherche" --> "V_BilanDossierClientNE"
+"V_BilanDossierClientNE" --> "V_BilanDossierClientE"
+"V_BilanDossierClientNE" --> "V_ProduitClient"
+"V_BilanDossierClientNE" --> "V_RelationsClient"
+"V_BilanDossierClientE" --> "V_ProduitClient"
+"V_BilanDossierClientE" --> "V_RelationsClient"
+"V_BilanDossierClientE" --> "V_BilanDossierClientNE"
+"V_ProduitClient" --> "V_BilanDossierClientNE"
+"V_ProduitClient" --> "V_BilanDossierClientE"
+"V_ProduitClient" --> "V_RelationsClient"
+"V_RelationsClient" --> "V_ProduitClient"
+"V_RelationsClient" --> "V_BilanDossierClientE"  
+"V_RelationsClient" --> "V_BilanDossierClientNE"
+'
+' Navigation sous l'onglet Agenda"
+'
+"V_OngletAgendaAgence" --> "V_OngletAgendaAgent"
+"V_OngletAgendaAgent" --> "V_OngletAgendaAgence"
+"V_OngletAgendaAgence" --> "V_PopupActivite"
+"V_OngletAgendaAgent" --> "V_PopupActivite"
+"V_OngletAgendaAgence" --> "V_PopupAjoutTache"
+
+"V_OngletAgendaAgent" --> "V_PopupConsultationTache"
+"V_PopupConsultationTache" --> "V_OngletAgendaAgent"
+
+"V_OngletAgendaAgence" --> "V_PopupConsultationTache"
+"V_PopupConsultationTache" --> "V_OngletAgendaAgence"
+
+"V_PopupActivite" --> "V_PopupAjoutContactCommercial"
+"V_PopupAjoutContactCommercial" --> "V_PopupActivite"
+
+"V_PopupActivite" --> "V_PopupAjoutContactSpontane"
+"V_PopupAjoutContactSpontane" --> "V_PopupActivite"
+
+"V_PopupAjoutContactCommercial" --> "V_PopupChoixContact"
+"V_PopupChoixContact" --> "V_PopupAjoutContactCommercial"
+
+"V_PopupAjoutContactSpontane" --> "V_PopupChoixClient"
+"V_PopupChoixClient" --> "V_PopupAjoutContactSpontane"
 
 @enduml
