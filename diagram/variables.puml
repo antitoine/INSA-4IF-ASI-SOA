@@ -171,52 +171,52 @@
 '' TODO Retourner que des blocs (à vérifier)
 !define SM_GenererContacts GenererContacts(void)\n: void
 !define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure)\n: Liste <Contact>
-!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact) \n: Details
+!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: Details
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: Client
 !define SM_ObtenirAgents ObtenirAgents(idAgence)\n: Liste<Agent>
 !define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: Details
 !define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
-!define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent) \n: Liste<Contact>
+!define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
 !define SM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
 !define SM_GrouperContacts GrouperContacts(Liste<idContact>)\n: void
-!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif) \n: void
+!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SM_ConduireRdv ConduireRdv(idContact)\n: void
-!define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine) \n: Agenda
+!define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine)\n: Agenda
 !define SM_ReaffecterRdv ReaffecterRdv(idRdv, idAutreAgent)\n: void
-!define SM_ObtenirDetailsRdv ObtenirDetailsRdv(idRdv) \n: date, motif de contact, etc.
+!define SM_ObtenirDetailsRdv ObtenirDetailsRdv(idRdv)\n: date, motif de contact, etc...
 !define SM_ModifierPlageHoraire ModifierPlageHoraire(Date plageHoraireDeb, Date plageHoraireFin) \n: Agenda
-!define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, date) \n: Agenda
+!define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, Date jourActuel)\n: Agenda
 !define SM_AnnulerRdv AnnulerRdv(idRdv)\n: void
 !define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: PlageAgenda
-!define SM_MettreAJourNbContactsPotentiels MettreAJourNbContactsPotentiels(List<idAgent>)\n: void
-!define SM_IdentifierContact IdentifierContact(idContact) : Contact
-!define SM_MAJInfos MAJInfos(saisie, idClient) : void
-!define SM_ObtenirOffres ObtenirOffres() : Liste<Offre>
-!define SM_ObtenirDetailsOffre ObtenirDetailsOffre(idOffre) : Détails
-!define SM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idOffre, idContact) : void
-!define SM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(idContact) : void
-!define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact) : Liste<PropositionCommerciale>
-!define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact) : void
-!define SM_ConsulterDossierClient ConsulterDossierClient(idClient)\n:numero, denomination, adresse postale
-!define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n:cotationsClient, liste Personnes
-!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPers)\n:données signalétiques...logement
+!define SM_MettreAJourNbContactsPotentiels MettreAJourNbContactsPotentiels(Liste<idAgent>)\n: void
+!define SM_IdentifierContact IdentifierContact(idContact)\n: Contact
+!define SM_MAJInfos MAJInfos(saisie, idClient)\n: void
+!define SM_ObtenirOffres ObtenirOffres(void)\n: Liste<Offre>
+!define SM_ObtenirDetailsOffre ObtenirDetailsOffre(idOffre)\n: Details
+!define SM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idOffre, idContact)\n: void
+!define SM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(idContact)\n: void
+!define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact)\n: Liste<PropositionCommerciale>
+!define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact)\n: void
+!define SM_ConsulterDossierClient ConsulterDossierClient(idClient)\n: numero, denomination, adresse postale
+!define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n: cotationsClient, liste Personnes
+!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPers)\n: données signalétiques...logement
 !define SM_MAJPersonne MettreAJourPersonne(idPers,...)\n: void
-!define SM_RecupererPersonne RecupererPersonne(nom, prenom, agence)\n:ListPersonnes
+!define SM_RecupererPersonne RecupererPersonne(nom, prenom, agence)\n: Personne
 !define SM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
-!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(infos, idClient)\n:Personne
+!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(infos, idClient)\n: Personne
 !define SM_SupprimerPersonne SupprimerPersonne(idPers)\n: void
-!define SM_MAJEnteteDossier MAJEnteteDossier\n(idClient, numero, denomination, adressePostale)\n:
+!define SM_MAJEnteteDossier MAJEnteteDossier\n(idClient, numero, denomination, adressePostale)\n: void
 !define SM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
 !define SM_ObtenirDetailCompte ObtenirDetailCompte(idCompte)\n: details, historique
 !define SM_ObtenirDetailProduit ObtenirDetailProduit(idProduit)\n: details
-!define SM_MAJComptesConcurrence MAJComptesConcurrence(idClient, txtComptesConcurrence)\n: 
-!define SM_VoirPlagesLibres ObtenirPlagesLibres(idAgenda) : Liste<PlageAgenda>
-!define SM_AssocierPlageEtContact AssocierPlageEtContact(idPlage, idContact) : void
-!define SM_EditerLettreConfirmation ConfirmerLettre(saisie, idContact) : void
-!define SM_RechercherClient RechercherClient(prenom, nom, etc) : Client
+!define SM_MAJComptesConcurrence MAJComptesConcurrence(idClient, txtComptesConcurrence)\n: void 
+!define SM_VoirPlagesLibres ObtenirPlagesLibres(idAgenda)\n: Liste<PlageAgenda>
+!define SM_AssocierPlageEtContact AssocierPlageEtContact(idPlage, idContact)\n: void
+!define SM_EditerLettreConfirmation ConfirmerLettre(saisie, idContact)\n: void
+!define SM_RechercherClient RechercherClient(prenom, nom, etc)\n: Client
 !define SM_CreerContactSpontane CreerContactSpontane(saisie)\n: Contact
 !define SM_CreerRDVSpontane CreerRDVSpontane(saisie, idContact)\n: void
 
