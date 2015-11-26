@@ -1,0 +1,29 @@
+@startuml
+!include ../skin.puml
+title Diagramme d'organisation
+
+'
+'	Nodes  
+'
+agent Siège
+agent AgencePrincipale1
+agent AgencePrincipale2
+agent AgencePrincipaleN
+agent Agence1
+agent Agence2
+agent Agence3
+agent Agence4
+agent AgenceN
+'
+'	Links
+'
+Siège -- AgencePrincipale1
+Siège -- AgencePrincipale2
+Siège .. AgencePrincipaleN
+AgencePrincipale1 -- Agence1
+AgencePrincipale1 -- Agence2
+AgencePrincipale1 -- Agence3
+AgencePrincipale2 -- Agence4
+AgencePrincipale2 .. AgenceN
+
+@enduml
