@@ -9,33 +9,29 @@ actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContacts
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsPrevus
-"ACTEUR_SI" -> Structure : SOM_ObtenirAgents
-Structure -> Contact : SOM_ObtenirContactsPrevus
+"ACTEUR_SI" -> Client : SOM_ObtenirClientsStructure
+Client -> Contact : SOM_ObtenirContactsPrevus
 
-loop pour chaque contact
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
 
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
-	"ACTEUR_SI" -> Contact : SOM_ObtenirDetailsContact
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_Ref_DetailContact
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
-	"ACTEUR_SI" -> Contact : SOM_ObtenirDossierClient
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
-	"ACTEUR_SI" -> Structure : SOM_ObtenirAgents
+	"ACTEUR_SI" -> Structure : SOM_ObtenirAgentsStructure
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailAgent
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsAgent
 	"ACTEUR_SI" -> Structure : SOM_ObtenirDetailsAgent
+	Structure -> Contact : SOM_ObtenirContactsAgent
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AffecterAgent
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AffecterContact
 	"ACTEUR_SI" -> Contact : SOM_AffecterContact
-end
+
 
 @enduml
