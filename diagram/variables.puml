@@ -255,14 +255,13 @@
 !define V_LoginPage Page d'authentification
 !define V_OngletClient Onglet Client
 !define V_ResultatRecherche Resultat recherche client
-!define V_BilanDossierClientNE Onglet Bilan dossier client (non-editable)
-!define V_BilanDossierClientE Onglet Bilan dossier client (editable)
+!define V_BilanDossierClient Onglet Bilan dossier client
 !define V_ProduitClient Onglet Produit
 !define V_RelationsClient Onglet Relations
 !define V_OngletAgenda Onglet Agenda
 !define V_OngletAgendaAgence Mode Agence
 !define V_OngletAgendaAgent Mode Agent
-!define V_PopupActivite Popup d'ajout d'activite
+!define V_PopupAjoutActivite Popup d'ajout d'activite
 !define V_PopupAjoutContactCommercial Popup d'ajout d'un contact commercial
 !define V_PopupAjoutContactSpontane Popup d'ajout d'un contact spontane
 !define V_PopupChoixContact Popup de selection d'un contact
@@ -271,4 +270,14 @@
 !define V_PopupConsultationTache Popup de consultation d'une tache
 !define V_OngletPersonnes Onglet Personnes
 !define V_OngletContacts Onglet Contacts
+!define V_DossierEditable Dossier Editable 
+!define V_DossierNonEditable Dossier Non Editable
+!define V_ModeConsultation Mode Consultation
+!define V_ModePlanification Mode Planification
+!define V_VueContacts Liste des contacts
+!define V_VueContact Vue Contact
+!define V_ContactOngletPreparation Onglet preparation 
+!define V_ContactOngletCR Onglet compte-rendu 
+!define V_PopupAffecterContact Popup d'affectation d'un agent au contact
+!define V_PopupAjouterOffre Popup d'ajout d'une offre
 
