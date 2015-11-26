@@ -189,8 +189,8 @@
 !define SM_ModifierPlageHoraire ModifierPlageHoraire(Date plageHoraireDeb, Date plageHoraireFin) \n: Agenda
 !define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, Date jourActuel)\n: Agenda
 !define SM_AnnulerRdv AnnulerRdv(idRdv)\n: void
-!define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: PlageAgenda
-!define SM_MettreAJourNbContactsPotentiels MettreAJourNbContactsPotentiels(Liste<idAgent>)\n: void
+!define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: plageAgenda
+!define SM_MettreAJourNbContactsPotentiels MajNbContactsPotentiels(idAgent, Liste<idPlageAgenda>)\n: void
 !define SM_IdentifierContact IdentifierContact(idContact)\n: Contact
 !define SM_MAJInfos MAJInfos(saisie, idClient)\n: void
 !define SM_ObtenirOffres ObtenirOffres(void)\n: Liste<Offre>
@@ -238,6 +238,11 @@
 ' SOM Structure
 !define SOM_ObtenirAgentsStructure ObtenirAgents(idAgence)\n: Liste<Agent>
 !define SOM_ObtenirAgent ObtenirAgent(idAgent)\n: agent
+!define SOM_MettreAJourNbContactsPotentiels MajNbContactsPotentiels(idAgent, Liste<idPlageAgenda>)\n: void
+
+' SOM Agenda
+!define SOM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: plageAgenda
+!define SOM_DetailPlageAgenda DetailPlageAgenda(idPlageAgenda)\n: plageAgenda
 
 !define SOM_TraiterEvt RecupererEvenementNonTraite()\n: evenement, idClient
 !define SOM_GenererMotif GenererMotifContact(idEvenement)\n: motif
