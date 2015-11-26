@@ -70,6 +70,13 @@ Le tableau ci dessous présente la synthèse de nos choix concernant la réparti
     \caption{Tableau de répartition des serveurs par entité organisationnelle}
 \end{table}
 
+La figure suivante présente la répartition des serveurs.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.5]{figures/architectureServeurs.png}
+    \caption{Plan de répartition des serveurs}
+\end{figure}
+
 \subsection{Implantation des composants du noyau applicatif et flux de données}
 
 Etant donnée la répartition des serveurs précédemment exposée et la contrainte concernant la gestion des données client et produit nous avons jugé qu'il serait intéressant de déployer les blocs applicatifs Personne, Client, Produit et Structure sur le(s) serveur(s) d'applications situé(s) sur le site central c'est-à-dire au siège. Il semble également envisageable de distribuer les composants Contact et Agenda sur les serveurs d'applications respectifs des différentes agences principales. Il pourrait être avantageux de répliquer les données concernant les client et les structures au niveau des agences principales. \\
