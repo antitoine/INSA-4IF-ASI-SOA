@@ -99,6 +99,7 @@
 !define LB_ConsulterAgendaHebdomadaire Consulter l'agenda\n hebdomadaire d'un agent
 !define LB_VoirJourSuiv Voir jour\nsuivant
 !define LB_VoirJourPrec Voir jour\nprécédent
+!define LB_ActionsAgenda Actions Agenda CU7
 
 '''''''
 ' CU8 '
@@ -173,22 +174,22 @@
 !define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: Client
 !define SM_ObtenirAgents ObtenirAgents(idAgence)\n: Liste<Agent>
-!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: agent, Liste<Contact>
+!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: agent, Liste<ContactPrevu>
 !define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
-!define SM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
-!define SM_GrouperContacts GrouperContacts(Liste<idContactPrevus>)\n: void
+!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<ContactRealise>
+!define SM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
 !define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SM_ConduireRdv ConduireRdv(idContact)\n: void
-!define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine)\n: Agenda
-!define SM_ReaffecterRdv ReaffecterRdv(idRdv, idAutreAgent)\n: void
-!define SM_ObtenirDetailsRdv ObtenirDetailsRdv(idRdv)\n: date, motif de contact, etc...
-!define SM_ModifierPlageHoraire ModifierPlageHoraire(Date plageHoraireDeb, Date plageHoraireFin) \n: Agenda
-!define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, Date jourActuel)\n: Agenda
-!define SM_AnnulerRdv AnnulerRdv(idRdv)\n: void
+!define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Liste<PlageAgenda>, Liste<TacheElementaire>,\n  Liste<TypeActivite>
+!define SM_ReaffecterRdv ReaffecterRdv(idPlageAgenda, idAgent)\n: void
+!define SM_ObtenirDetailsRdv ObtenirDetailsRdv(idPlageAgenda)\n: plageAgenda, agent, contactRealise,\n  contactPrevu, motifDeContact, client
+!define SM_ModifierPlageHoraire ModifierPlageHoraire(idPlageAgenda, plageHoraireDeb, plageHoraireFin) \n: plageAgenda
+!define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, dateJour)\n: Liste<PlageAgenda>, Liste<TacheElementaire>,\n  Liste<TypeActivite>
+!define SM_AnnulerRdv AnnulerRdv(idPlageAgenda)\n: void
 !define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: plageAgenda
 !define SM_MettreAJourNbContactsPotentiels MajNbContactsPotentiels(idAgent, Liste<idPlageAgenda>)\n: void
 !define SM_IdentifierContact IdentifierContact(idContact)\n: Contact
@@ -230,7 +231,8 @@
 ' SOM Contact
 !define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(idClient)\n: Liste<ContactPrevu>
 !define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent,\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
-!define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
+!define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<ContactPrevu>
+!define SOM_AnnulerRdvContact AnnulerRdv(idContactRealise, idPlageAgenda)\n: void
 
 ' SOM Produit
 !define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: offre, Liste<Produit>
@@ -243,26 +245,28 @@
 ' SOM Agenda
 !define SOM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: plageAgenda
 !define SOM_DetailPlageAgenda DetailPlageAgenda(idPlageAgenda)\n: plageAgenda
+!define SOM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Liste<PlageAgenda>, Liste<TacheElementaire,\n  Liste<TypeActivite>
+!define SOM_ObtenirAgendaQuotidien ObtenirAgendaAgence(idAgence, dateJour)\n: Liste<PlageAgenda>, Liste<TacheElementaire>,\n  Liste<TypeActivite>
+!define SOM_ReaffecterRdv ReaffecterRdv(idPlageAgenda, idAgent)\n: void
+!define SOM_ObtenirDetailsRdv ObtenirDetailsRdv(idPlageAgenda)\n: plageAgenda, agent, contactRealise,\n  contactPrevu, motifDeContact, client
+!define SOM_ModifierPlageHoraire ModifierPlageHoraire(idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin)\n: plageAgenda
+!define SOM_AnnulerRdv AnnulerRdv(idPlageAgenda)\n: void
 
 !define SOM_TraiterEvt RecupererEvenementNonTraite()\n: evenement, idClient
 !define SOM_GenererMotif GenererMotifContact(idEvenement)\n: motif
 !define SOM_GenererContactPrevu GenererContactPrevu(idClient, idMotif, idEvenement)\n: contact
 !define SOM_ObtenirDossierClient ObtenirDetailsContact(idContact)\n: motif, etat, etc.
-!define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: agent, Liste<Contact>
+!define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: agent, Liste<ContactPrevu>
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
-!define SOM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
-!define SOM_GrouperContacts GrouperContacts(Liste<idContactPrevus>)\n: void
+!define SOM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<ContactRealise>
+!define SOM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
 !define SOM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SOM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SOM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SOM_ConduireRdv ConduireRdv(idContact)\n: void
-!define SOM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, idSemaine)\n: Agenda
 !define SOM_ReaffecterRdv ReaffecterRdv(idRdv, idAutreAgent)\n: void
-!define SOM_ObtenirDetailsRdv ObtenirDetailsRdv(idRdv)\n: motif, date, etc.
-!define SOM_ModifierPlageHoraire ModifierPlageHoraire(datePlageHoraireDeb, datePlageHoraireFin)\n: Agenda
-!define SOM_ObtenirAgendaQuotidien ObtenirAgendaQuotidien(idAgence, date)\n: Agenda
-!define SOM_AnnulerRdv AnnulerRdv(idRdv)\n: void
+
 
 ''''''''''
 '  EdF   '

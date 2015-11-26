@@ -1,0 +1,46 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+title Diagramme de séquence détaillé du CU 7\n----\nActions agenda\n----
+
+actor "ACTEUR_USER"
+
+alt réaffecter rdv
+    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
+
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
+    "ACTEUR_SI" -> Structure : SOM_ObtenirAgentsStructure
+
+    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ReaffecterRDV
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
+    "ACTEUR_SI" -> Agenda : SOM_ReaffecterRdv
+
+	else consulter détails rdv
+	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirDetailsRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
+		"ACTEUR_SI" -> Agenda : SOM_ObtenirDetailsRdv
+		Agenda -> Contact : SOM_ObtenirDetailsContact
+		Contact -> Client : SOM_ObtenirClient
+        Contact -> Structure : SOM_ObtenirAgent
+        Contact -> Produit : SOM_DetailOffre
+
+	else modifier plage horaire
+	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
+	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ModifierPlageHoraire
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
+		"ACTEUR_SI" -> Agenda : SOM_ModifierPlageHoraire
+
+	else annuler rdv
+	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
+		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AnnulerRDV
+		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
+		"ACTEUR_SI" -> Agenda : SOM_AnnulerRdv
+		Agenda -> Contact : SOM_AnnulerRdvContact
+	end
+
+@enduml

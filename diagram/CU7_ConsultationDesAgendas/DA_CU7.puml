@@ -12,7 +12,7 @@ note left: ACTEUR_AGENT
 "LB_ConsulterAgendaQuotidien" --> "LB_AnnulerRDV"
 "LB_ConsulterAgendaQuotidien" --> "LB_ReaffecterRDV"
 "LB_ChangerAgent" --> "LB_ConsulterAgendaHebdomadaire"
-note left: Par défaut, l'agent connecté
+note left: Par défaut, l'agent est connecté
 "LB_ConsulterAgendaHebdomadaire" --> "LB_ChangerAgent"
 "LB_ConsulterAgendaHebdomadaire" --> "LB_ChangerSemaine"
 "LB_ChangerSemaine" --> "LB_ConsulterAgendaHebdomadaire"
