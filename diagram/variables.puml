@@ -280,4 +280,6 @@
 !define V_ContactOngletCR Onglet compte-rendu 
 !define V_PopupAffecterContact Popup d'affectation d'un agent au contact
 !define V_PopupAjouterOffre Popup d'ajout d'une offre
+!define V_VuePersonnes Liste des personnes
+!define V_VuePersonne Vue donnant les détails d'une personne 
 

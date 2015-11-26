@@ -80,7 +80,13 @@ state "Application" as application {
 
   }
 
-  state "V_OngletPersonnes" as S_OngletPersonnes
+  state "V_OngletPersonnes" as S_OngletPersonnes {
+      state "V_VuePersonnes" as S_VuePersonnes
+      state "V_VuePersonne" as S_VuePersonne
+
+      S_VuePersonnes --> S_VuePersonne
+      S_VuePersonne --> S_VuePersonnes
+  }
 
   state "V_OngletContacts" as S_OngletContacts {
       state "V_VueContacts" as S_VueContacts
