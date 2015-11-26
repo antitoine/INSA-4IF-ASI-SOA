@@ -1,0 +1,35 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+title Diagramme de séquence détaillé du CU 6 (partie client)\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RechercheClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_RechercherClient
+"ACTEUR_SI" -> "Client" : SOM_RechercherClient
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClientSpontane
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_VoirPlagesLibres
+"ACTEUR_SI" -> "Agenda" : SOM_VoirPlagesLibres
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_InformationsContactSpontane
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerContactSpontane
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerContactSpontane
+"ACTEUR_SI" -> "Contact" : SOM_CreerContactSpontane
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_InformationsRDVSpontane
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerRDVSpontane
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerRDVSpontane
+"ACTEUR_SI" -> "Agenda" : SOM_CreerRDVSpontane
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EcrireLettreConfirmation
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_EditerLettreConfirmation
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EditerLettreConfirmation
+"ACTEUR_SI" -> "Contact" : SOM_EditerLettreConfirmation
+
+@enduml
