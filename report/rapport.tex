@@ -1,86 +1,24 @@
-%%% Preamble
-\documentclass[paper=a4, fontsize=11pt]{report}
+\input{preambule}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{fourier}
-\usepackage[french]{babel}
-\usepackage[protrusion=true,expansion=true]{microtype}	
-\usepackage{amsmath,amsfonts,amsthm} % Math packages
-\usepackage[pdftex]{graphicx}	
-\usepackage{url}
-\usepackage{pdfpages}
-\usepackage{todonotes}
-\usepackage[a4paper, body={16cm,23cm}]{geometry}
-\usepackage{float}
-\usepackage{framed}
-\usepackage[toc,page]{appendix} 
-\usepackage{multicol}
-\usepackage{colortbl}
+%%  ========   IMPORTANT ========
+%% Indiquer ici les parties que vous voulez compilez
+\includeonly{
+	conception,
+	cu,
+	ihm,
+	validation,
+	conclusion 
+}
 
-%%% Custom sectioning
-\usepackage{sectsty}
-\allsectionsfont{  \normalfont\scshape}
-%\allsectionsfont{\centering \normalfont\scshape}
-
-%%% Custom headers/footers (fancyhdr package)
-\usepackage{fancyhdr}
-\pagestyle{fancyplain}
-\fancyhead{}								% No page header
-\fancyfoot[L]{}							% Empty 
-\fancyfoot[C]{}							% Empty
-\fancyfoot[R]{\thepage}					% Pagenumbering
-\renewcommand{\headrulewidth}{0pt}		% Remove header underlines
-\renewcommand{\footrulewidth}{0pt}		% Remove footer underlines
-\setlength{\headheight}{13.6pt}
-
-
-%%% Equation and float numbering
-\numberwithin{equation}{section}		% Equationnumbering: section.eq#
-\numberwithin{figure}{section}		% Figurenumbering: section.fig#
-\numberwithin{table}{section}		% Tablenumbering: section.tab#
-
-
-%%% Define new commands
-\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
-\renewcommand{\bf}[1]{\textbf{#1}}
-\renewcommand{\it}[1]{\textit{#1}}
-\newcommand{\bfit}[1]{\textbf{\textit{#1}}}
-
-\newcommand{\Todo}[1]{\todo[inline]{#1}}
-\renewcommand{\thesection}{\thepart .\arabic{section}}
-
-\usepackage{cases}
-\usepackage{color}
-\usepackage{xcolor}
-\usepackage{relsize}
-
-\usepackage{caption}
-\DeclareCaptionFont{white}{\color{white}}
-\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
-\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
-
-\usepackage[numbered]{mcode}
-
-\lstset{breaklines=true,columns=fullflexible}
-\colorlet{shadecolor}{black!10}
-
-\delimitershortfall-1sp
-\newcommand\abs[1]{\left|#1\right|}
 
 %%% Begin document
 \begin{document}
 \includepdf[pages={1}]{title.pdf}
 
 \tableofcontents
-
 \listoftodos
-
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \part{Introduction}
 \label{part:introduction}
 
@@ -89,7 +27,11 @@
 
 Ce document constitue la synthèse de l'ensemble des livrables devant être remis à la fin du projet ASI en 4IF.  
 
-\todo{Proposer l'ajout d'une association pour traduire le regroupement des contacts : ajouter une association entre contact prévu et contact prévu}
+\include{conception}
+\include{cu}
+\include{ihm}
+\include{validation}
+\include{conclusion}
 
 %%% End document
 \end{document}
