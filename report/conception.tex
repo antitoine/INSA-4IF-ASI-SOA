@@ -6,7 +6,7 @@
 \section{Données clients et produits} 
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/mcd/MCD_Clients_Produits}
 \caption{MCD Clients Produits}
@@ -14,12 +14,20 @@
 
 
 \section{Données commerciales}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/mcd/MCD_Commercial}
 \caption{MCD Commercial}
 \end{figure}
 \section{Diagramme d’état de l'objet métier 'contacts'}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/diag_etats_contact}
+\caption{Diagramme d'état de l'objet métier contact}
+\end{figure}
+
+
+
 \section{Architecture technique}
 
 \todo{Relire l'intégralité de cette section}
@@ -83,4 +91,3 @@ Etant donnée la répartition des serveurs précédemment exposée et la contrai
 
 Si nous considérons les flux de données, relatifs à des opérations classiques, induits par ces différents choix nous obtenons les résultats suivants. Une opération de consultation ou d'édition de l'agenda ne ferait intervenir que les serveurs situés au niveau de l'agence. Seules les opérations de consultation d'un client ou d'un produit feront intervenir les serveurs du site central. Enfin, la réplication des clients concernant une agence rattachée à une agence principale permettrait de gérer les évènement concernant les clients au niveau des agences principales également.
 Du point de vue de la sécurité du système il est également intéressant de noter que la répartition choisie permet une bonne segmentation des données. Par exemple, la corruption d'un système au niveau d'une agence principale ne permettrait pas d'accèder aux agendas de toutes les agences ni à la liste de tous les clients. De même les informations confidentielles concernant les clients seront toutes stockées au siège ce qui permettra une protection efficace de ces dernières. Dans le cas d'une corruption de ce système central, l'attaquant ne sera pas forcément en mesure de consulter les agendas des agences. Cette architecture nécessite par contre des protections adéquates des communications entre les différents systèmes distribués.
-
