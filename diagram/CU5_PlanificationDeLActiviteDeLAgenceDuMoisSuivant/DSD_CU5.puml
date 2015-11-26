@@ -1,0 +1,24 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+title DSD du CU 5\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgenda
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ModePlanification
+alt ajouter une plage
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectPlage
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectActivite
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerPlage
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerPlageAgenda
+	"ACTEUR_SI" -> Agenda : SOM_CreerPlageAgenda
+
+else terminer la planification
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_SortirPlanification
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_MettreAJourNbContactsPotentiels
+	"ACTEUR_SI" -> Structure : SOM_MettreAJourNbContactsPotentiels
+	Structure -> Agenda : SOM_DetailPlageAgenda
+end
+
+@enduml
