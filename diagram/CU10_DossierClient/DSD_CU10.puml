@@ -1,0 +1,84 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+title DSD - CU 10\n----
+
+Actor "ACTEUR_USER"
+ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_IdentifierClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDossierClient
+"ACTEUR_SI" -> Client : SOM_ObtenirClient
+
+opt Bilan
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterBilanClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterBilanClient
+    "ACTEUR_SI" -> Client : SOM_ConsulterBilanClient
+    Client -> Personne : SOM_ObtenirPersonne
+
+    opt
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Personne
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDetailsPersonne
+        "ACTEUR_SI" -> Personne : SOM_ObtenirPersonne
+
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJPersonne
+        "ACTEUR_SI" -> Personne : SOM_MAJPersonne
+    else
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Informations
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_RecupererPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_RecupererPersonne
+        "ACTEUR_SI" -> Personne : SOM_TrouverPersonne
+        Personne -> Structure : SOM_ObtenirAgenceId
+
+        opt
+            "ACTEUR_USER" -> "ACTEUR_IHM" : LB_AjouterPersonne
+            "ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPersonne
+            "ACTEUR_SI" -> Client : SOM_AjouterPersonne
+        else
+            "ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerNouvellePersonne
+            "ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerEtAjouterNouvellePersonne
+            "ACTEUR_SI" -> Client : SOM_AjouterPersonne
+            Client -> Personne : SOM_CreerPersonne
+        end
+    else
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_SupprPersonne
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_SupprimerPersonne
+        "ACTEUR_SI" -> Client : SOM_SupprimerPersonne
+    end
+else
+    "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Nouvelle Entete
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteEnteteClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJEnteteDossier
+    "ACTEUR_SI" -> Client : SOM_MajEnteteDossier
+end
+opt Produits
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulerProduitsClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirProduits
+    "ACTEUR_SI" -> Client : SOM_ObtenirProduits
+    Client -> Produit : SOM_ObtenirProduit
+
+    opt Details compte
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Compte
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsCompte
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailCompte
+        "ACTEUR_SI" -> "Client" : SOM_ObtenirCompte
+    end
+
+    opt Détail Produit / Sélectionner Produit
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsProduit
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailProduit
+        "ACTEUR_SI" -> "Produit" : SOM_ObtenirProduit
+    end
+
+    opt Mise à jour compte
+        "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Informations
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteConcurrence
+        "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJComptesConcurrence
+        "ACTEUR_SI" -> Client : SOM_MAJComptesConcurrence
+    end
+
+end
+
+
+@enduml

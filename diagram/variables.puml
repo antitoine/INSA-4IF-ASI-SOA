@@ -202,12 +202,12 @@
 !define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact)\n: void
 !define SM_ConsulterDossierClient ConsulterDossierClient(idClient)\n: numero, denomination, adresse postale
 !define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n: cotationsClient, liste Personnes
-!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPers)\n: données signalétiques...logement
+!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPersonne)\n: données signalétiques...logement
 !define SM_MAJPersonne MettreAJourPersonne(idPers,...)\n: void
-!define SM_RecupererPersonne RecupererPersonne(nom, prenom, agence)\n: Personne
+!define SM_RecupererPersonne RecupererPersonne(nom, prenom, agence)\n: personne
 !define SM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
-!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(infos, idClient)\n: Personne
-!define SM_SupprimerPersonne SupprimerPersonne(idPers)\n: void
+!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(infos, idClient)\n: personne
+!define SM_SupprimerPersonne SupprimerPersonne(idClient, idPersonne)\n: void
 !define SM_MAJEnteteDossier MAJEnteteDossier\n(idClient, numero, denomination, adressePostale)\n: void
 !define SM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
 !define SM_ObtenirDetailCompte ObtenirDetailCompte(idCompte)\n: details, historique
@@ -224,9 +224,22 @@
 ' Services Objet Metier '
 '''''''''''''''''''''''''
 
+' SOM Personne
+!define SOM_ObtenirPersonne ObtenirPersonne(idPersonne)\n: personne
+!define SOM_MAJPersonne MajPersonne(idPersonne, nouvelles informations)\n: void
+!define SOM_TrouverPersonne TrouverPersonne(nom, prenom, agence)\n: personne
+!define SOM_CreerPersonne CreerPersonne(infos)\n: personne
+
 ' SOM Client
 !define SOM_ObtenirClientsStructure ObtenirClientsAgence(idAgence)\n: Liste<Client>
 !define SOM_ObtenirClient ObtenirClient(idClient)\n: client
+!define SOM_ConsulterBilanClient ConsulterDetailClient(idClient)\n: client, Liste<Personne>
+!define SOM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
+!define SOM_SupprimerPersonne SupprimerPersonne(idClient, idPersonne)\n: void
+!define SOM_MajEnteteDossier MajEnteteDossier(idClient, numero, denomination, adressePostale)\n: void
+!define SOM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
+!define SOM_ObtenirCompte ObtenirCompte(idCompte)\n: compte
+!define SOM_MAJComptesConcurrence MajComptesConcurrence(idClient, txtComptesConcurrence)\n: void
 
 ' SOM Contact
 !define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(idClient)\n: Liste<ContactPrevu>
@@ -236,11 +249,13 @@
 
 ' SOM Produit
 !define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: offre, Liste<Produit>
+!define SOM_ObtenirProduit ObtenirProduit(idProduit)\n: produit
 
 ' SOM Structure
 !define SOM_ObtenirAgentsStructure ObtenirAgents(idAgence)\n: Liste<Agent>
 !define SOM_ObtenirAgent ObtenirAgent(idAgent)\n: agent
 !define SOM_MettreAJourNbContactsPotentiels MajNbContactsPotentiels(idAgent, Liste<idPlageAgenda>)\n: void
+!define SOM_ObtenirAgenceId ObtenirAgenceId(nom)\n: agenceId
 
 ' SOM Agenda
 !define SOM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: plageAgenda
