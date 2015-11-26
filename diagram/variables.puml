@@ -28,7 +28,6 @@
 ' CU2 '
 '''''''
 !define LB_ListeContacts Consulter la liste des contacts\n prévus de l'agence
-!define LB_DetailContact Consulter le détail d'un contact
 !define LB_DossierClient Consulter le dossier client du contact\n(CU10)
 !define LB_AffecterAgent Affecter le contact à l'agent sélectionné
 !define NOTE_IncContact Mise à jour des indicateurs,\ndont un nouvel indicateur\ncorrespondant au nombre de\ncontacts affectés à l'agent
@@ -39,11 +38,12 @@
 ' CU3 '
 '''''''
 !define LB_ContactsAgent Consulter les contacts d'un agent
-!define LB_DetailContact Détails d'un contact
 
 '''''''
 ' CU4 '
 '''''''
+!define LB_Ref_DetailContact Consulter le détail d'un contact\n(CU 4)
+!define LB_DetailContact Consulter le détail d'un contact
 !define LB_ListeContactsATraiter Consulter la liste des contacts à traiter de l'agent
 !define LB_RegrouperContacts Regrouper les contacts\n(si même client)
 !define LB_RaisonAnnulation Enregistrer le motif d'annulation
@@ -168,17 +168,16 @@
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
-'' TODO Retourner que des blocs (à vérifier)
 !define SM_GenererContacts GenererContacts(void)\n: void
-!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idStructure)\n: Liste <Contact>
-!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: Details
+!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idAgence)\n: Liste <Contact>
+!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: Client
 !define SM_ObtenirAgents ObtenirAgents(idAgence)\n: Liste<Agent>
-!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: Details
+!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: agent, Liste<Contact>
 !define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
 !define SM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
-!define SM_GrouperContacts GrouperContacts(Liste<idContact>)\n: void
+!define SM_GrouperContacts GrouperContacts(Liste<idContactPrevus>)\n: void
 !define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
@@ -223,19 +222,31 @@
 '''''''''''''''''''''''''
 ' Services Objet Metier '
 '''''''''''''''''''''''''
+
+' SOM Client
+!define SOM_ObtenirClientsStructure ObtenirClientsAgence(idAgence)\n: Liste<Client>
+!define SOM_ObtenirClient ObtenirClient(idClient)\n: client
+
+' SOM Contact
+!define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(idClient)\n: Liste<ContactPrevu>
+!define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent,\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
+!define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
+
+' SOM Produit
+!define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: offre, Liste<Produit>
+
+' SOM Structure
+!define SOM_ObtenirAgentsStructure ObtenirAgents(idAgence)\n: Liste<Agent>
+!define SOM_ObtenirAgent ObtenirAgent(idAgent)\n: agent
+
 !define SOM_TraiterEvt RecupererEvenementNonTraite()\n: evenement, idClient
 !define SOM_GenererMotif GenererMotifContact(idEvenement)\n: motif
 !define SOM_GenererContactPrevu GenererContactPrevu(idClient, idMotif, idEvenement)\n: contact
-!define SOM_ObtenirAgents ObtenirAgents(idStructure)\n: Liste<idAgent>
-!define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(Liste<idAgent>)\n: Liste<Contact>
-!define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: motif, etat, etc.
 !define SOM_ObtenirDossierClient ObtenirDetailsContact(idContact)\n: motif, etat, etc.
-!define SOM_ObtenirAgents ObtenirAgents(idStructure)\n: Liste<idAgent>
-!define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: nom, potentiel, objectif, etc.
+!define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: agent, Liste<Contact>
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
-!define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
 !define SOM_ObtenirContactsAffectes ObtenirContactsAffectes(idAgent)\n: Liste<Contact>
-!define SOM_GrouperContacts GrouperContacts( Liste<idContact>)\n: void
+!define SOM_GrouperContacts GrouperContacts(Liste<idContactPrevus>)\n: void
 !define SOM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SOM_PrendreRdv PrendreRdv(idContact)\n: void
