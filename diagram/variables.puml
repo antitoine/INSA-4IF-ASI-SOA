@@ -10,7 +10,7 @@
 ' Acteurs DSS '
 '''''''''''''''
 !define ACTEUR_SI Système d'Information
-!define ACTEUR_STS Tâches programmées\ndu système
+!define ACTEUR_STS Tâches quotidienne\nsystème
 !define ACTEUR_USER Utilisateur
 !define ACTEUR_IHM Interface Utilisateur
 
@@ -275,9 +275,9 @@
 !define SOM_VoirPlagesLibres ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
 !define SOM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: plageAgenda
 
-!define SOM_TraiterEvt RecupererEvenementNonTraite()\n: evenement, idClient
+!define SOM_TraiterEvt RecupererEvenementsATraiter()\n: Liste<Evenement, idClient>
 !define SOM_GenererMotif GenererMotifContact(idEvenement)\n: motif
-!define SOM_GenererContactPrevu GenererContactPrevu(idClient, idMotif, idEvenement)\n: contact
+!define SOM_GenererContactPrevu GenererContactPrevu(idClient, idEvenement)\n: void
 !define SOM_ObtenirDossierClient ObtenirDetailsContact(idContact)\n: motif, etat, etc.
 !define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: agent, Liste<ContactPrevu>
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
