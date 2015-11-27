@@ -9,13 +9,18 @@ actor "ACTEUR_USER"
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContactsATraiter
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffectes
 "ACTEUR_SI" -> Contact : SOM_ObtenirContactsAffectes
+loop Pour chaque contact
+	Contact -> Structure : SOM_ObtenirAgent
+	Contact -> Agenda : SOM_ObtenirPlageAgenda
+	Contact -> Client : SOM_ObtenirClient
+end
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
 alt sélection d'autres contacts d'un même client
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContacts
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RegrouperContacts
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_GrouperContacts
-	"ACTEUR_SI" -> Client : SOM_GrouperContacts
+	"ACTEUR_SI" -> Contact : SOM_GrouperContacts
 else sélection d'un seul contact
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact
@@ -26,15 +31,13 @@ else sélection d'un seul contact
     Contact -> Produit : SOM_DetailOffre
 
 	alt annulation contact
+		"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_MotifAnnulation
+		
 		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AnnulerContact
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerContact
 		"ACTEUR_SI" -> Contact : SOM_AnnulerContact
 		Contact -> Agenda : SOM_AnnulerContact
 
-		"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_MotifAnnulation
-		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RaisonAnnulation
-		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerMotifAnnulation
-		"ACTEUR_SI" -> Contact : SOM_EnregistrerMotifAnnulation
 	else prise RDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_PrendreRDV
 	else preparation RDV

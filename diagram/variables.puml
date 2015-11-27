@@ -172,16 +172,15 @@
 '''''''''''''''''''
 !define SM_GenererContacts GenererContacts(void)\n: void
 !define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idAgence)\n: Liste <Contact, PlageAgenda, Agent, Client>
-!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
+!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, Client, agent,\nListe<PropositionCommerciale, Offre, Liste<Produit>>
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: Client
 !define SM_ObtenirAgents ObtenirAgents(idAgence)\n: Liste<Agent>
 !define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: agent, Liste<Contact>
 !define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
-!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<Contact>
+!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste <Contact, PlageAgenda, Agent, Client>
 !define SM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
-!define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
-!define SM_AnnulerContact AnnulerContact(idContact)\n: void
+!define SM_AnnulerContact AnnulerContact(idContact, motif)\n: void
 !define SM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SM_ConduireRdv ConduireRdv(idContact)\n: void
@@ -249,7 +248,7 @@
 !define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(idClient)\n: Liste<Contact>
 !define SOM_ObtenirContactsAgence ObtenirContactsAgence(idAgence)\n: Liste<Contact, idAgent, idPlageAgenda, idClient>
 !define SOM_ObtenirPlageAgenda ObtenirPlageAgenda(idPlageAgenda)\n: PlageAgenda
-!define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent,\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
+!define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: Contact, MotifDeContact, idClient, idAgent,\nListe<PropositionCommerciale, idOffre>
 !define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<ContactPrevu>
 !define SOM_AnnulerRdvContact AnnulerRdv(idContactRealise, idPlageAgenda)\n: void
 !define SOM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: contactPrevu, contactRealise
@@ -257,7 +256,7 @@
 !define SOM_ConsulterPropositionsHistorique ConsulterPropositionsHistorique(idClient)\n: Liste<PropositionCommerciale>, Liste<Contact>
 
 ' SOM Produit
-!define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: offre, Liste<Produit>
+!define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: Offre, Liste<Produit>
 !define SOM_ObtenirProduit ObtenirProduit(idProduit)\n: produit
 
 ' SOM Structure
@@ -287,8 +286,7 @@
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SOM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<Contact>
 !define SOM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
-!define SOM_AnnulerContact AnnulerContact(idContact)\n: void
-!define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
+!define SOM_AnnulerContact AnnulerContact(idContact, motif)\n: void
 !define SOM_PrendreRdv PrendreRdv(idContact)\n: void
 !define SOM_PreparerRdv PreparerRdv(idContact)\n: void
 !define SOM_ConduireRdv ConduireRdv(idContact)\n: void
