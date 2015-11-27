@@ -9,10 +9,11 @@
 '''''''''''''''
 ' Acteurs DSS '
 '''''''''''''''
-!define ACTEUR_SI Système d'Information
-!define ACTEUR_STS Tâches programmées\ndu système
-!define ACTEUR_USER Utilisateur
-!define ACTEUR_IHM Interface Utilisateur
+!define ACTEUR_SI SMA
+!define ACTEUR_STS Tâches quotidienne\nsystème
+!define ACTEUR_USER Agent
+!define ACTEUR_CHEF Chef d'agence
+!define ACTEUR_IHM IHM
 
 '''''''''''''''' CU '''''''''''''''
 
@@ -175,14 +176,14 @@
 ' Services Metier '
 '''''''''''''''''''
 !define SM_GenererContacts GenererContacts(void)\n: void
-!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idAgence)\n: Liste <Contact>
+!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idAgence)\n: Liste <Contact, PlageAgenda, Agent, Client>
 !define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
 !define SM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: Client
 !define SM_ObtenirAgents ObtenirAgents(idAgence)\n: Liste<Agent>
-!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: agent, Liste<ContactPrevu>
+!define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: agent, Liste<Contact>
 !define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
-!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<ContactRealise>
+!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<Contact>
 !define SM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
 !define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
@@ -239,7 +240,7 @@
 
 ' SOM Client
 !define SOM_ObtenirClientsStructure ObtenirClientsAgence(idAgence)\n: Liste<Client>
-!define SOM_ObtenirClient ObtenirClient(idClient)\n: client
+!define SOM_ObtenirClient ObtenirClient(idClient)\n: Client
 !define SOM_ConsulterBilanClient ConsulterDetailClient(idClient)\n: client, Liste<Personne>
 !define SOM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
 !define SOM_SupprimerPersonne SupprimerPersonne(idClient, idPersonne)\n: void
@@ -251,7 +252,9 @@
 !define SOM_ConsulterInfosRelationClient ConsulterInfosRelationClient(idClient)\n: technique de contact, incidents, réclamations
 
 ' SOM Contact
-!define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(idClient)\n: Liste<ContactPrevu>
+!define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(idClient)\n: Liste<Contact>
+!define SOM_ObtenirContactsAgence ObtenirContactsAgence(idAgence)\n: Liste<Contact, idAgent, idPlageAgenda, idClient>
+!define SOM_ObtenirPlageAgenda ObtenirPlageAgenda(idPlageAgenda)\n: PlageAgenda
 !define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: contact, motifDeContact, client, agent,\nListe<PropositionCommerciale>,\nListe<Offre>, Liste<Produit>
 !define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<ContactPrevu>
 !define SOM_AnnulerRdvContact AnnulerRdv(idContactRealise, idPlageAgenda)\n: void
@@ -265,9 +268,10 @@
 
 ' SOM Structure
 !define SOM_ObtenirAgentsStructure ObtenirAgents(idAgence)\n: Liste<Agent>
-!define SOM_ObtenirAgent ObtenirAgent(idAgent)\n: agent
+!define SOM_ObtenirAgent ObtenirAgent(idAgent)\n: Agent
 !define SOM_MettreAJourNbContactsPotentiels MajNbContactsPotentiels(idAgent, Liste<idPlageAgenda>)\n: void
 !define SOM_ObtenirAgenceId ObtenirAgenceId(nom)\n: agenceId
+!define SOM_MettreAJourNbContactsAffectes MettreAJourNbContactsAffectes(idAgent)\n: void
 
 ' SOM Agenda
 !define SOM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: plageAgenda
@@ -281,13 +285,13 @@
 !define SOM_VoirPlagesLibres ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
 !define SOM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: plageAgenda
 
-!define SOM_TraiterEvt RecupererEvenementNonTraite()\n: evenement, idClient
+!define SOM_TraiterEvt RecupererEvenementsATraiter()\n: Liste<Evenement, idClient>
 !define SOM_GenererMotif GenererMotifContact(idEvenement)\n: motif
-!define SOM_GenererContactPrevu GenererContactPrevu(idClient, idMotif, idEvenement)\n: contact
-!define SOM_ObtenirDossierClient ObtenirDetailsContact(idContact)\n: motif, etat, etc.
+!define SOM_GenererContactPrevu GenererContactPrevu(idClient, idEvenement)\n: void
+!define SOM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: motif, etat, etc.
 !define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: agent, Liste<ContactPrevu>
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
-!define SOM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<ContactRealise>
+!define SOM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<Contact>
 !define SOM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
 !define SOM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void

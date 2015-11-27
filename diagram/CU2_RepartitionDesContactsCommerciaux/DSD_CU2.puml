@@ -5,33 +5,33 @@
 
 title Diagramme de séquence détaillé du CU 2\n----
 
-actor "ACTEUR_USER"
+actor "ACTEUR_CHEF"
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContacts
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ListeContacts
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsPrevus
-"ACTEUR_SI" -> Client : SOM_ObtenirClientsStructure
-Client -> Contact : SOM_ObtenirContactsPrevus
+"ACTEUR_SI" -> Contact : SOM_ObtenirContactsAgence
+loop Pour chaque contact
+	Contact -> Structure : SOM_ObtenirAgent
+	Contact -> Agenda : SOM_ObtenirPlageAgenda
+	Contact -> Client : SOM_ObtenirClient
+end
 
-    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
+    "ACTEUR_CHEF" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
 
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_Ref_DetailContact
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_Ref_DetailContact
 
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_DossierClient
 
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ListeAgents
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
 	"ACTEUR_SI" -> Structure : SOM_ObtenirAgentsStructure
 
-	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
-
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailAgent
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsAgent
-	"ACTEUR_SI" -> Structure : SOM_ObtenirDetailsAgent
-	Structure -> Contact : SOM_ObtenirContactsAgent
-
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AffecterAgent
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
+	
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_AffecterAgent
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AffecterContact
 	"ACTEUR_SI" -> Contact : SOM_AffecterContact
+	"ACTEUR_SI" -> Structure : SOM_MettreAJourNbContactsAffectes
 
 
 @enduml
