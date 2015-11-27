@@ -9,11 +9,11 @@ state "V_LoginPage" as S_LoginPage
 
 state "Application" as application {
 
-
   state "V_OngletClient" as S_OngletClient {
       state "V_DossierEditable" as S_DossierEditable
       state "V_DossierNonEditable" as S_DossierNonEditable
 
+      [*] -right-> S_DossierNonEditable
       S_DossierEditable --left--> S_DossierNonEditable
       S_DossierNonEditable --> S_DossierEditable
 
@@ -23,6 +23,7 @@ state "Application" as application {
       state "V_ProduitClient" as S_ProduitClient
       state "V_RelationsClient" as S_RelationsClient
 
+      [*] --> S_ResultatRecherche
       S_ResultatRecherche --> S_BilanDossierClient
       S_BilanDossierClient -left-> S_ProduitClient
       S_BilanDossierClient -right-> S_RelationsClient
@@ -36,10 +37,13 @@ state "Application" as application {
       state "V_ModeConsultation" as S_ModeConsultation
       state "V_ModePlanification" as S_ModePlanification
 
+      [*] -left-> S_ModeConsultation
       S_ModeConsultation --left--> S_ModePlanification
       S_ModePlanification --> S_ModeConsultation
 
       --
+
+      [*] --> S_OngletAgendaAgent
       state "V_OngletAgendaAgence" as S_OngletAgendaAgence
       state "V_OngletAgendaAgent" as S_OngletAgendaAgent
       state "V_PopupConsultationTache" as S_PopupConsultationTache
@@ -84,6 +88,7 @@ state "Application" as application {
       state "V_VuePersonnes" as S_VuePersonnes
       state "V_VuePersonne" as S_VuePersonne
 
+      [*] --> S_VuePersonnes
       S_VuePersonnes --> S_VuePersonne
       S_VuePersonne --> S_VuePersonnes
   }
@@ -97,6 +102,8 @@ state "Application" as application {
           state "V_PopupAffecterContact" as S_PopupAffecterContact
           state "V_PopupAjouterOffre" as S_PopupAjouterOffre
 
+
+          [*] -left-> S_ContactOngletPreparation 
           S_ContactOngletPreparation -left-> S_ContactOngletCR
           S_ContactOngletCR --> S_ContactOngletPreparation
 
@@ -107,6 +114,7 @@ state "Application" as application {
           S_PopupAjouterOffre --> S_ContactOngletPreparation
       }
 
+      [*] --> S_VueContacts
       S_VueContacts -down-> S_VueContact
       S_VueContact --> S_VueContacts
   }

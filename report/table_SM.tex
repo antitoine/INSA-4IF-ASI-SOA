@@ -3,69 +3,102 @@
     \centering
     \scalebox{0.8}{
         \begin{tabular}{p{1cm}|p{5cm}p{6cm}p{6cm}}
-        Numéro SM & Nom & Arguments & Valeur de retour \\ \hline
-        1  & GenererContacts                    & void                                                          & void \\ \hline
-        2  & ObtenirContactsPrevus              & idAgence                                                      & Liste <Contact> \\ \hline
-        3  & ObtenirDetailsContact              & idContact                                                     & contact, motifDeContact, client, agentListe<PropositionCommerciale>, Liste<Offre>, Liste<Produit>\\ \hline
-        4  & ObtenirDossierClient               & idClient                                                      & Client\\ \hline
-        5  & ObtenirAgents                      & idAgence                                                      & Liste<Agent>\\ \hline
-        6  & ObtenirDetailsAgent                & idAgent                                                       & agent, Liste<ContactPrevu>\\ \hline
-        7  & AffecterContact                    & idContact, idAgent                                            & void\\ \hline
-        8  & ObtenirContactsAgent               & idAgent                                                       & Liste<Contact>\\ \hline
-        9  & ObtenirContactsATraiter            & idAgent                                                       & Liste<ContactRealise>\\ \hline
-        10 & GrouperContacts                    & idContactPrincipal, Liste<idContactPrevus>                    & void\\ \hline
-        11 & EnregistrerMotifAnnulation         & idContact, motif                                              & void\\ \hline
-        12 & AnnulerContact                     & idContact                                                     & void\\ \hline
-        13 & PrendreRdv                         & idContact                                                     & void\\ \hline
-        14 & PreparerRdv                        & idContact                                                     & void\\ \hline
-        15 & ConduireRdv                        & idContact                                                     & void\\ \hline
-        16 & ObtenirAgendaAgent                 & idAgent, numSemaine, annee                                    & Liste<PlageAgenda>, Liste<TacheElementaire>, Liste<TypeActivite> \\ \hline
-        17 & ReaffecterRdv                      & idPlageAgenda, idAgent                                        & void\\ \hline
-        18 & ObtenirDetailsRdv                  & idPlageAgenda                                                 & plageAgenda, agent, contactRealise,  contactPrevu, motifDeContact, client\\ \hline
-        19 & ModifierPlageHoraire               & idPlageAgenda, plageHoraireDeb, plageHoraireFin               & plageAgenda\\ \hline
-        20 & ObtenirAgendaAgence                & idAgence, dateJour                                            & Liste<PlageAgenda>, Liste<TacheElementaire>,  Liste<TypeActivite>\\ \hline
-        21 & AnnulerRdv                         & idPlageAgenda                                                 & void\\ \hline
-        22 & CreerPlageAgenda                   & idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin & plageAgenda\\ \hline
-        23 & MajNbContactsPotentiels            & idAgent, Liste<idPlageAgenda>                                 & void\\ \hline
-        24 & IdentifierContact                  & idContact                                                     & Contact\\ \hline
-        25 & MAJInfos                           & saisie, idClient                                              & void\\ \hline
-        26 & ObtenirOffres                      & void                                                          & Liste<Offre>\\ \hline
-        27 & ObtenirDetailsOffre                & idOffre                                                       & Details\\ \hline
-        28 & AjouterPropositionCommerciale      & idOffre, idContact                                            & void\\ \hline
-        29 & EnregistrerCompteRenduPreparation  & idContact                                                     & void\\ \hline
-        30 & ObtenirPropositionCommerciale      & idContact                                                     & Liste<PropositionCommerciale>\\ \hline
-        31 & EnregistrerRapportActivite         & idContact                                                     & void\\ \hline
-        32 & ConsulterDossierClient             & idClient                                                      & numero, denomination, adresse postale\\ \hline
-        33 & ConsulterBilanClient               & idClient                                                      & cotationsClient, liste Personnes\\ \hline
-        34 & ConsulterDetailPersonne            & idPersonne                                                    & données signalétiques...logement\\ \hline
-        35 & MettreAJourPersonne                & idPers,...                                                    & void\\ \hline
-        36 & RecupererPersonne                  & nom, prenom, agence                                           & personne\\ \hline
-        37 & AjouterPersonne                    & idClient, idPersonne                                          & void\\ \hline
-        38 & CreerEtAjouterNouvellePersonne     & infos, idClient                                               & personne\\ \hline
-        39 & SupprimerPersonne                  & idClient, idPersonne                                          & void\\ \hline
-        40 & MAJEnteteDossier                   & idClient, numero, denomination, adressePostale                & void\\ \hline
-        41 & ObtenirDetailCompte                & idCompte                                                      & details, historique\\ \hline
-        42 & ObtenirDetailProduit               & idProduit                                                     & details\\ \hline
-        43 & ObtenirProduits                    & idClient                                                      & Liste<Compte, Produit>\\ \hline
-        44 & MAJComptesConcurrence              & idClient, txtComptesConcurrence                               & void \\ \hline
-        45 & ObtenirPlagesLibres                & idAgent                                                       & Liste<PlageAgenda>\\ \hline
-        46 & AssocierPlageEtContact             & idPlage, idContact                                            & void\\ \hline
-        47 & EnregistrerLettreConfirmationRdv   & idContactRealise, lettre                                      & void\\ \hline
-        48 & RechercherClient                   & prenom, nom, etc                                              & client\\ \hline
-        49 & CreerContactSpontane               & idClient, idAgent, motifContact                               & contactPrevu, contactRealise\\ \hline
-        50 & CreerRDVSpontane                   & idContactRealise, date, commentaire                           & plageAgenda\\ 
+            Numéro SM & Nom & Arguments & Valeur de retour \\ \hline
+            1  & GenererContacts                    & void                                                          & void \\ \hline
+            2  & ObtenirContactsPrevus              & idAgence                                                      & Liste <Contact> \\ \hline
+            3  & ObtenirDetailsContact              & idContact                                                     & contact, motifDeContact, client, agentListe<PropositionCommerciale>, Liste<Offre>, Liste<Produit>\\ \hline
+            4  & ObtenirDossierClient               & idClient                                                      & Client\\ \hline
+            5  & ObtenirAgents                      & idAgence                                                      & Liste<Agent>\\ \hline
+            6  & ObtenirDetailsAgent                & idAgent                                                       & agent, Liste<ContactPrevu>\\ \hline
+            7  & AffecterContact                    & idContact, idAgent                                            & void\\ \hline
+            8  & ObtenirContactsAgent               & idAgent                                                       & Liste<Contact>\\ \hline
+            9  & ObtenirContactsATraiter            & idAgent                                                       & Liste<ContactRealise>\\ \hline
+            10 & GrouperContacts                    & idContactPrincipal, Liste<idContactPrevus>                    & void\\ \hline
+            11 & EnregistrerMotifAnnulation         & idContact, motif                                              & void\\ \hline
+            12 & AnnulerContact                     & idContact                                                     & void\\ \hline
+            13 & PrendreRdv                         & idContact                                                     & void\\ \hline
+            14 & PreparerRdv                        & idContact                                                     & void\\ \hline
+            15 & ConduireRdv                        & idContact                                                     & void\\ \hline
+            16 & ObtenirAgendaAgent                 & idAgent, numSemaine, annee                                    & Liste<PlageAgenda>, Liste<TacheElementaire>, Liste<TypeActivite> \\ \hline
+            17 & ReaffecterRdv                      & idPlageAgenda, idAgent                                        & void\\ \hline
+            18 & ObtenirDetailsRdv                  & idPlageAgenda                                                 & plageAgenda, agent, contactRealise,  contactPrevu, motifDeContact, client\\ \hline
+            19 & ModifierPlageHoraire               & idPlageAgenda, plageHoraireDeb, plageHoraireFin               & plageAgenda\\ \hline
+            20 & ObtenirAgendaAgence                & idAgence, dateJour                                            & Liste<PlageAgenda>, Liste<TacheElementaire>,  Liste<TypeActivite>\\ \hline
+            21 & AnnulerRdv                         & idPlageAgenda                                                 & void\\ \hline
+            22 & CreerPlageAgenda                   & idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin & plageAgenda\\ \hline
+            23 & MajNbContactsPotentiels            & idAgent, Liste<idPlageAgenda>                                 & void\\ \hline
+            24 & IdentifierContact                  & idContact                                                     & Contact\\ \hline
+            25 & MAJInfos                           & saisie, idClient                                              & void\\ \hline
+            26 & ObtenirOffres                      & void                                                          & Liste<Offre>\\ \hline
+            27 & ObtenirDetailsOffre                & idOffre                                                       & Details\\ \hline
+            28 & AjouterPropositionCommerciale      & idOffre, idContact                                            & void\\ \hline
+            29 & EnregistrerCompteRenduPreparation  & idContact                                                     & void\\ \hline
+            30 & ObtenirPropositionCommerciale      & idContact                                                     & Liste<PropositionCommerciale>\\ \hline
+            31 & EnregistrerRapportActivite         & idContact                                                     & void\\ \hline
+            32 & ConsulterDossierClient             & idClient                                                      & numero, denomination, adresse postale\\ \hline
+            33 & ConsulterBilanClient               & idClient                                                      & cotationsClient, liste Personnes\\ \hline
+            34 & ConsulterDetailPersonne            & idPersonne                                                    & données signalétiques...logement\\ \hline
+            35 & MettreAJourPersonne                & idPers,...                                                    & void\\ \hline
+            36 & RecupererPersonne                  & nom, prenom, agence                                           & personne\\ \hline
+            37 & AjouterPersonne                    & idClient, idPersonne                                          & void\\ \hline
+            38 & CreerEtAjouterNouvellePersonne     & infos, idClient                                               & personne\\ \hline
+            39 & SupprimerPersonne                  & idClient, idPersonne                                          & void\\ \hline
+            40 & MAJEnteteDossier                   & idClient, numero, denomination, adressePostale                & void\\ \hline
+            41 & ObtenirDetailCompte                & idCompte                                                      & details, historique\\ \hline
+            42 & ObtenirDetailProduit               & idProduit                                                     & details\\ \hline
+            43 & ObtenirProduits                    & idClient                                                      & Liste<Compte, Produit>\\ \hline
+            44 & MAJComptesConcurrence              & idClient, txtComptesConcurrence                               & void \\ \hline
+            45 & ObtenirPlagesLibres                & idAgent                                                       & Liste<PlageAgenda>\\ \hline
+            46 & AssocierPlageEtContact             & idPlage, idContact                                            & void\\ \hline
+            47 & EnregistrerLettreConfirmationRdv   & idContactRealise, lettre                                      & void\\ \hline
+            48 & RechercherClient                   & prenom, nom, etc                                              & client\\ \hline
+            49 & CreerContactSpontane               & idClient, idAgent, motifContact                               & contactPrevu, contactRealise\\ \hline
+            50 & CreerRDVSpontane                   & idContactRealise, date, commentaire                           & plageAgenda \\ \hline 
+            51 & ConsulterRelationsBanqueClient & idClient & technique de contact, propositions, historique contacts, incidents, etc. \\ \hline
+            52 & ObtenirListeAgence & void & Liste<Agence> \\
         \end{tabular}
         }
         \caption{Tableau de synthèse des SMA}
 \end{table}
 
+
 \begin{table}
     \centering
     \begin{tabular}{l|l}
     Nom de la vue   & Numéros des SMA appelés   \\ \hline
-    ~               & ~                         \\ 
+    Page d'authentification & -- \\
+    Onglet Client & 52, RechercherClient (?)\\
+    Resultat recherche client & 52, RechercherClient (?), 32\\
+    Onglet Bilan dossier client & 33\\
+    Onglet Produit & \\
+    Onglet Relations & \\
+    Onglet Agenda & \\
+    Mode Agence & \\
+    Mode Agent & \\
+    Popup d'ajout d'activite & \\
+    Popup d'ajout d'un contact commercial & \\
+    Popup d'ajout d'un contact spontane & \\
+    Popup de selection d'un contact & \\
+    Popup de selection d'un client & \\
+    Popup d'ajout d'une tâche & \\
+    Popup de consultation d'une tache & \\
+    Onglet Personnes & \\
+    Onglet Contacts & \\
+    Dossier Editable & \\ 
+    Dossier Non Editable & \\
+    Mode Consultation & \\
+    Mode Planification & \\
+    Liste des contacts & \\
+    Vue Contact & \\
+    Onglet preparation  & \\
+    Onglet compte-rendu & \\
+    Popup d'affectation d'un agent au contact & \\
+    Popup d'ajout d'une offre & \\
+    Liste des personnes & \\
+    Vue donnant les détails d'une personne  & \\
     \end{tabular}
     \caption{Tableau de synthèse des SMA par fenêtre}
 \end{table}
+
 
 
