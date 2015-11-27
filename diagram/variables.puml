@@ -147,8 +147,10 @@
 ' Saisies '
 '''''''''''''''''''
 !define SAISIE_SelectionnerContact Sélectionner un contact
+!define SAISIE_SelectionnerPersonne Sélectionner une personne
 !define SAISIE_SelectionnerContacts Sélectionner des contacts
 !define SAISIE_SelectionnerAgent Sélectionner un agent
+!define SAISIE_SelectionnerCompte Sélectionner un compte
 !define SAISIE_MotifAnnulation Saisir le motif d'annulation
 !define SAISIE_SelectionnerSemaine Sélectionner une semaine
 !define SAISIE_SelectionnerRDV Sélectionner un rendez-vous
@@ -159,12 +161,15 @@
 !define SAISIE_EntrerInfosContact Saisir les informations du contact
 !define SAISIE_SelectionnerClient Sélectionner un client
 !define SAISIE_SaisirInfosClient Saisir les informations du client
+!define SAISIE_SaisirInfosPersonne Saisir les informations de la personne
+!define SAISIE_SaisirInfosCompte Saisir les infos concernant le compte
 !define SAISIE_SelectionnerOffre Sélectionner une offre
 !define SAISIE_RedigerProposition Rédiger une proposition d'offre
 !define SAISIE_EcrireLettreConfirmation Ecrire lettre de confirmation de rendez-vous
 !define SAISIE_InformationsContactSpontane Saisir les infos concernant le contact
 !define SAISIE_InformationsRDVSpontane Saisir les informations concernant le rendez-vous
 !define SAISIE_AnnotationsCRPreparation Saisir les annotations du compte-rendu de préparation
+!define SAISIE_EnteteDossier Saisir les infos de l'entete du dossier
 
 '''''''''''''''''''
 ' Services Metier '
@@ -220,6 +225,7 @@
 !define SM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: contactPrevu, contactRealise
 !define SM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: plageAgenda
 !define SM_ConsulterRelationsBanqueClient ConsulterRelationsBanqueClient(idClient)\n: technique de contact, propositions, historique contacts, incidents, etc. 
+!define SM_ObtenirListeAgence ObtenirListeAgence(void)\n: Liste<Agence>
 
 '''''''''''''''''''''''''
 ' Services Objet Metier '
@@ -304,8 +310,8 @@
 !define V_ProduitClient Onglet Produit
 !define V_RelationsClient Onglet Relations
 !define V_OngletAgenda Onglet Agenda
-!define V_OngletAgendaAgence Mode Agence
-!define V_OngletAgendaAgent Mode Agent
+!define V_OngletAgendaAgence Vue Agence
+!define V_OngletAgendaAgent Vue Agent
 !define V_PopupAjoutActivite Popup d'ajout d'activite
 !define V_PopupAjoutContactCommercial Popup d'ajout d'un contact commercial
 !define V_PopupAjoutContactSpontane Popup d'ajout d'un contact spontane

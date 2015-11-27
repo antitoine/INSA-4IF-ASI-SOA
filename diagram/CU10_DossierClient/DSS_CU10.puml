@@ -11,13 +11,13 @@ opt Bilan
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterBilanClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterBilanClient
     opt
-        "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Personne
+        "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPersonne
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsPersonne
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDetailsPersonne
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJPersonne
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJPersonne
     else
-        "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Informations
+        "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosPersonne
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_RecupererPersonne
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_RecupererPersonne
         opt
@@ -32,7 +32,7 @@ opt Bilan
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_SupprimerPersonne
     end
 else
-    "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Nouvelle Entete
+    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EnteteDossier
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteEnteteClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJEnteteDossier
 end
@@ -41,7 +41,7 @@ opt Produits
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulerProduitsClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirProduits
     opt Details compte
-        "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Compte
+        "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerCompte
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsCompte
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailCompte
     end
@@ -50,7 +50,7 @@ opt Produits
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailProduit
     end
     opt Mise à jour compte
-        "ACTEUR_USER" -> "ACTEUR_IHM" : Saisir Informations
+        "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosCompte
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteConcurrence
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJComptesConcurrence
     end
