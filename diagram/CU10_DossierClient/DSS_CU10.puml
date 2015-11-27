@@ -36,6 +36,7 @@ else
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteEnteteClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJEnteteDossier
 end
+
 opt Produits
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulerProduitsClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirProduits
@@ -53,7 +54,11 @@ opt Produits
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJCompteConcurrence
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJComptesConcurrence
     end
+end
 
+opt Relations banque/client
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterRelationBanqueClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterRelationsBanqueClient
 end
 
 

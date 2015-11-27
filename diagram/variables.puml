@@ -219,6 +219,7 @@
 !define SM_RechercherClient RechercherClient(prenom, nom, etc)\n: client
 !define SM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: contactPrevu, contactRealise
 !define SM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: plageAgenda
+!define SM_ConsulterRelationsBanqueClient ConsulterRelationsBanqueClient(idClient)\n: technique de contact, propositions, historique contacts, incidents, etc. 
 
 '''''''''''''''''''''''''
 ' Services Objet Metier '
@@ -240,7 +241,8 @@
 !define SOM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
 !define SOM_ObtenirCompte ObtenirCompte(idCompte)\n: compte
 !define SOM_MAJComptesConcurrence MajComptesConcurrence(idClient, txtComptesConcurrence)\n: void
-!define SOM_RechercherClient RechercherClient(prenom, nom, etc.) : client
+!define SOM_RechercherClient RechercherClient(prenom, nom, etc.)\n: client
+!define SOM_ConsulterInfosRelationClient ConsulterInfosRelationClient(idClient)\n: technique de contact, incidents, réclamations
 
 ' SOM Contact
 !define SOM_ObtenirContactsPrevus ObtenirContactsPrevus(idClient)\n: Liste<ContactPrevu>
@@ -249,6 +251,7 @@
 !define SOM_AnnulerRdvContact AnnulerRdv(idContactRealise, idPlageAgenda)\n: void
 !define SOM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: contactPrevu, contactRealise
 !define SOM_EditerLettreConfirmation EnregistrerLettreConfirmationRdv(idContactRealise, lettre)\n: void
+!define SOM_ConsulterPropositionsHistorique ConsulterPropositionsHistorique(idClient)\n: Liste<PropositionCommerciale>, Liste<Contact>
 
 ' SOM Produit
 !define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: offre, Liste<Produit>
@@ -287,6 +290,8 @@
 !define SOM_ConduireRdv ConduireRdv(idContact)\n: void
 !define SOM_ReaffecterRdv ReaffecterRdv(idRdv, idAutreAgent)\n: void
 
+' SOM Evenement
+!define SOM_ConsulterEvenementsAVenir ConsulterEvenementsAVenir(idClient)\n: Liste<Evenement>
 
 ''''''''''
 '  EdF   '

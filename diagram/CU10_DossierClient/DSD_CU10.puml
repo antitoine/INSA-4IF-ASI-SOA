@@ -52,6 +52,7 @@ else
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJEnteteDossier
     "ACTEUR_SI" -> Client : SOM_MajEnteteDossier
 end
+
 opt Produits
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulerProduitsClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirProduits
@@ -80,5 +81,12 @@ opt Produits
 
 end
 
+opt Relations banque/client
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterRelationBanqueClient
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterRelationsBanqueClient
+    "ACTEUR_SI" -> Client : SOM_ConsulterInfosRelationClient
+    "ACTEUR_SI" -> Contact : SOM_ConsulterPropositionsHistorique
+    "ACTEUR_SI" -> Evenement : SOM_ConsulterEvenementsAVenir
+end
 
 @enduml
