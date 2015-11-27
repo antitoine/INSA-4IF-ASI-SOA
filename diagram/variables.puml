@@ -178,7 +178,7 @@
 !define SM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent) \n: agent, Liste<Contact>
 !define SM_AffecterContact AffecterContact(idContact, idAgent)\n: void
 !define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
-!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<ContactRealise>
+!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<Contact>
 !define SM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
 !define SM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
 !define SM_AnnulerContact AnnulerContact(idContact)\n: void
@@ -285,7 +285,7 @@
 !define SOM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: motif, etat, etc.
 !define SOM_ObtenirDetailsAgent ObtenirDetailsAgent(idAgent)\n: agent, Liste<ContactPrevu>
 !define SOM_AffecterContact AffecterContact(idContact, idAgent)\n: void
-!define SOM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<ContactRealise>
+!define SOM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Liste<Contact>
 !define SOM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactPrevus>)\n: void
 !define SOM_AnnulerContact AnnulerContact(idContact)\n: void
 !define SOM_EnregistrerMotifAnnulation EnregistrerMotifAnnulation(idContact, motif)\n: void
