@@ -202,7 +202,7 @@
 !define SM_ObtenirDetailsOffre ObtenirDetailsOffre(idOffre)\n: Liste<Produit>, commentairesOffre
 !define SM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idOffre, idContact)\n: void
 !define SM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(annotations, idContact)\n: void
-!define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact)\n: Liste<PropositionCommerciale>
+!define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact)\n: Liste<PropositionCommerciale>, annotations
 !define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact)\n: void
 !define SM_ConsulterDossierClient ConsulterDossierClient(idClient)\n: numero, denomination, adresse postale
 !define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n: cotationsClient, liste Personnes
@@ -269,6 +269,8 @@
 !define SOM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(annotations, idContact)\n: void
 !define SOM_IdentifierContact IdentifierContact(denomination, nomClient, etc.)\n: Contact
 !define SOM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idContact, idOffre)\n: void
+!define SOM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact)\n: PropositionCommerciale, annotations
+!define SOM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact)\n: void
 
 ' SOM Produit
 !define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: Offre, Liste<Produit>
