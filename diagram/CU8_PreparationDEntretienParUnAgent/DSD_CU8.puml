@@ -2,14 +2,6 @@
 !include ../skin.puml
 !include ../variables.puml
 
-!define SM_IdentifierContactAvecInfos IdentifierContact(denomination, nomClient, etc.)\n: Contact
-!define SOM_IdentifierContact IdentifierContact(denomination, nomClient, etc.)\n: Contact
-!define SOM_MAJInfos MAJInfos(saisie, idClient)\n: void
-!define SOM_ObtenirOffres ObtenirOffres(void)\n: Liste<Offre>
-!define SOM_ObtenirDetailsOffre ObtenirDetailsOffre(idOffre)\n: Liste<Produit>, commentairesOffre
-!define SOM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idContact, idOffre)\n: void
-!define SOM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(annotations, idContact)\n: void
-
 title Diagramme de séquence système du CU 8\n----
 
 actor "ACTEUR_USER"
