@@ -2,7 +2,7 @@
 !include ../skin.puml
 !include ../variables.puml
 
-title Diagramme de séquence détaillé du CU 6 (partie client)\n----
+title Diagramme de séquence détaillé du CU 6 (Contacts spontanés)\n----
 
 actor "ACTEUR_USER"
 

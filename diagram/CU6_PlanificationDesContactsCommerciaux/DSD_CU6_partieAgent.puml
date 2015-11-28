@@ -3,7 +3,7 @@
 !include ../variables.puml
 
 
-title Diagramme de séquence détaillé du CU 6 (partie agent)\n----
+title Diagramme de séquence détaillé du CU 6 (contacts commerciaux)\n----
 
 actor "ACTEUR_USER"
 
