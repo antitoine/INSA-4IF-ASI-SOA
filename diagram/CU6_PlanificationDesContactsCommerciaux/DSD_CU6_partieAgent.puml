@@ -1,0 +1,35 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+
+title Diagramme de séquence détaillé du CU 6 (partie agent)\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContatcsAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
+"ACTEUR_SI" -> "Contact" : SOM_ObtenirContactsAgent
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact (CU 4)
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirClientContact
+"ACTEUR_SI" -> "Client" : SOM_ObtenirClientContact
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_VoirPlagesLibres
+"ACTEUR_SI" -> "Agenda" : SOM_VoirPlagesLibres
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AssocierPlageEtContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AssocierPlageEtContact
+"ACTEUR_SI" -> "Agenda" : SOM_AssocierPlageContact
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EcrireLettreConfirmation
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_EditerLettreConfirmation
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EditerLettreConfirmation
+"ACTEUR_SI" -> "Contact" : SOM_EditerLettreConfirmation
+
+@enduml

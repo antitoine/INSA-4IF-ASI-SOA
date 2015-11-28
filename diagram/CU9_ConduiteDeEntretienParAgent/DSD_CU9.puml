@@ -1,0 +1,53 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+!define SOM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact) : PropositionCommerciale
+!define SOM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact, rapport) : void
+
+title Diagramme de séquence système du CU 9\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EntrerInfosContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContact
+"ACTEUR_SI" -> "Contact" : SOM_IdentifierContact
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+"ACTEUR_SI" -> "Contact" : SOM_ObtenirDetailsContact
+
+alt Préparation faite
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AfficherPreparation
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirPropositionCommerciale
+	"ACTEUR_SI" -> "Contact" : SOM_ObtenirPropositionCommerciale
+end
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
+"ACTEUR_SI" -> "Client" : SOM_ObtenirDossierClient
+
+par
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListerOffres
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirOffres
+	"ACTEUR_SI" -> "Produit" : SOM_ObtenirOffres
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerOffre
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsDesOffresCatalogue
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsOffre
+	"ACTEUR_SI" -> "Produit" : SOM_ObtenirDetailsOffre
+else
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_RedigerProposition
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RedigerEtSoumettrePropositions
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPropositionCommerciale
+	"ACTEUR_SI" -> "Contact" : SOM_AjouterPropositionCommerciale
+end
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_EnregistrerRapportActiviteCommerciale
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerRapportActivite
+"ACTEUR_SI" -> "Contact" : SOM_EnregistrerRapportActivite
+
+
+@enduml

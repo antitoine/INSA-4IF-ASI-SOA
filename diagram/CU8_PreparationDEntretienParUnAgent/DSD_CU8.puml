@@ -1,0 +1,58 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+!define SOM_IdentifierContact IdentifierContact(denomination, nomClient, etc.) : idContact
+!define SOM_MAJInfosClient MettreAJourInfosClient(nouvellesInfos) : Client
+!deifne SOM_ObtenirOffres ObtenirOffres(void) : Liste<Produit>
+!define SOM_ObtenirDetailsOffre ObtenirDetailsOffre(idProduit) : detailsOffre
+!define SOM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idContact, idOffre) : void
+!define SOM_EnregistrerCompteRendu EnregistrerCompteRendu(annotations) : void
+
+title Diagramme de séquence système du CU 8\n----
+
+actor "ACTEUR_USER"
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContact
+"ACTEUR_SI" -> "Contact" : SOM_IdentifierContact
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+"ACTEUR_SI" -> "Contact" : SOM_ObtenirDetailsContact
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
+"ACTEUR_SI" -> "Client" : SOM_ObtenirDossierClient
+
+alt Mise à jour client
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosClient
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJInfos
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJInfos
+	"ACTEUR_SI" -> "Client" : SOM_MAJInfosClient
+	
+else Proposition commerciale
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListerOffres
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirOffres
+	"ACTEUR_SI" -> "Produit" : SOM_ObtenirOffres
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerOffre
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsDesOffresCatalogue
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsOffre
+	"ACTEUR_SI" -> "Produit" : SOM_ObtenirDetailsOffre
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_RedigerProposition
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerPropositionOffre
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPropositionCommerciale
+	"ACTEUR_SI" -> "Contact" : SOM_AjouterPropositionCommerciale
+	
+end
+
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_AnnotationsCRPreparation
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_EnregistrerCompteRenduDePreparation
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerCompteRendu
+"ACTEUR_SI" -> "Contact" : SOM_EnregistrerCompteRendu
+
+
+@enduml
