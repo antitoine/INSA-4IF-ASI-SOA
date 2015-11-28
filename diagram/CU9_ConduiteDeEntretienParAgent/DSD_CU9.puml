@@ -5,7 +5,7 @@
 !define SOM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact) : PropositionCommerciale
 !define SOM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact, rapport) : void
 
-title Diagramme de séquence système du CU 9\n----
+title Diagramme de sÃ©quence dÃ©taillÃ© du CU 9\n----
 
 actor "ACTEUR_USER"
 
@@ -18,7 +18,7 @@ actor "ACTEUR_USER"
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
 "ACTEUR_SI" -> "Contact" : SOM_ObtenirDetailsContact
 
-alt Préparation faite
+alt PrÃ©paration faite
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AfficherPreparation
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirPropositionCommerciale
 	"ACTEUR_SI" -> "Contact" : SOM_ObtenirPropositionCommerciale
