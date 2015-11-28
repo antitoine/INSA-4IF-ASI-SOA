@@ -6,9 +6,12 @@
 %%% Begin document
 \begin{document}
 \includepdf[pages={1}]{title.pdf}
+
 \listoftodos
 \newpage
-
+\addcontentsline{toc}{chapter}{Tables des matières}
+\setcounter{tocdepth}{1}
+\tableofcontents
 \part{Introduction}
 \label{part:introduction}
 
@@ -40,9 +43,6 @@ architecture.\\
 
 Le document ci-présent est la synthèse de cette démarche. Il reprend l'ensemble des cas d'utilisation étudié, en présentant dans un premier temps, les diagrammes d'activités, et les diagrammes de séquence système. Puis dans un deuxième temps, il présente l'ensemble des IHM qui permettent à l'utilisateur de réaliser ces cas d'utilisation.
 
-\newpage
-\tableofcontents
-
 
 \include{conception}
 \include{cu}
@@ -51,6 +51,9 @@ Le document ci-présent est la synthèse de cette démarche. Il reprend l'ensemb
 \include{architecture_technique}
 \include{validation}
 \include{conclusion}
+
+\addcontentsline{toc}{chapter}{Listes des figures}
+\listoffigures
 
 %%% End document
 \end{document}

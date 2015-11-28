@@ -52,10 +52,13 @@
 \renewcommand{\thesection}{\thepart .\arabic{section}}
 
 \usepackage{tocloft}
-\cftsetindents{chapter}{0em}{1.5em}
-\cftsetindents{section}{1.5em}{3em}
+\cftsetindents{chapter}{0em}{1em}
+\cftsetindents{section}{1.5em}{2.5em}
+\makeatletter
+\def\l@figure{\@dottedtocline{1}{1.5em}{4em}}
+\makeatother
 
-
+\usepackage[linktocpage=true]{hyperref}
 \usepackage{cases}
 \usepackage{color}
 \usepackage{xcolor}
