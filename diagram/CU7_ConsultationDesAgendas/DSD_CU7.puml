@@ -31,6 +31,7 @@ else actions sur plages horaires
 	ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_ActionsAgenda
 
 else agenda de l'agence
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerListeAgents
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaQuotidien
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
 	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
