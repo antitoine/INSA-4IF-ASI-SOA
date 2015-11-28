@@ -3,12 +3,9 @@
 %%  ========   IMPORTANT ========
 %% Indiquer ici les parties que vous voulez compilez
 
-
 %%% Begin document
 \begin{document}
 \includepdf[pages={1}]{title.pdf}
-
-\tableofcontents
 \listoftodos
 \newpage
 
@@ -17,8 +14,35 @@
 
 \section{Présentation du contenu du rapport}
 \label{sec:presentation-du-contenu-du-rapport}
+Ce document comprend l'intégralité des livrables devant être remis sur le projet de gestion des contacts commerciaux d'une banque. 
 
-Ce document constitue la synthèse de l'ensemble des livrables devant être remis à la fin du projet ASI en 4IF.  
+Notre équipe a du définir l'architecture d'une application visant à : \\
+\begin{itemize}
+\item identifier et définir les contacts qu’ils doivent avoir avec leurs clients
+\item permettre au chef d’agence de répartir ces contacts entre ses collaborateurs, et de les réaffecter en fonction de leur disponibilité,
+\item prendre les rendez-vous et tenir leur agenda
+\item préparer ces rendez-vous et les projets de proposition en fonction de la connaissance des
+clients,
+\item conduire les entretiens lors des rendez-vous et déclarer les résultats obtenus,rédiger des comptes rendus
+\item suivre la réalisation des contacts programmés.\\
+
+\end{itemize}
+
+
+Nous avons suivi une démarche en 4 phases : 
+\begin{itemize}
+\item La conception d’ensemble de l’architecture applicative
+\item La conception fonctionnelle détaillée
+\item La conception applicative détaillée
+\item La description de l’architecture technique et répartition des composants sur cette
+architecture.\\
+\end{itemize}
+
+Le document ci-présent est la synthèse de cette démarche. Il reprend l'ensemble des cas d'utilisation étudié, en présentant dans un premier temps, les diagrammes d'activités, et les diagrammes de séquence système. Puis dans un deuxième temps, il présente l'ensemble des IHM qui permettent à l'utilisateur de réaliser ces cas d'utilisation.
+
+\newpage
+\tableofcontents
+
 
 \include{conception}
 \include{cu}

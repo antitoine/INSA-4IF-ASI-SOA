@@ -35,5 +35,5 @@ end
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_EnregistrerCompteRenduDePreparation
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerCompteRendu
 
-
+''cloturer la prepration''
 @enduml

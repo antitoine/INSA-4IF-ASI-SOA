@@ -24,6 +24,7 @@ alt sélection d'autres contacts d'un même client
 else sélection d'un seul contact
 
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact
+    ''note : plusieurs agents
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
     "ACTEUR_SI" -> Contact : SOM_ObtenirDetailsContact
     Contact -> Client : SOM_ObtenirClient
@@ -36,7 +37,7 @@ else sélection d'un seul contact
 		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AnnulerContact
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerContact
 		"ACTEUR_SI" -> Contact : SOM_AnnulerContact
-		Contact -> Agenda : SOM_AnnulerContact
+		"ACTEUR_SI" -> Agenda : SOM_AnnulerContact
 
 	else prise RDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_PrendreRDV
