@@ -5,7 +5,7 @@ import os, sys
 
 # FUNCTIONS ---------------------------------------------------------------------------------------------------------------------------------------------------------
 def printUsage():
-    print("Usage :\n\npython gendiags.py /path/to/plantuml.jar\n");
+    print("Usage :\n\npython gendiagsSVG.py /path/to/plantuml.jar\n");
 
 def getPUMLFiles(rootDir, excluded):
     PUMLFiles = [];

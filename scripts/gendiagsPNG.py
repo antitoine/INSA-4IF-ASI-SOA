@@ -5,7 +5,7 @@ import os, sys
 
 # FUNCTIONS ---------------------------------------------------------------------------------------------------------------------------------------------------------
 def printUsage():
-    print("Usage :\n\npython gendiags.py /path/to/plantuml.jar\n");
+    print("Usage :\n\npython gendiagsPNG.py /path/to/plantuml.jar\n");
 
 def getPUMLFiles(rootDir, excluded):
     PUMLFiles = [];
@@ -28,7 +28,7 @@ EXCLUDED = ['skin.puml', 'variables.puml']
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__));
 print(ROOT_DIR)
 ROOT_DIR = ROOT_DIR[:-7] + "diagram";
-DEST_DIR = ROOT_DIR[:-7] + "report/figures/"
+DEST_DIR = ROOT_DIR[:-7] + "report/figures/png/"
 print("Root dir is %s" % ROOT_DIR);
 print("Destination dir is %s" % DEST_DIR);
 
