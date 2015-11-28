@@ -21,6 +21,8 @@ end
 	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_Ref_DetailContact
 
 	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_DossierClient
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirClientContact
+	"ACTEUR_SI" -> Contact : SOM_ObtenirClientContact
 
 	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ListeAgents
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents

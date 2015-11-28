@@ -127,7 +127,7 @@
 ' CU10 '
 ''''''''
 !define LB_IdentifierClient Identifier le client
-!define LB_ConsulterBilanClient Consulter bilan client\n(Cotation, bilan,\nliste de personnes)
+!define LB_ConsulterBilanClient Consulter bilan client\n(cotation, liste de personnes)
 !define LB_ConsulterDetailsPersonne Consulter details\nd'une personne
 !define LB_MAJPersonne Mise à jour personne
 !define LB_RecupererPersonne Récupérer personne
@@ -205,17 +205,17 @@
 !define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact)\n: Liste<PropositionCommerciale>, annotations
 !define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact)\n: void
 !define SM_ConsulterDossierClient ConsulterDossierClient(idClient)\n: numero, denomination, adresse postale
-!define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n: cotationsClient, liste Personnes
-!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPersonne)\n: données signalétiques...logement
-!define SM_MAJPersonne MettreAJourPersonne(idPers,...)\n: void
-!define SM_RecupererPersonne RecupererPersonne(nom, prenom, agence)\n: personne
-!define SM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
-!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(infos, idClient)\n: personne
+!define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n: cotationsClient, Liste<Personne>
+!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPersonne)\n: adresse, revenu, impot, dateNaissance, Liste<Client>
+!define SM_MAJPersonne MettreAJourPersonne(idPersonne, nom, prenom,\nadresse, revenu, impot, dateNaissance)\n: void
+!define SM_RecupererPersonne RecupererPersonne(nom, prenom, trancheAge, adresse)\n: Personne
+!define SM_AjouterPersonne AjouterPersonne(idClient, nom, prenom,\ndateNaissance, adresse, revenus, impots)\n: void
+!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(idClient, nom, prenom,\ndateNaissance, adresse, revenus, impots)\n: void
 !define SM_SupprimerPersonne SupprimerPersonne(idClient, idPersonne)\n: void
-!define SM_MAJEnteteDossier MAJEnteteDossier\n(idClient, numero, denomination, adressePostale)\n: void
+!define SM_MAJEnteteDossier MAJEnteteDossier\n(idClient, denomination, adressePostale)\n: void
 !define SM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
 !define SM_ObtenirDetailCompte ObtenirDetailCompte(idCompte)\n: details, historique
-!define SM_ObtenirDetailProduit ObtenirDetailProduit(idProduit)\n: details
+!define SM_ObtenirDetailProduit ObtenirDetailProduit(idProduit)\n: solde, découvert, interet...
 !define SM_MAJComptesConcurrence MAJComptesConcurrence(idClient, txtComptesConcurrence)\n: void 
 !define SM_VoirPlagesLibres ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
 !define SM_AssocierPlageEtContact AffecterContactAUnePlage(idPlage, idContact)\n: void
@@ -223,7 +223,7 @@
 !define SM_RechercherClient RechercherClient(prenom, nom, etc)\n: client
 !define SM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: contactPrevu, contactRealise
 !define SM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: plageAgenda
-!define SM_ConsulterRelationsBanqueClient ConsulterRelationsBanqueClient(idClient)\n: technique de contact, propositions, historique contacts, incidents, etc. 
+!define SM_ConsulterRelationsBanqueClient ConsulterRelationsBanqueClient(idClient)\n: technique de contact, incidents, reclamations,\nListe<PropositionCommerciale>, Liste<Contact>, Liste<Evenement> 
 !define SM_ObtenirListeAgence ObtenirListeAgence(void)\n: Liste<Agence>
 !define SM_ObtenirClientContact ObtenirClientDuContact(idContact) : Client
 !define SM_IdentifierContactAvecInfos IdentifierContact(denomination, nomClient, etc.)\n: Contact
@@ -235,20 +235,20 @@
 '''''''''''''''''''''''''
 
 ' SOM Personne
-!define SOM_ObtenirPersonne ObtenirPersonne(idPersonne)\n: personne
-!define SOM_MAJPersonne MajPersonne(idPersonne, nouvelles informations)\n: void
-!define SOM_TrouverPersonne TrouverPersonne(nom, prenom, agence)\n: personne
-!define SOM_CreerPersonne CreerPersonne(infos)\n: personne
+!define SOM_ObtenirPersonne ObtenirPersonne(idPersonne)\n: Personne
+!define SOM_MAJPersonne MAJPersonne(idPersonne, nom, prenom,\nadresse, revenu, impot, dateNaissance)\n: void
+!define SOM_TrouverPersonne TrouverPersonne(nom, prenom, trancheAge, adresse)\n: Personne
+!define SOM_CreerPersonne CreerPersonne(nom, prenom,\ndateNaissance, adresse, revenus, impots)\n: Personne
 
 ' SOM Client
 !define SOM_ObtenirClientsStructure ObtenirClientsAgence(idAgence)\n: Liste<Client>
 !define SOM_ObtenirClient ObtenirClient(idClient)\n: Client
-!define SOM_ConsulterBilanClient ConsulterDetailClient(idClient)\n: Client, Liste<Personne>
+!define SOM_ConsulterBilanClient ConsulterDetailClient(idClient)\n: cotationsClient, Liste<idPersonne>
 !define SOM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
 !define SOM_SupprimerPersonne SupprimerPersonne(idClient, idPersonne)\n: void
-!define SOM_MajEnteteDossier MajEnteteDossier(idClient, numero, denomination, adressePostale)\n: void
-!define SOM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
-!define SOM_ObtenirCompte ObtenirCompte(idCompte)\n: compte
+!define SOM_MajEnteteDossier MajEnteteDossier(idClient, denomination, adressePostale)\n: void
+!define SOM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, idProduit>
+!define SOM_ObtenirCompte ObtenirDetailsCompte(idCompte)\n: details, historique
 !define SOM_MAJComptesConcurrence MajComptesConcurrence(idClient, txtComptesConcurrence)\n: void
 !define SOM_RechercherClient RechercherClient(prenom, nom, etc.)\n: client
 !define SOM_ConsulterInfosRelationClient ConsulterInfosRelationClient(idClient)\n: technique de contact, incidents, réclamations
@@ -274,7 +274,7 @@
 
 ' SOM Produit
 !define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: Offre, Liste<Produit>
-!define SOM_ObtenirProduit ObtenirProduit(idProduit)\n: produit
+!define SOM_ObtenirProduit ObtenirProduit(idProduit)\n: Produit
 !define SOM_ObtenirOffres ObtenirOffres(void)\n: Liste<Offre>
 
 ' SOM Structure

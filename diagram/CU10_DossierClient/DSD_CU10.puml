@@ -1,25 +1,36 @@
 @startuml
 !include ../skin.puml
 !include ../variables.puml
+
+!define SM_ObtenirClientEtAgence ObtenirClientEtAgence(idClient)\n: Client, Agence
+!define SOM_ObtenirAgenceDuClient ObtenirAgenceDuClient(idClient)\n: Agence
+!define SOM_ObtenirDetailsPersonne ObtenirDetailsPersonne(idPersonne)\n: adresse, revenu, impot, dateNaissance
+!define SOM_ObtenirClientsDeLaPersonne ObtenirClientsPersonne(idPersonne)\n: Liste<Client>
+!define SOM_ObtenirDetailsProduit ObtenirDetailsProduit(idProduit)\n: solde, découvert, interet...
 title DSD - CU 10\n----
 
 Actor "ACTEUR_USER"
 ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_IdentifierClient
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirClientEtAgence
 "ACTEUR_SI" -> Client : SOM_ObtenirClient
+"ACTEUR_SI" -> Structure : SOM_ObtenirAgenceDuClient
+
 
 opt Bilan
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterBilanClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterBilanClient
     "ACTEUR_SI" -> Client : SOM_ConsulterBilanClient
-    Client -> Personne : SOM_ObtenirPersonne
-
+	loop Pour chaque personne
+		Client -> Personne : SOM_ObtenirPersonne
+	end
+	
     opt
         "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Personne
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsPersonne
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDetailsPersonne
-        "ACTEUR_SI" -> Personne : SOM_ObtenirPersonne
+        "ACTEUR_SI" -> Personne : SOM_ObtenirDetailsPersonne
+		"ACTEUR_SI" -> Client : SOM_ObtenirClientsDeLaPersonne
 
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJPersonne
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJPersonne
@@ -29,7 +40,6 @@ opt Bilan
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_RecupererPersonne
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_RecupererPersonne
         "ACTEUR_SI" -> Personne : SOM_TrouverPersonne
-        Personne -> Structure : SOM_ObtenirAgenceId
 
         opt
             "ACTEUR_USER" -> "ACTEUR_IHM" : LB_AjouterPersonne
@@ -38,8 +48,8 @@ opt Bilan
         else
             "ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerNouvellePersonne
             "ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerEtAjouterNouvellePersonne
-            "ACTEUR_SI" -> Client : SOM_AjouterPersonne
-            Client -> Personne : SOM_CreerPersonne
+            "ACTEUR_SI" -> Personne : SOM_CreerPersonne
+			"Personne" -> Client : SOM_AjouterPersonne
         end
     else
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_SupprPersonne
@@ -57,7 +67,9 @@ opt Produits
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulerProduitsClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirProduits
     "ACTEUR_SI" -> Client : SOM_ObtenirProduits
-    Client -> Produit : SOM_ObtenirProduit
+	loop Pour chaque produit
+		Client -> Produit : SOM_ObtenirProduit
+	end
 
     opt Details compte
         "ACTEUR_USER" -> "ACTEUR_IHM" : Sélectionner Compte
@@ -69,7 +81,7 @@ opt Produits
     opt Détail Produit / Sélectionner Produit
         "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDetailsProduit
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailProduit
-        "ACTEUR_SI" -> "Produit" : SOM_ObtenirProduit
+        "ACTEUR_SI" -> "Produit" : SOM_ObtenirDetailsProduit
     end
 
     opt Mise à jour compte
