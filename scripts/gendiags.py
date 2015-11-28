@@ -3,10 +3,12 @@
 
 import os, sys
 
-# FUNCTIONS ---------------------------------------------------------------------------------------------------------------------------------------------------------
+# FUNCTIONS ---------------------------------------------------------------------------------------------------------------------------------------------
+# This function prints usage of the script
 def printUsage():
-    print("Usage :\n\npython gendiags.py /path/to/plantuml.jar\n");
+    print("Usage :\n\npython gendiags.py /path/to/plantuml.jar (png|[svg])\n");
 
+# This function lists all the PUML files in rootDir
 def getPUMLFiles(rootDir, excluded):
     PUMLFiles = [];
     for root, directories, filenames in os.walk(rootDir):
@@ -15,37 +17,64 @@ def getPUMLFiles(rootDir, excluded):
                 PUMLFiles.append(root.replace(' ', '\ ').replace("'","\\'") + '/' + fname);
     return PUMLFiles;
 
-def makePNG(plantumlJar, plantumlOptions, absolutePath):
+# This function executes plantuml on target
+def makePlantuml(plantumlJar, plantumlOptions, absolutePath):
     os.system("java -jar %s %s %s" % (plantumlJar, plantumlOptions, absolutePath));
 
-def movePNG(src, dest):
+# This function converts an svg to a png using inkscape
+def inkscapeConvert(f):
+    os.system("inkscape %s --export-eps=%s --export-ignore-filters --export-ps-level=3" % (f, f.replace('svg', 'eps')));
+    
+# This function moves src to dest
+def move(src, dest):
     os.system("mv -f %s %s" % (src, dest));
 
-# CONFIGURATION -----------------------------------------------------------------------------------------------------------------------------------------------------
+# CONFIGURATION -----------------------------------------------------------------------------------------------------------------------------------------
 
 EXCLUDED = ['skin.puml', 'variables.puml']
 
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__));
-print(ROOT_DIR)
-ROOT_DIR = ROOT_DIR[:-7] + "diagram";
-DEST_DIR = ROOT_DIR[:-7] + "report/figures/"
-print("Root dir is %s" % ROOT_DIR);
-print("Destination dir is %s" % DEST_DIR);
+ROOT_DIR = ROOT_DIR[:-7];
 
-PLANTUML_OPTIONS = "";
+SRC_DIR = ROOT_DIR + "diagram"
 
+# ----------- PNG vars
+DEST_DIR_PNG = ROOT_DIR + "report/figures/png/"
+PUML_OPTIONS_PNG = "";
+
+# ----------- SVG/EPS vars
+DEST_DIR_SVG = ROOT_DIR + "report/figures/svg/"
+DEST_DIR_EPS = ROOT_DIR + "report/figures/eps/"
+PUML_OPTIONS_SVG = "-tsvg nbthread auto";
+
+print("Running from %s" % ROOT_DIR);
+
+TARGET = ""
 if len(sys.argv) < 2:
     printUsage();
     exit();
+elif len(sys.argv) == 3:
+    TARGET = sys.argv[2];
+    PLANTUML_PATH = sys.argv[1];
 else:
     PLANTUML_PATH = sys.argv[1];
 
-# SCRIPT ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# SCRIPT --------------------------------------------------------------------------------------------------------------------------------------------
 
 print("Starting production process...");
-files = getPUMLFiles(ROOT_DIR, EXCLUDED);
+files = getPUMLFiles(SRC_DIR, EXCLUDED);
 for f in files:
-    print("Making PNG for %s" % f);
-    makePNG(PLANTUML_PATH, PLANTUML_OPTIONS, f);
-    print("Moving PNG to report/figures");
-    movePNG(f.replace("puml", "png"), DEST_DIR);
+    if "png" in TARGET:
+        print("Making PNG for %s" % f);
+        makePlantuml(PLANTUML_PATH, PUML_OPTIONS_PNG, f);
+        print("Moving PNG to %s" % DEST_DIR_PNG);
+        move(f.replace("puml", "png"), DEST_DIR_PNG);
+    else:
+        print("Making SVG for %s" % f);
+        makePlantuml(PLANTUML_PATH, PUML_OPTIONS_SVG, f);
+        print("Converting SVG to EPS...");
+        inkscapeConvert(f.replace("puml", "svg"))
+        print("Moving SVG to %s" % DEST_DIR_SVG);
+        move(f.replace("puml", "svg"), DEST_DIR_SVG);
+        print("Moving EPS to %s" % DEST_DIR_EPS);
+        move(f.replace("puml", "eps"), DEST_DIR_EPS);
