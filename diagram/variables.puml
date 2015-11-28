@@ -349,4 +349,10 @@
 !define V_PopupAjouterOffre Popup d'ajout d'une offre
 !define V_VuePersonnes Liste des personnes
 !define V_VuePersonne Vue donnant les détails d'une personne 
-
+!define V_DetailsProduit Vue donnant les détails d'un prooduit
+!define V_PersonneEditable Mode personne editable
+!define V_PersonneConsultable Mode personne consultable
+!define V_GestionPersonnes Vue de gestion des personnes
+!define V_CreerPersonne Vue de creation d'une personne
+!define V_PopupConsultationRDV Popup de consultation d'un rendez-vous
+!define V_PopupAnnulationContact Popup motif annulation contact 
