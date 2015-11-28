@@ -22,6 +22,7 @@ state "Application" as application {
       state "V_BilanDossierClient" as S_BilanDossierClient
       state "V_ProduitClient" as S_ProduitClient
       state "V_RelationsClient" as S_RelationsClient
+      state "V_DetailsProduit" as S_DetailsProduit
 
       [*] --> S_ResultatRecherche
       S_ResultatRecherche --> S_BilanDossierClient
@@ -31,6 +32,9 @@ state "Application" as application {
       S_ProduitClient --> S_RelationsClient
       S_RelationsClient --> S_ProduitClient
       S_RelationsClient --> S_BilanDossierClient
+
+      S_ProduitClient --> S_DetailsProduit
+      S_DetailsProduit --> S_ProduitClient
   }
 
   state "V_OngletAgenda" as S_OngletAgenda {
@@ -53,6 +57,7 @@ state "Application" as application {
       state "V_PopupChoixContact" as S_PopupChoixContact
       state "V_PopupChoixClient" as S_PopupChoixClient
       state "V_PopupAjoutTache" as S_PopupAjoutTache
+      state "V_PopupConsultationRDV" as S_PopupConsultationRDV
 
       S_OngletAgendaAgence -left--> S_OngletAgendaAgent
       S_OngletAgendaAgent ---> S_OngletAgendaAgence
@@ -66,9 +71,13 @@ state "Application" as application {
 
       S_OngletAgendaAgent -up--> S_PopupConsultationTache
       S_PopupConsultationTache --> S_OngletAgendaAgent
-
       S_OngletAgendaAgence --> S_PopupConsultationTache
       S_PopupConsultationTache --> S_OngletAgendaAgence
+
+      S_OngletAgendaAgent -up--> S_PopupConsultationRDV
+      S_PopupConsultationRDV --> S_OngletAgendaAgent
+      S_OngletAgendaAgence --> S_PopupConsultationRDV
+      S_PopupConsultationRDV --> S_OngletAgendaAgence
 
       S_PopupAjoutActivite --> S_PopupAjoutContactCommercial
       S_PopupAjoutContactCommercial --> S_PopupAjoutActivite
@@ -85,30 +94,42 @@ state "Application" as application {
   }
 
   state "V_OngletPersonnes" as S_OngletPersonnes {
+      state "V_PersonneConsultable" as S_PersonneConsultable
+      state "V_PersonneEditable" as S_PersonneEditable
+      
+      [*] -left-> S_PersonneConsultable
+      S_PersonneConsultable -left-> S_PersonneEditable
+      S_PersonneEditable --> S_PersonneConsultable
+      
+      --
+      state "V_GestionPersonnes" as S_GestionPersonnes
+      state "V_CreerPersonne" as S_CreerPersonne
       state "V_VuePersonnes" as S_VuePersonnes
       state "V_VuePersonne" as S_VuePersonne
 
-      [*] --> S_VuePersonnes
+      [*] --> S_GestionPersonnes
+      S_GestionPersonnes --> S_VuePersonnes
+      S_VuePersonnes --> S_GestionPersonnes
+      S_GestionPersonnes --> S_CreerPersonne
+      S_CreerPersonne --> S_GestionPersonnes
       S_VuePersonnes --> S_VuePersonne
       S_VuePersonne --> S_VuePersonnes
   }
 
   state "V_OngletContacts" as S_OngletContacts {
       state "V_VueContacts" as S_VueContacts
+      state "V_PopupAnnulationContact" as S_PopupAnnulationContact
+      state "V_PopupAffecterContact" as S_PopupAffecterContact
       
       state "V_VueContact" as S_VueContact {
           state "V_ContactOngletPreparation" as S_ContactOngletPreparation
           state "V_ContactOngletCR" as S_ContactOngletCR
-          state "V_PopupAffecterContact" as S_PopupAffecterContact
           state "V_PopupAjouterOffre" as S_PopupAjouterOffre
 
 
           [*] -left-> S_ContactOngletPreparation 
           S_ContactOngletPreparation -left-> S_ContactOngletCR
           S_ContactOngletCR --> S_ContactOngletPreparation
-
-          S_ContactOngletPreparation --> S_PopupAffecterContact
-          S_PopupAffecterContact --> S_ContactOngletPreparation
 
           S_ContactOngletPreparation --> S_PopupAjouterOffre
           S_PopupAjouterOffre --> S_ContactOngletPreparation
@@ -117,6 +138,11 @@ state "Application" as application {
       [*] --> S_VueContacts
       S_VueContacts -down-> S_VueContact
       S_VueContact --> S_VueContacts
+      S_VueContacts -left-> S_PopupAnnulationContact
+      S_PopupAnnulationContact --> S_VueContacts
+      S_VueContacts -right-> S_PopupAffecterContact
+      S_PopupAffecterContact --> S_VueContacts
+
   }
 
   S_LoginPage -right-> S_OngletAgenda
