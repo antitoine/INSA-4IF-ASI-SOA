@@ -2,12 +2,7 @@
 !include ../skin.puml
 !include ../variables.puml
 
-!define SM_ObtenirClientEtAgence ObtenirClientEtAgence(idClient)\n: Client, Agence
-!define SOM_ObtenirAgenceDuClient ObtenirAgenceDuClient(idClient)\n: Agence
-!define SOM_ObtenirDetailsPersonne ObtenirDetailsPersonne(idPersonne)\n: adresse, revenu, impot, dateNaissance
-!define SOM_ObtenirClientsDeLaPersonne ObtenirClientsPersonne(idPersonne)\n: Liste<Client>
-!define SOM_ObtenirDetailsProduit ObtenirDetailsProduit(idProduit)\n: solde, découvert, interet...
-title DSD - CU 10\n----
+title Diagramme de séquence détaillé du CU 10\n----
 
 Actor "ACTEUR_USER"
 ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_IdentifierClient
