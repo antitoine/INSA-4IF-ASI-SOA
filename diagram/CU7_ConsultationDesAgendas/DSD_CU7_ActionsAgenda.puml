@@ -43,6 +43,6 @@ alt réaffecter rdv
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
 		"ACTEUR_SI" -> Agenda : SOM_AnnulerRdv
 		Agenda -> Contact : SOM_AnnulerRdvContact
-	end
+end
 
 @enduml

@@ -3,20 +3,25 @@
 !include ../variables.puml
 title Diagramme de séquence système du CU 2\n----
 
-actor "ACTEUR_USER"
+actor "ACTEUR_CHEF"
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContacts
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ListeContacts
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsPrevus
-"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
+
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
+
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_Ref_DetailContact
+
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_DossierClient
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirClientContact
+
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ListeAgents
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
-"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailAgent
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsAgent
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AffecterAgent
+
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
+
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_AffecterAgent
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_AffecterContact
+
 
 @enduml

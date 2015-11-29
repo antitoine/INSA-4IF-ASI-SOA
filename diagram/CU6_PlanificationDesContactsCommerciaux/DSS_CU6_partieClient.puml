@@ -9,16 +9,20 @@ actor "ACTEUR_USER"
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosClient
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_RechercheClient
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_RechercherClient
+
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClientSpontane
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterDossierClient
+
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_VoirPlagesLibres
+
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_InformationsContactSpontane
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerContactSpontane
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerContactSpontane
+
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_InformationsRDVSpontane
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerRDVSpontane
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerRDVSpontane
+
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EcrireLettreConfirmation
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_EditerLettreConfirmation
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_EditerLettreConfirmation

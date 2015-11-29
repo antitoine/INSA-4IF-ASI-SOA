@@ -5,27 +5,31 @@
 title Diagramme de séquence système du CU 7\n----\nActions agenda\n----
 
 actor "ACTEUR_USER"
-
 alt réaffecter rdv
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
+
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
+
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ReaffecterRDV
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ReaffecterRdv
+
 	else consulter détails rdv
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirDetailsRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsRdv
+
 	else modifier plage horaire
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
 		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ModifierPlageHoraire
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ModifierPlageHoraire
+
 	else annuler rdv
 	    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
 		"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AnnulerRDV
 		"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AnnulerRdv
-	end
+end
 
 @enduml

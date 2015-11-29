@@ -9,6 +9,13 @@ actor ACTEUR_USER
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents (CU 2)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
+"ACTEUR_SI" -> Contact : SOM_ObtenirContactsAgent
+loop Pour chaque contact
+	Contact -> Client : SOM_ObtenirClientContact
+	Contact -> Agenda : SOM_ObtenirDateRdv
+end
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_Ref_DetailContact

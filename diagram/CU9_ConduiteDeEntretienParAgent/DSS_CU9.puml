@@ -7,11 +7,9 @@ title Diagramme de séquence système du CU 9\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_EntrerInfosContact
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact (CU 8)
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsContact
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact (CU 4)
 
 alt Préparation faite
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_AfficherPreparation
@@ -19,23 +17,19 @@ alt Préparation faite
 end
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient (CU 8)
 
 par
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListerOffres
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirOffres
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListerOffres (CU 8)
+	
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerOffre
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsDesOffresCatalogue
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsOffre
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsDesOffresCatalogue (CU 8)
 else
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_RedigerProposition
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RedigerEtSoumettrePropositions
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPropositionCommerciale
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerPropositionOffre (CU 8)
 end
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_EnregistrerRapportActiviteCommerciale
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerRapportActivite
-
 
 @enduml

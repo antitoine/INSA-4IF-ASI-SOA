@@ -228,6 +228,7 @@
 !define SM_ObtenirClientContact ObtenirClientDuContact(idContact) : Client
 !define SM_IdentifierContactAvecInfos IdentifierContact(denomination, nomClient, etc.)\n: Contact
 !define SM_ObtenirClientEtAgence ObtenirClientEtAgence(idClient)\n: Client, Agence
+!define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Client, Contact, PlageAgenda>
 
 
 '''''''''''''''''''''''''
@@ -299,7 +300,7 @@
 !define SOM_ModifierPlageHoraire ModifierPlageHoraire(idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin)\n: PlageAgenda
 !define SOM_AnnulerRdv AnnulerRdv(idPlageAgenda)\n: void
 !define SOM_VoirPlagesLibres ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
-!define SOM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: plageAgenda
+!define SOM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: PlageAgenda
 !define SOM_TraiterEvt RecupererEvenementsATraiter()\n: Liste<Evenement, idClient>
 !define SOM_GenererMotif GenererMotifContact(idEvenement)\n: motif
 !define SOM_GenererContactPrevu GenererContactPrevu(idClient, idEvenement)\n: void
@@ -315,6 +316,7 @@
 !define SOM_ReaffecterRdv ReaffecterRdv(idPlageAgenda, idAgent)\n: void
 !define SOM_VoirPlagesLibres ObtenirPlagesLibres(idAgent) : Liste<PlageAgenda>
 !define SOM_AssocierPlageContact AffecterContactAUnePlage(idPlageAgenda, idContact) : void
+!define SOM_ObtenirDateRdv ObtenirDateRdv(idContact) : PlageAgenda
 
 ' SOM Evenement
 !define SOM_ConsulterEvenementsAVenir ConsulterEvenementsAVenir(idClient)\n: Liste<Evenement>

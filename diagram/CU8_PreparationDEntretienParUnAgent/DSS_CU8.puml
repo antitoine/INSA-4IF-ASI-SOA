@@ -7,10 +7,9 @@ title Diagramme de séquence système du CU 8\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContact
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContactAvecInfos
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsContact
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_Ref_DetailContact
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
@@ -20,20 +19,23 @@ alt Mise à jour client
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosClient
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJInfos
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJInfos
+	
 else Proposition commerciale
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListerOffres
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirOffres
+	
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerOffre
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailsDesOffresCatalogue
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsOffre
+	
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_RedigerProposition
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerPropositionOffre
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPropositionCommerciale
+	
 end
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_AnnotationsCRPreparation
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_EnregistrerCompteRenduDePreparation
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_EnregistrerCompteRendu
 
-''cloturer la prepration''
 @enduml

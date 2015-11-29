@@ -1,22 +1,18 @@
 @startuml
 !include ../skin.puml
 !include ../variables.puml
+
 title Diagramme de séquence système du CU 3\n----
 
 actor ACTEUR_USER
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
-
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents (CU 2)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailAgent
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsAgent
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ContactsAgent
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
-"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
 
+"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_Ref_DetailContact
 
 @enduml

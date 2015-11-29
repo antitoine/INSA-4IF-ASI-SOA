@@ -5,6 +5,7 @@
 title Diagramme de séquence détaillé du CU 10\n----
 
 Actor "ACTEUR_USER"
+
 ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_IdentifierClient
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirClientEtAgence
