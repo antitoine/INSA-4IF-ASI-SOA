@@ -1,6 +1,8 @@
 
 \part{Architecture technique et répartition du système d’information}
 
+\newgeometry{height=10in}.
+
 Cette section présente les choix techniques effectués dans le cadre de la conception de l'architecture technique.
 
 \section{Choix du type d'IHM}
@@ -62,3 +64,5 @@ Etant donnée la répartition des serveurs précédemment exposée et la contrai
 
 Si nous considérons les flux de données, relatifs à des opérations classiques, induits par ces différents choix nous obtenons les résultats suivants. Une opération de consultation ou d'édition de l'agenda ne ferait intervenir que les serveurs situés au niveau de l'agence. Seules les opérations liées aux clients ou aux produits feront intervenir les serveurs du site central. Enfin, la réplication des clients concernant une agence rattachée à une agence principale permettrait de gérer les évènements concernant les clients au niveau des agences principales également.
 Du point de vue de la sécurité du système il est également intéressant de noter que la répartition choisie permet une bonne segmentation des données. Par exemple, la corruption d'un système au niveau d'une agence principale ne permettrait pas d'accèder aux agendas de toutes les agences ni à la liste de tous les clients. De même, les informations confidentielles concernant les clients seront toutes stockées au siège ce qui permettra une protection efficace de ces dernières. Dans le cas d'une corruption de ce système central, l'attaquant ne sera pas forcément en mesure de consulter les agendas des agences. Cette architecture nécessite par contre des protections adéquates des communications entre les différents systèmes distribués.
+
+\restoregeometry

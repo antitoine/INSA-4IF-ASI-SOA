@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+      \begin{axis}[
+        mbarplot,
+        ylabel=Temps (Heures),
+        axis y line=left,
+        axis x line=bottom,
+        xmin=0, xmax=5,
+        ymin=0, ymax=40,
+        xtick={1,2,3,4},
+        xticklabels={Conception\\ d’ensemble,Conception\\ fonctionnelle\\ détaillée,Conception\\ applicative\\ détaillée,Architecture\\ technique},%<--Here
+        xlabel style={yshift=-1cm},
+        x tick label style={
+            rotate=62,
+            anchor=east,
+            font=\footnotesize,
+            align=right
+        },
+        width=\textwidth,
+        height=7cm,
+      ]
+
+      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
+      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
+
+      \legend{Temps estimé, Temps passé}
+
+      \end{axis}
+    \end{tikzpicture}
