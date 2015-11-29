@@ -1,7 +1,7 @@
 @startuml
 !include ../skin.puml
 !include ../variables.puml
-title DSD du CU 5\n----
+title Diagramme de Séquence Détaillé du CU 5\n----
 
 actor "ACTEUR_USER"
 
@@ -18,7 +18,6 @@ else terminer la planification
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_SortirPlanification
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_MettreAJourNbContactsPotentiels
 	"ACTEUR_SI" -> Structure : SOM_MettreAJourNbContactsPotentiels
-	Structure -> Agenda : SOM_DetailPlageAgenda
 end
 
 @enduml
