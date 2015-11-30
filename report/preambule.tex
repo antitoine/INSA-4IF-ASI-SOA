@@ -61,7 +61,7 @@
 \def\l@figure{\@dottedtocline{1}{1.5em}{4em}}
 \makeatother
 
-\usepackage[linktocpage=true]{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{cases}
 \usepackage{color}
 \usepackage{xcolor}
@@ -73,23 +73,6 @@
 
 \delimitershortfall-1sp
 \newcommand\abs[1]{\left|#1\right|}
-
-
-\usepackage{tcolorbox}
-\tcbuselibrary{skins,breakable}
-\usetikzlibrary{shadings,shadows}
-
-
-\newenvironment{myblock}[1]{%
-    \tcolorbox[beamer,%
-    noparskip,breakable,
-    colback=white,colframe=DarkBlue,%
-    colbacklower=white,%
-    title=#1]}%
-    {\endtcolorbox}
-
-
-
 
 
 \usepackage{tikz, pgfplots}
