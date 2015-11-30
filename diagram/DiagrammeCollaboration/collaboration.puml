@@ -1,0 +1,30 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+
+title Diagramme de collaboration
+'
+'	Nodes
+'
+agent B_PERSONNE
+agent B_CLIENT
+agent B_STRUCTURE
+agent B_PRODUIT
+agent B_CONTACT
+agent B_AGENDA
+agent B_EVENEMENT
+
+
+'
+'	Links
+'
+B_CONTACT  -up-> B_EVENEMENT : SOM_GenererContactPrevu
+B_CONTACT  --> B_STRUCTURE : SOM_ObtenirAgent
+B_CONTACT  -up-> B_AGENDA : SOM_ObtenirPlageAgenda \n SOM_ObtenirDateRdv \n SOM_ObtenirPlageAgenda
+B_CONTACT  --> B_CLIENT : SOM_ObtenirClient \n SOM_ObtenirClientContact
+B_CONTACT  --> B_PRODUIT : SOM_DetailOffre
+B_AGENDA   --> B_CONTACT : SOM_ObtenirDetailsContact\n SOM_AnnulerRdvContact
+B_CLIENT   -down-> B_PERSONNE : SOM_ObtenirPersonne
+B_CLIENT   --> B_PRODUIT : SOM_ObtenirProduit
+B_PERSONNE --> B_CLIENT : SOM_AjouterPersonne
+@enduml

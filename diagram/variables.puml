@@ -15,6 +15,21 @@
 !define ACTEUR_CHEF Chef d'agence
 !define ACTEUR_IHM IHM
 
+
+
+'''''''''
+' Blocs '
+'''''''''
+
+!define B_PERSONNE Personne
+!define B_CLIENT Client
+!define B_STRUCTURE Structure
+!define B_PRODUIT Produit
+!define B_CONTACT Contact
+!define B_AGENDA Agenda
+!define B_EVENEMENT Evénement
+
+
 '''''''''''''''' CU '''''''''''''''
 
 '''''''
