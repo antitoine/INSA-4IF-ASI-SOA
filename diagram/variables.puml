@@ -186,6 +186,9 @@
 !define SAISIE_AnnotationsCRPreparation Saisir les annotations du compte-rendu de préparation
 !define SAISIE_EnteteDossier Saisir les infos de l'entete du dossier
 !define SAISIE_SelectionnerListeAgents Sélectionner les agents à afficher dans l'agenda
+!define SAISIE_SelectionnerPropositionCommerciale Sélectionner une proposition commerciale
+!define SAISIE_SelectionnerEvenement Sélectionner un événement
+
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
