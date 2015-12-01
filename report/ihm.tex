@@ -12,7 +12,9 @@
 Les vues de l'IHM sont présentées dans les pages suivantes.
 
 \begin{shaded}
-\textbf{Note: } Les tableaux récapitulant les SMA des différentes vues sont présentés par IHM. Si des services sont redondants, ils ont le même numéro et ne sont pas répétés dans le tableau. 
+\textbf{Note: } Les tableaux récapitulant les SMA des différentes vues sont présentés par IHM. Si des services sont redondants, ils ont le même numéro et ne sont pas répétés dans le tableau. \\
+
+Les cas d'utilisation des IHM sont indiqués en haut à gauche de chaque vue. La description des CU n'a pas été reportée en dessous des fenêtres. Dans le cas de manipulation qui ne sont pas immédiatement visibles, ou qui auraient engendrées une trop grosse redondance des vues, nous avons placé des commentaires sur les bords.
 \end{shaded}
 
 \includepdf[scale=0.8,angle=90,pages={2-9},pagecommand=\subsection*{IHM client}]{figures/IHM.pdf}
@@ -76,12 +78,36 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 \begin{table}[H]
 \centering
 \caption{SMA - IHM Agenda}
-\begin{tabular}{ll}
+\begin{tabular}{p{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
 \hline
-\multicolumn{1}{c}{Num Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
-\multicolumn{2}{c}{CU2 - Affectation contact}              \\
-                                 &                         \\
-                                 &                         \\ \hline
+Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Agence}  \\
+3.1 & Bouton Vue Agent & ObtenirAgendaAgent \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Agent}  \\
+3.2 & Bouton Vue Agence & ObtenirAgendaAgence \\
+3.3 & ComboBox Agent & ObtenirAgendaAgent \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Ajout plage horaire chef d'agence}  \\
+3.4 & Ajouter une activité & ObtenirAgendaAgence \\
+3.3 & ComboBox Agent & ObtenirAgendaAgent \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Ajout plage horaire agent}  \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Ajout contact}  \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Ajout contact spontané}  \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Ajout contact - recherche contact}  \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Ajout contact spontané - recherche client}  \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - Ajout tâche}  \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - clic tâche}  \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU7 - Agenda - clic rendez-vous}  \\
 \end{tabular}
 \end{table}
 
