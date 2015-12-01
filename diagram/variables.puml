@@ -155,6 +155,7 @@
 !define LB_MAJCompteConcurrence Maj compte/produit\nà la concurrence
 !define LB_MAJCompteEnteteClient Maj entête client
 !define LB_ConsulterRelationBanqueClient Consulter relations\n banque-client
+!define NOTE_ClicEvtRdvProp Consulter un événement, un rendez-vous historisé ou une proposition commerciale
 
 '''''''''''''''' SERVICES '''''''''''''''
 
