@@ -9,14 +9,16 @@
 
 \listoftodos
 \newpage
-\addcontentsline{toc}{chapter}{Tables des matières}
-\setcounter{tocdepth}{1}
+\addcontentsline{toc}{part}{Tables des matières}
 \tableofcontents
-\part{Introduction}
-\label{part:introduction}
-
-\section{Présentation du contenu du rapport}
-\label{sec:presentation-du-contenu-du-rapport}
+\addcontentsline{toc}{part}{Listes des figures}
+\listoffigures
+\addcontentsline{toc}{part}{Listes des tableaux}
+\listoftables
+\newpage
+\addcontentsline{toc}{part}{Introduction}
+\chapter*{Introduction}
+\section*{Présentation du contenu du rapport}
 Ce document comprend l'intégralité des livrables devant être remis sur le projet de gestion des contacts commerciaux d'une banque. 
 
 Notre équipe a du définir l'architecture d'une application visant à : \\
@@ -52,8 +54,6 @@ Le document ci-présent est la synthèse de cette démarche. Il reprend l'ensemb
 \include{validation}
 \include{conclusion}
 
-\addcontentsline{toc}{chapter}{Listes des figures}
-\listoffigures
 
 %%% End document
 \end{document}
