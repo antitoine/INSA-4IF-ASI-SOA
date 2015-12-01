@@ -12,9 +12,20 @@
 \addcontentsline{toc}{part}{Tables des matières}
 \tableofcontents
 \addcontentsline{toc}{part}{Listes des figures}
-\listoffigures
-\addcontentsline{toc}{part}{Listes des tableaux}
-\listoftables
+{%
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\figurename~\oldnumberline}%
+\renewcommand\listfigurename{Liste des figures}
+\listoffigures%
+}
+\addcontentsline{tot}{part}{Listes des tableaux}
+{%
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\tablename~\oldnumberline}%
+\renewcommand\listtablename{Liste des tableaux}
+\listoftables%
+}
+
 \newpage
 \addcontentsline{toc}{part}{Introduction}
 \chapter*{Introduction}
