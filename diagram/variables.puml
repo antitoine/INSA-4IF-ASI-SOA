@@ -236,6 +236,7 @@
 !define SM_AssocierPlageEtContact AffecterContactAUnePlage(idPlage, idContact)\n: void
 !define SM_EditerLettreConfirmation EnregistrerLettreConfirmationRdv(idContact, texteLettre)\n: void
 !define SM_RechercherClient RechercherClient(prenom, nom, etc)\n: client
+!define SM_RechercherTousLesClients RechercherTousLesClients(prenom, nom, etc)\n: Liste<Client>
 !define SM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: contactPrevu, contactRealise
 !define SM_CreerRDVSpontane CreerRDVSpontane(idContactRealise, date, commentaire)\n: plageAgenda
 !define SM_ConsulterRelationsBanqueClient ConsulterRelationsBanqueClient(idClient)\n: technique de contact, incidents, reclamations,\nListe<PropositionCommerciale>, Liste<Contact>, Liste<Evenement> 
@@ -268,6 +269,7 @@
 !define SOM_ObtenirCompte ObtenirDetailsCompte(idCompte)\n: details, historique
 !define SOM_MAJComptesConcurrence MajComptesConcurrence(idClient, txtComptesConcurrence)\n: void
 !define SOM_RechercherClient RechercherClient(prenom, nom, etc.)\n: client
+!define SOM_RechercherTousLesClients RechercherTousLesClients(prenom, nom, etc.)\n: Liste<Client>
 !define SOM_ConsulterInfosRelationClient ConsulterInfosRelationClient(idClient)\n: technique de contact, incidents, réclamations
 !define SOM_ObtenirClientAvecInfos ObtenirClientAvecInfos(nom, prenom, denomination) : Client
 !define SOM_ObtenirClientContact ObtenirClientDuContact(idContact) : Client

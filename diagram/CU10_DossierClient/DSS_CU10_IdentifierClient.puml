@@ -1,0 +1,19 @@
+@startuml
+!include ../skin.puml
+!include ../variables.puml
+title Diagramme de séquence système du CU 10 (identifier le client)\n----
+
+Actor "ACTEUR_USER"
+
+alt Client non identifier
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosClient
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_RechercheClient
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_RechercherTousLesClients
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
+	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
+	
+end
+
+@enduml
