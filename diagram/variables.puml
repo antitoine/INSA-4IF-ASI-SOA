@@ -194,64 +194,55 @@
 '''''''''''''''''''
 ' Services Metier '
 '''''''''''''''''''
-!define SM_GenererContacts GenererContacts(void)\n: void
-!define SM_ObtenirContactsPrevus ObtenirContactsPrevus(idAgence)\n: Liste <Contact, PlageAgenda, TacheElementaire, Agent, Client>
-!define SM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: Contact, MotifDeContact, Client, Agent,\nListe<PropositionCommerciale, Offre, Liste<Produit>>
-!define SM_ObtenirDossierClient ObtenirDossierClient(idClient)\n: Client
-!define SM_ObtenirAgents ObtenirAgents(idAgence)\n: Liste<Agent>
-!define SM_ObtenirAgent ObtenirAgent(idAgent) \n: Agent
-!define SM_AffecterContact AffecterContact(idContact, idAncienAgent, idNouvelAgent)\n: void
-'!define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
-!define SM_ObtenirContactsAffectes ObtenirContactsATraiter(idAgent)\n: Agent, Liste <Contact, PlageAgenda, TacheElementaire, Agent, Client>
-!define SM_GrouperContacts GrouperContacts(idContactPrincipal, Liste<idContactsSecondaires>)\n: void
-!define SM_AnnulerContact AnnulerContact(idContact, motif)\n: void
-!define SM_PrendreRdv PrendreRdv(idContact)\n: void
-!define SM_PreparerRdv PreparerRdv(idContact)\n: void
-!define SM_ConduireRdv ConduireRdv(idContact)\n: void
-!define SM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>
-!define SM_ReaffecterRdv ReaffecterRdv(idTacheElementaire, idAgent)\n: void
-!define SM_ObtenirDetailsRdv ObtenirDetailsRdv(idTacheElementaire)\n: PlageAgenda, TacheElementaire, Agent, Contact,\nMotifDeContact, Client
-!define SM_ModifierPlageHoraire ModifierPlageHoraire(idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin) \n: PlageAgenda
-!define SM_ObtenirAgendaQuotidien ObtenirAgendaAgence(dateJour, Liste<idAgent>)\n: Liste<Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>>
-!define SM_AnnulerRdv AnnulerRdv(idTacheElementaire, idContact)\n: void
-!define SM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: void
-!define SM_MettreAJourNbContactsPotentiels MajNbContactsPotentiels(idAgent, Liste<idPlageAgenda>)\n: void
-!define SM_IdentifierContact IdentifierContact(idContact)\n: Contact
-!define SM_MAJInfos MAJInfos(denomination, adresse, idClient)\n: void
-!define SM_ObtenirOffres ObtenirOffres(void)\n: Liste<Offre>
-!define SM_ObtenirDetailsOffre ObtenirDetailsOffre(idOffre)\n: Liste<Produit>, commentairesOffre
-!define SM_AjouterPropositionCommerciale AjouterPropositionCommerciale(idOffre, idContact)\n: void
-!define SM_EnregistrerCompteRendu EnregistrerCompteRenduPreparation(annotations, idContact)\n: void
-!define SM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact)\n: Liste<PropositionCommerciale, annotations>
-!define SM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact)\n: void
-!define SM_ConsulterDossierClient ConsulterDossierClient(idClient)\n: numero, denomination, adresse postale
-!define SM_ConsulterBilanClient ConsulterBilanClient(idClient)\n: cotationsClient, Liste<Personne>
-!define SM_ConsulterDetailsPersonne ConsulterDetailPersonne(idPersonne)\n: adresse, revenu, impot, dateNaissance, Liste<Client>
-!define SM_MAJPersonne MettreAJourPersonne(idPersonne, nom, prenom,\nadresse, revenu, impot, dateNaissance)\n: void
-!define SM_RecupererPersonne RecupererPersonne(nom, prenom, trancheAge, adresse)\n: Personne
-!define SM_AjouterPersonne AjouterPersonne(idClient, idPersonne)\n: void
-!define SM_CreerEtAjouterNouvellePersonne CreerEtAjouterNouvellePersonne(idClient, nom, prenom,\ndateNaissance, adresse, revenus, impots)\n: void
-!define SM_SupprimerPersonne RetirerPersonne(idClient, idPersonne)\n: void
-!define SM_MAJEnteteDossier MAJEnteteDossier\n(idClient, denomination, adressePostale)\n: void
-!define SM_ObtenirProduits ObtenirProduits(idClient)\n: Liste<Compte, Produit>
-!define SM_ObtenirDetailCompte ObtenirDetailCompte(idCompte)\n: numero, description, historique
-!define SM_ObtenirDetailProduit ObtenirDetailProduit(idProduit)\n: solde, découvert, interet
-!define SM_MAJComptesConcurrence MAJComptesConcurrence(idClient, txtComptesConcurrence)\n: void 
-!define SM_VoirPlagesLibres ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
-!define SM_AssocierPlageEtContact EnregistrerRdv(idContact, jour, heureDeb, heureFin)\n: void
-!define SM_EditerLettreConfirmation EnregistrerLettreConfirmationRdv(idContact, texteLettre)\n: void
-!define SM_RechercherClient RechercherClient(idClient, noCompte, denomination, idAgence, texteRecherche)\n: Client
-!define SM_RechercherTousLesClients RechercherTousLesClients(idClient, noCompte, denomination, idAgence, texteRecherche)\n: Liste<Client>
-!define SM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: void
-!define SM_CreerRDVSpontane CreerRDVSpontane(idContact, dateDeb, dateFin, commentaire)\n: void
-!define SM_ConsulterRelationsBanqueClient ConsulterRelationsBanqueClient(idClient)\n: technique de contact, incidents, reclamations,\nListe<PropositionCommerciale>, Liste<Contact>, Liste<Evenement> 
-!define SM_ObtenirListeAgence ObtenirListeAgence(void)\n: Liste<Agence>
-!define SM_ObtenirClientContact ObtenirClientDuContact(idContact) : Client
-!define SM_IdentifierContactAvecInfos RechercherContact(denomination, nomClient, etc.)\n: Contact
-!define SM_ObtenirClientEtAgence ObtenirClientEtAgence(idClient)\n: Client, Agence
-!define SM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Agent, Liste<Agent, Client, Contact, PlageAgenda, TacheElementaire>
-!define SM_AnnoterProposition AnnoterProposition(annotations, idPropositionCommerciale)\n: void
-
+!define SM_GenererContacts SM1 - GenererContacts(void)\n: void
+!define SM_ObtenirContactsPrevus SM2 - ObtenirContactsPrevus(idAgence)\n: Liste <Contact, PlageAgenda, TacheElementaire, Agent, Client>
+!define SM_ObtenirClientContact SM3 - ObtenirClientDuContact(idContact) : Client
+!define SM_ObtenirAgents SM4 - ObtenirAgents(idAgence)\n: Liste<Agent>
+!define SM_AffecterContact SM5 - AffecterContact(idContact, idAncienAgent, idNouvelAgent)\n: void
+!define SM_ObtenirContactsAgent SM6 - ObtenirContactsAgent(idAgent)\n: Agent, Liste<Agent, Client, Contact, PlageAgenda, TacheElementaire>
+!define SM_ObtenirContactsAffectes SM7 - ObtenirContactsATraiter(idAgent)\n: Agent, Liste <Contact, PlageAgenda, TacheElementaire, Agent, Client>
+!define SM_GrouperContacts SM8 - GrouperContacts(idContactPrincipal, Liste<idContactsSecondaires>)\n: void
+!define SM_ObtenirDetailsContact SM9 - ObtenirDetailsContact(idContact)\n: Contact, MotifDeContact, Client, Agent,\nListe<PropositionCommerciale, Offre, Liste<Produit>>
+!define SM_AnnulerContact SM10 - AnnulerContact(idContact, motif)\n: void
+!define SM_CreerPlageAgenda SM11 - CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: void
+!define SM_MettreAJourNbContactsPotentiels SM12 - MajNbContactsPotentiels(idAgent, Liste<idPlageAgenda>)\n: void
+!define SM_AssocierPlageEtContact SM13 - EnregistrerRdv(idContact, jour, heureDeb, heureFin)\n: void
+!define SM_EditerLettreConfirmation SM14 - EnregistrerLettreConfirmationRdv(idContact, texteLettre)\n: void
+!define SM_RechercherClient SM15 - RechercherClient(idClient, noCompte, denomination, idAgence, texteRecherche)\n: Client
+!define SM_VoirPlagesLibres SM16 - ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
+!define SM_CreerContactSpontane SM17 - CreerContactSpontane(idClient, idAgent, motifContact)\n: void
+!define SM_CreerRDVSpontane SM18 - CreerRDVSpontane(idContact, dateDeb, dateFin, commentaire)\n: void
+!define SM_ObtenirAgendaAgent SM19 - ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>
+!define SM_ObtenirAgendaQuotidien SM20 - ObtenirAgendaAgence(dateJour, Liste<idAgent>)\n: Liste<Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>>
+!define SM_ReaffecterRdv SM21 - ReaffecterRdv(idTacheElementaire, idAgent)\n: void
+!define SM_ObtenirDetailsRdv SM22 - ObtenirDetailsRdv(idTacheElementaire)\n: PlageAgenda, TacheElementaire, Agent, Contact,\nMotifDeContact, Client
+!define SM_ModifierPlageHoraire SM23 - ModifierPlageHoraire(idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin) \n: PlageAgenda
+!define SM_AnnulerRdv SM24 - AnnulerRdv(idTacheElementaire, idContact)\n: void
+!define SM_IdentifierContact SM25 - IdentifierContact(idContact)\n: Contact
+!define SM_MAJInfos SM26 - MAJInfos(denomination, adresse, idClient)\n: void
+!define SM_ObtenirOffres SM27 - ObtenirOffres(void)\n: Liste<Offre>
+!define SM_ObtenirDetailsOffre SM28 - ObtenirDetailsOffre(idOffre)\n: Liste<Produit>, commentairesOffre
+!define SM_AjouterPropositionCommerciale SM29 - AjouterPropositionCommerciale(idOffre, idContact)\n: void
+!define SM_AnnoterProposition SM30 - AnnoterProposition(annotations, idPropositionCommerciale)\n: void
+!define SM_EnregistrerCompteRendu SM31 - EnregistrerCompteRenduPreparation(annotations, idContact)\n: void
+!define SM_ObtenirPropositionCommerciale SM32 - ObtenirPropositionCommerciale(idContact)\n: Liste<PropositionCommerciale, annotations>
+!define SM_EnregistrerRapportActivite SM33 - EnregistrerRapportActivite(idContact)\n: void
+!define SM_ObtenirClientEtAgence SM34 - ObtenirClientEtAgence(idClient)\n: Client, Agence
+!define SM_ConsulterBilanClient SM35 - ConsulterBilanClient(idClient)\n: cotationsClient, Liste<Personne>
+!define SM_ConsulterDetailsPersonne SM36 - ConsulterDetailPersonne(idPersonne)\n: adresse, revenu, impot, dateNaissance, Liste<Client>
+!define SM_MAJPersonne SM37 - MettreAJourPersonne(idPersonne, nom, prenom,\nadresse, revenu, impot, dateNaissance)\n: void
+!define SM_RecupererPersonne SM38 - RecupererPersonne(nom, prenom, trancheAge, adresse)\n: Personne
+!define SM_AjouterPersonne SM39 - AjouterPersonne(idClient, idPersonne)\n: void
+!define SM_CreerEtAjouterNouvellePersonne SM40 - CreerEtAjouterNouvellePersonne(idClient, nom, prenom,\ndateNaissance, adresse, revenus, impots)\n: void
+!define SM_SupprimerPersonne SM41 - RetirerPersonne(idClient, idPersonne)\n: void
+!define SM_MAJEnteteDossier SM42 - MAJEnteteDossier\n(idClient, denomination, adressePostale)\n: void
+!define SM_ObtenirProduits SM43 - ObtenirProduits(idClient)\n: Liste<Compte, Produit>
+!define SM_ObtenirDetailCompte SM44 - ObtenirDetailCompte(idCompte)\n: numero, description, historique
+!define SM_ObtenirDetailProduit SM45 - ObtenirDetailProduit(idProduit)\n: solde, découvert, interet
+!define SM_MAJComptesConcurrence SM46 - MAJComptesConcurrence(idClient, txtComptesConcurrence)\n: void
+!define SM_ConsulterRelationsBanqueClient SM47 - ConsulterRelationsBanqueClient(idClient)\n: technique de contact, incidents, reclamations,\nListe<PropositionCommerciale>, Liste<Contact>, Liste<Evenement>
+!define SM_RechercherTousLesClients SM48 - RechercherTousLesClients(idClient, noCompte, denomination, idAgence, texteRecherche)\n: Liste<Client>
+!define SM_ObtenirDossierClient SM49 - ObtenirDossierClient(idClient)\n: Client
 
 '''''''''''''''''''''''''
 ' Services Objet Metier '
