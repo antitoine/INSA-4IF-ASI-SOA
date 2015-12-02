@@ -31,22 +31,27 @@ Enfin, une personne ayant le rôle de client n'existe que si cette dernière pos
 
 On retrouve les objets métiers du découpage précédent (\textbf{Client}, \textbf{Produit} et \textbf{Structure}) avec trois autres blocs : \textbf{Agenda}, \textbf{Événement} et \textbf{Contact}. \\
 
-Nous avons dissocié l'entité événement de l'ensemble du domaine des données concernant les contacts, car d'après le cas d'utilisation numéro un, ces derniers sont générés automatiquement en fonction des événements donc ils ont un cycle de vie différent. L'association "Avoir origine" se retrouve avec l'objet métier \textbf{Événement} car on a plus d'accès à partir de l'événement que de l'objet client (du fait du processus de génération automatique). \\
+Nous avons dissocié l'entité événement de l'ensemble des données concernant les contacts, car d'après le cas d'utilisation numéro un, ces derniers sont générés automatiquement en fonction des événements donc ils ont un cycle de vie différent. L'association "Avoir origine" se retrouve avec l'objet métier \textbf{Événement} car nous avons plus d'accès à partir de l'événement que de l'objet client (du fait du processus de génération automatique). Enfin, l'objet métier \textbf{Événement} est réutilisé dans l'ensemble du système d'information et l'association \textit{générer} n'a de sens que pour le domaine des contacts, donc l'association a plus sa place avec l'objet métier \textbf{Contact}. \\
 
-Concernant la planification, nous retrouvons trois entités \textit{Plage agenda}, \textit{Type activité} et \textit{Tâche élémentaire}, c'est pourquoi on retrouve ces entités dans l'objet métier \textbf{Agenda}. Nous avons rajouté l'association \textit{Composer} dans ce bloc car d'après les cas d'utilisations, l'accès aux contacts se fait principalement depuis l'agenda et peu dans l'autre sens. \\
+Concernant la planification, nous retrouvons trois entités \textit{Plage agenda}, \textit{Type activité} et \textit{Tâche élémentaire}, c'est pourquoi on retrouve ces entités dans l'objet métier \textbf{Agenda}. Nous avons rajouté l'association \textit{Composer} dans ce bloc car d'après les cas d'utilisation, l'accès aux contacts se fait principalement depuis l'agenda et peu dans l'autre sens. \\
 
-Enfin, nous avons estimé que les entités restantes sont du domaine du \textbf{Contact} et qu'il est plus optimal d'avoir l'ensemble des associations restantes dans cet objet métier car d'après les cas d'utilisation un contact dépend d'un client, un événement, un agent et un ensemble de produit proposés pour ce contact. \\
+Enfin, nous avons estimé que les entités restantes sont du domaine du \textbf{Contact} et qu'il est plus optimal d'avoir l'ensemble des associations restantes dans cet objet métier car d'après les cas d'utilisation un contact dépend d'un client, d'un événement, d'un agent, d'un agenda et d'un ensemble de produits proposés pour ce contact mais on ne retrouve pas les dépendances inverses. \\
 
-Afin de simplifier la gestion des entités contacts réalisés et contacts prévus, nous avons fait le choix de nommer cet ensemble \textit{Contact} pour les diagrammes de séquence. On retrouve ainsi pour un contact prévu l'ensemble des contacts réalisés associés. \\
+Afin de simplifier la gestion des entités contacts réalisés et contacts prévus, nous avons fait le choix de nommer cet ensemble \textit{Contact} pour les diagrammes de séquence. On retrouve ainsi pour un contact prévu l'ensemble des contacts réalisés associés. On ne perd pas le comportement présenté par le modèle d'origine mais on simplifie la présentation des différents services métiers. \\
 
-Nous avons fait le choix d'ajouter une association réflexive dans l'entité contact car il faut stocker l'information lorsque plusieurs contacts sont regroupés en un seul. On garde alors l'ensemble des contacts avec les motifs associés et on a cette nouvelle information. \\
+Nous avons fait le choix d'ajouter une association réflexive dans l'entité contact prévu car il faut stocker l'information lorsque plusieurs contacts sont regroupés en un seul (cas d'utilisation numéro quatre). \\
 
-Pour terminer, pour des raisons pratiques, il est intéressant d'avoir les informations sur le temps au niveau d'un contact réalisé, c'est pourquoi nous avons ajouté l'association "Effectuer le" pour pouvoir la garder. \\
+Pour terminer, pour des raisons pratiques, il est intéressant d'avoir les informations sur le temps au niveau d'un contact réalisé, notamment le moment du rendez-vous effectué, c'est pourquoi nous avons ajouté l'association "Effectuer le" entre contact réalisé et tâche élémentaire pour pouvoir la garder. \\
 
 \section{Diagramme d’état de l'objet métier \bf{contact}}
 
-Le diagramme d'état suivant décrit le cycle de vie complet de l'objet \sc{Contact}. Le cas nominal concernant l'objet métier \sc{Contact} est le suivant, l'objet est créé automatiquement par le système suite à l'apparition d'un évènement entrainant sa création. Après cette action, l'objet contact est dans l'état \bf{PREVU}. Après affectation par le chef d'agence, l'objet \sc{Contact} atteint l'état \bf{AFFECTE} qui fait partie du super état \bf{EN TRAITEMENT}. L'agent est alors chargé de prendre rendez-vous avec le client ce qui a pour effet de faire passer le \sc{Contact} dans l'état \bf{RDV PRIS}. Depuis cet état l'agent peut préparer l'entretien et faire passer l'objet \sc{Contact} dans l'état \bf{PREPARE} puis conduire l'entretien et atteindre l'état \bf{REALISE} ou conduire l'entretien sans l'avoir préparé et atteindre directement \bf{REALISE}. Une fois dans cet état, l'objet \sc{Contact} n'évolue plus. \\
-Quelques cas particuliers peuvent intervenir dans la vie de l'objet. Un \sc{Contact} peut être créé directement dans l'état \bf{RDV PRIS} sur contact spontané de la part du client. De même l'agent peut annuler le rendez-vous dans les états \bf{RDV PRIS} et \bf{PREPARE} faire passer l'objet \sc{Contact} dans l'état \bf{AFFECTE}. Enfin, l'agent peut annuler définitivement le contact depuis les états contenus dans le super état \bf{EN TRAITEMENT} ce qui a pour effet de faire passer l'objet \sc{Contact} dans l'état \bf{ANNULE} où il n'évolue plus.
+Le diagramme d'état suivant décrit le cycle de vie complet de l'objet \sc{Contact}. \\
+
+Le cas nominal concernant l'objet métier \sc{Contact} est le suivant, l'objet est créé automatiquement par le système suite à l'analyse des événements. Après cette action, l'objet contact est dans l'état \bf{PREVU}. Après affectation par le chef d'agence, l'objet \sc{Contact} atteint l'état \bf{AFFECTE} qui fait partie du super état \bf{EN TRAITEMENT}. L'agent est alors chargé de prendre rendez-vous avec le client ce qui a pour effet de faire passer le \sc{Contact} dans l'état \bf{RDV PRIS}. Depuis cet état l'agent peut préparer l'entretien et faire passer l'objet \sc{Contact} dans l'état \bf{PREPARE} puis conduire l'entretien et atteindre l'état \bf{REALISE} ou conduire l'entretien sans l'avoir préparé et atteindre directement \bf{REALISE}. Une fois dans cet état, l'objet \sc{Contact} n'évolue plus. \\
+
+Quelques cas particuliers peuvent intervenir dans la vie de l'objet. Un \sc{Contact} peut être créé directement dans l'état \bf{RDV PRIS} sur contact spontané de la part du client. De même l'agent peut annuler le rendez-vous dans les états \bf{RDV PRIS} et \bf{PREPARE} faire passer l'objet \sc{Contact} dans l'état \bf{AFFECTE}. \\
+
+Enfin, l'agent peut annuler définitivement le contact depuis les états contenus dans le super état \bf{EN TRAITEMENT} ce qui a pour effet de faire passer l'objet \sc{Contact} dans l'état \bf{ANNULE} où il n'évolue plus. Le client a aussi la possibilité de reporter un rendez-vous ou l'annuler pour une panification ultérieure, mais en aucun cas cela annule complètement le contact. On reste dans l'état \bf{PREPARE} ou on revient dans l'état \bf{AFFECTE} si l'ont est dans \bf{RDV PRIS}.
 
 \begin{figure}[H]
 \noindent\makebox[\textwidth]{\includegraphics[width=18cm]{figures/eps/diag_etats_contact}}
@@ -54,5 +59,5 @@ Quelques cas particuliers peuvent intervenir dans la vie de l'objet. Un \sc{Cont
 \end{figure}
 
 \section{Choix  de  l’environnement  technique}
-L’environnement  technique  déjà  retenu  par  la 
-Maîtrise d’Ouvrage (MOA) de la banque est une architecture C/S n-tiers. 
+
+L’environnement technique déjà retenu par la \textit{Maîtrise d’Ouvrage} (MOA) de la banque est une architecture C/S n-tiers.
