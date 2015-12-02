@@ -7,9 +7,9 @@ title Diagramme de séquence détaillé du CU 4\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContactsATraiter
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgent (CU 3)
 
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffectes
+"ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 "ACTEUR_SI" -> Contact : SOM_ObtenirContactsAffectes
 loop Pour chaque contact
 	Contact -> Structure : SOM_ObtenirAgent
@@ -29,9 +29,12 @@ else sélection d'un seul contact
     ''note : plusieurs agents
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsContact
     "ACTEUR_SI" -> Contact : SOM_ObtenirDetailsContact
+    loop Pour chaque offre
+    	Contact -> Produit : SOM_DetailOffre
+    end
     Contact -> Client : SOM_ObtenirClient
     Contact -> Structure : SOM_ObtenirAgent
-    Contact -> Produit : SOM_DetailOffre
+    
 
 	alt annulation contact
 		"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_MotifAnnulation

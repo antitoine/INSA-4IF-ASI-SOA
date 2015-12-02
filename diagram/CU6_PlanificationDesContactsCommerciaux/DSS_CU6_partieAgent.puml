@@ -8,16 +8,14 @@ title Diagramme de séquence système du CU 6 (partie agent)\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContatcsAgent
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent (CU 3)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact (CU 4)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirClientContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient (CU 10)
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_VoirPlagesLibres
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres (CU 7)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_AssocierPlageEtContact

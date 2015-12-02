@@ -7,9 +7,9 @@ title Diagramme de séquence détaillé du CU 7\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaHebdoDeLAgent
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgent (CU 3)
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 "ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
+"ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 
 alt changer agent
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
@@ -17,15 +17,16 @@ alt changer agent
 
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerAgent
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgent (CU 3)
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
+    "ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 
 else changer semaine
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerSemaine
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerSemaine
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
+    "ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 
 else actions sur plages horaires
 
@@ -37,13 +38,20 @@ else agenda de l'agence
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerListeAgents
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaQuotidien
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
-	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
-
+	loop Pour chaque agent
+        	"ACTEUR_SI" -> Structure : SOM_ObtenirAgent
+        	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
+    end
+    
 	alt changer date
         "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerDate
     	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerDate
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
-        "ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
+        loop Pour chaque agent
+        	"ACTEUR_SI" -> Structure : SOM_ObtenirAgent
+        	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
+        end
+        
     else actions sur plages horaires
         ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_ActionsAgenda
     end

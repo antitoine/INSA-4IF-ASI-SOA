@@ -11,30 +11,33 @@ actor "ACTEUR_USER"
 
 alt changer agent
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
-    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents (CU 2)
 
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerAgent
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerAgent
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 
 else changer semaine
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerSemaine
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerSemaine
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerSemaine
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 
 else actions sur plages horaires
 
-	ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_ActionsAgenda
+    ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_ActionsAgenda
 
 else agenda de l'agence
-	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerListeAgents
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaQuotidien
-	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
-
-	alt changer date
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents (CU 2)
+    "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerListeAgents
+    "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaQuotidien
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
+    
+    alt changer date
         "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerDate
-    	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerDate
+        "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerDate
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
+        
     else actions sur plages horaires
         ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_ActionsAgenda
     end
