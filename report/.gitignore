@@ -7,3 +7,4 @@
 *.tdo
 *.lol
 *~
+!/figures/*
