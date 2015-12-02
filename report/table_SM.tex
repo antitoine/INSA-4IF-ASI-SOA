@@ -3,61 +3,55 @@
 	\noindent\resizebox{15cm}{!}{
 		\begin{tabular}{P{0.8cm}P{5.5cm}P{6cm}P{6cm}}
 \hline Num & Nom & Arguments & Valeur de retour \\ \hline
-			0 & GenererContacts & void &  void \\ \arrayrulecolor{lightgray}\hline
-			1 & ObtenirContactsPrevus & idAgence &  Liste <Contact, PlageAgenda, Agent, Client> \\ \arrayrulecolor{lightgray}\hline
-			2 & ObtenirDetailsContact & idContact &  Contact, MotifDeContact, Client, Agent,Liste<PropositionCommerciale, Offre, Liste<Produit>> \\ \arrayrulecolor{lightgray}\hline
-			3 & ObtenirDossierClient & idClient &  Client \\ \arrayrulecolor{lightgray}\hline
+			1 & GenererContacts & void &  void \\ \arrayrulecolor{lightgray}\hline
+			2 & ObtenirContactsPrevus & idAgence &  Liste <Contact, PlageAgenda, TacheElementaire, Agent, Client> \\ \arrayrulecolor{lightgray}\hline
+			3 & ObtenirClientDuContact & idContact &  Client \\ \arrayrulecolor{lightgray}\hline
 			4 & ObtenirAgents & idAgence &  Liste<Agent> \\ \arrayrulecolor{lightgray}\hline
-			5 & ObtenirDetailsAgent & idAgent &  agent, Liste<Contact> \\ \arrayrulecolor{lightgray}\hline
-			6 & AffecterContact & idContact, idAgent &  void \\ \arrayrulecolor{lightgray}\hline
-			7 & ObtenirContactsAgent & idAgent &  Liste<Contact> \\ \arrayrulecolor{lightgray}\hline
-			8 & ObtenirContactsATraiter & idAgent &  Liste <Contact, PlageAgenda, Agent, Client> \\ \arrayrulecolor{lightgray}\hline
-			9 & GrouperContacts & idContactPrincipal, Liste<idContactPrevus> &  void \\ \arrayrulecolor{lightgray}\hline
+			5 & AffecterContact & idContact, idAncienAgent, idNouvelAgent &  void \\ \arrayrulecolor{lightgray}\hline
+			6 & ObtenirContactsAgent & idAgent &  Agent, Liste<Agent, Client, Contact, PlageAgenda, TacheElementaire> \\ \arrayrulecolor{lightgray}\hline
+			7 & ObtenirContactsATraiter & idAgent &  Agent, Liste <Contact, PlageAgenda, TacheElementaire, Agent, Client> \\ \arrayrulecolor{lightgray}\hline
+			8 & GrouperContacts & idContactPrincipal, Liste<idContactsSecondaires> &  void \\ \arrayrulecolor{lightgray}\hline
+			9 & ObtenirDetailsContact & idContact &  Contact, MotifDeContact, Client, Agent,Liste<PropositionCommerciale, Offre, Liste<Produit>> \\ \arrayrulecolor{lightgray}\hline
 			10 & AnnulerContact & idContact, motif &  void \\ \arrayrulecolor{lightgray}\hline
-			11 & PrendreRdv & idContact &  void \\ \arrayrulecolor{lightgray}\hline
-			12 & PreparerRdv & idContact &  void \\ \arrayrulecolor{lightgray}\hline
-			13 & ConduireRdv & idContact &  void \\ \arrayrulecolor{lightgray}\hline
-			14 & ObtenirAgendaAgent & idAgent, numSemaine, annee &  Liste<PlageAgenda>, Liste<TacheElementaire>,  Liste<TypeActivite> \\ \arrayrulecolor{lightgray}\hline
-			15 & ReaffecterRdv & idPlageAgenda, idAgent &  void \\ \arrayrulecolor{lightgray}\hline
-			16 & ObtenirDetailsRdv & idPlageAgenda &  PlageAgenda, Agent, Contact,MotifDeContact, Client \\ \arrayrulecolor{lightgray}\hline
-			17 & ModifierPlageHoraire & idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin &  PlageAgenda \\ \arrayrulecolor{lightgray}\hline
-			18 & ObtenirAgendaAgence & idAgence, dateJour, Liste<Agent> &  Liste<PlageAgenda>, Liste<TacheElementaire>,  Liste<TypeActivite> \\ \arrayrulecolor{lightgray}\hline
-			19 & AnnulerRdv & idPlageAgenda &  void \\ \arrayrulecolor{lightgray}\hline
-			20 & CreerPlageAgenda & idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin &  PlageAgenda \\ \arrayrulecolor{lightgray}\hline
-			21 & MajNbContactsPotentiels & idAgent, Liste<idPlageAgenda> &  void \\ \arrayrulecolor{lightgray}\hline
-			22 & IdentifierContact & idContact &  Contact \\ \arrayrulecolor{lightgray}\hline
-			23 & MAJInfos & saisie, idClient &  void \\ \arrayrulecolor{lightgray}\hline
-			24 & ObtenirOffres & void &  Liste<Offre> \\ \arrayrulecolor{lightgray}\hline
-			25 & ObtenirDetailsOffre & idOffre &  Liste<Produit>, commentairesOffre \\ \arrayrulecolor{lightgray}\hline
-			26 & AjouterPropositionCommerciale & idOffre, idContact &  void \\ \arrayrulecolor{lightgray}\hline
-			27 & EnregistrerCompteRenduPreparation & annotations, idContact &  void \\ \arrayrulecolor{lightgray}\hline
-			28 & ObtenirPropositionCommerciale & idContact &  Liste<PropositionCommerciale>, annotations \\ \arrayrulecolor{lightgray}\hline
-			29 & EnregistrerRapportActivite & idContact &  void \\ \arrayrulecolor{lightgray}\hline
-			30 & ConsulterDossierClient & idClient &  numero, denomination, adresse postale \\ \arrayrulecolor{lightgray}\hline
-			31 & ConsulterBilanClient & idClient &  cotationsClient, Liste<Personne> \\ \arrayrulecolor{lightgray}\hline
-			32 & ConsulterDetailPersonne & idPersonne &  adresse, revenu, impot, dateNaissance, Liste<Client> \\ \arrayrulecolor{lightgray}\hline
-			33 & MettreAJourPersonne & idPersonne, nom, prenom, adresse, revenu, impot, dateNaissance &  void \\ \arrayrulecolor{lightgray}\hline
-			34 & RecupererPersonne & nom, prenom, trancheAge, adresse &  Personne \\ \arrayrulecolor{lightgray}\hline
-			35 & AjouterPersonne & idClient, nom, prenom, dateNaissance, adresse, revenus, impots &  void \\ \arrayrulecolor{lightgray}\hline
-			36 & CreerEtAjouterNouvellePersonne & idClient, nom, prenom, dateNaissance, adresse, revenus, impots &  void \\ \arrayrulecolor{lightgray}\hline
-			37 & SupprimerPersonne & idClient, idPersonne &  void \\ \arrayrulecolor{lightgray}\hline
-			38 & MAJEnteteDossier & idClient, denomination, adressePostale &  void \\ \arrayrulecolor{lightgray}\hline
-			39 & ObtenirProduits & idClient &  Liste<Compte, Produit> \\ \arrayrulecolor{lightgray}\hline
-			40 & ObtenirDetailCompte & idCompte &  details, historique \\ \arrayrulecolor{lightgray}\hline
-			41 & ObtenirDetailProduit & idProduit &  solde, découvert, interet... \\ \arrayrulecolor{lightgray}\hline
-			42 & MAJComptesConcurrence & idClient, txtComptesConcurrence &  void  \\ \arrayrulecolor{lightgray}\hline
-			43 & ObtenirPlagesLibres & idAgent &  Liste<PlageAgenda> \\ \arrayrulecolor{lightgray}\hline
-			44 & AffecterContactAUnePlage & idPlage, idContact &  void \\ \arrayrulecolor{lightgray}\hline
-			45 & EnregistrerLettreConfirmationRdv & idContact, texteLettre &  void \\ \arrayrulecolor{lightgray}\hline
-			46 & RechercherClient & prenom, nom, etc &  client \\ \arrayrulecolor{lightgray}\hline
-			47 & CreerContactSpontane & idClient, idAgent, motifContact &  contactPrevu, contactRealise \\ \arrayrulecolor{lightgray}\hline
-			48 & CreerRDVSpontane & idContactRealise, date, commentaire &  plageAgenda \\ \arrayrulecolor{lightgray}\hline
-			49 & ConsulterRelationsBanqueClient & idClient &  technique de contact, incidents, reclamations,Liste<PropositionCommerciale>, Liste<Contact>, Liste<Evenement>  \\ \arrayrulecolor{lightgray}\hline
-			50 & ObtenirListeAgence & void &  Liste<Agence> \\ \arrayrulecolor{lightgray}\hline
-			51 & ObtenirClientDuContact & idContact &  Client \\ \arrayrulecolor{lightgray}\hline
-			52 & IdentifierContact & denomination, nomClient, etc. &  Contact \\ \arrayrulecolor{lightgray}\hline
-			53 & ObtenirClientEtAgence & idClient &  Client, Agence \\ \arrayrulecolor{lightgray}\hline
-			54 & ObtenirContactsAgent & idAgent &  Liste<Client, Contact, PlageAgenda> \\ \arrayrulecolor{lightgray}\hline
+			11 & CreerPlageAgenda & idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin &  void \\ \arrayrulecolor{lightgray}\hline
+			12 & MajNbContactsPotentiels & idAgent, Liste<idPlageAgenda> &  void \\ \arrayrulecolor{lightgray}\hline
+			13 & EnregistrerRdv & idContact, jour, heureDeb, heureFin &  void \\ \arrayrulecolor{lightgray}\hline
+			14 & EnregistrerLettreConfirmationRdv & idContact, texteLettre &  void \\ \arrayrulecolor{lightgray}\hline
+			15 & RechercherClient & idClient, noCompte, denomination, idAgence, texteRecherche &  Client \\ \arrayrulecolor{lightgray}\hline
+			16 & ObtenirPlagesLibres & idAgent &  Liste<PlageAgenda> \\ \arrayrulecolor{lightgray}\hline
+			17 & CreerContactSpontane & idClient, idAgent, motifContact &  void \\ \arrayrulecolor{lightgray}\hline
+			18 & CreerRDVSpontane & idContact, dateDeb, dateFin, commentaire &  void \\ \arrayrulecolor{lightgray}\hline
+			19 & ObtenirAgendaAgent & idAgent, numSemaine, annee &  Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>> \\ \arrayrulecolor{lightgray}\hline
+			20 & ObtenirAgendaAgence & dateJour, Liste<idAgent> &  Liste<Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>> \\ \arrayrulecolor{lightgray}\hline
+			21 & ReaffecterRdv & idTacheElementaire, idAgent &  void \\ \arrayrulecolor{lightgray}\hline
+			22 & ObtenirDetailsRdv & idTacheElementaire &  PlageAgenda, TacheElementaire, Agent, Contact,MotifDeContact, Client \\ \arrayrulecolor{lightgray}\hline
+			23 & ModifierPlageHoraire & idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin &  PlageAgenda \\ \arrayrulecolor{lightgray}\hline
+			24 & AnnulerRdv & idTacheElementaire, idContact &  void \\ \arrayrulecolor{lightgray}\hline
+			25 & IdentifierContact & idContact &  Contact \\ \arrayrulecolor{lightgray}\hline
+			26 & MAJInfos & denomination, adresse, idClient &  void \\ \arrayrulecolor{lightgray}\hline
+			27 & ObtenirOffres & void &  Liste<Offre> \\ \arrayrulecolor{lightgray}\hline
+			28 & ObtenirDetailsOffre & idOffre &  Liste<Produit>, commentairesOffre \\ \arrayrulecolor{lightgray}\hline
+			29 & AjouterPropositionCommerciale & idOffre, idContact &  void \\ \arrayrulecolor{lightgray}\hline
+			30 & AnnoterProposition & annotations, idPropositionCommerciale &  void \\ \arrayrulecolor{lightgray}\hline
+			31 & EnregistrerCompteRenduPreparation & annotations, idContact &  void \\ \arrayrulecolor{lightgray}\hline
+			32 & ObtenirPropositionCommerciale & idContact &  Liste<PropositionCommerciale, annotations> \\ \arrayrulecolor{lightgray}\hline
+			33 & EnregistrerRapportActivite & idContact &  void \\ \arrayrulecolor{lightgray}\hline
+			34 & ObtenirClientEtAgence & idClient &  Client, Agence \\ \arrayrulecolor{lightgray}\hline
+			35 & ConsulterBilanClient & idClient &  cotationsClient, Liste<Personne> \\ \arrayrulecolor{lightgray}\hline
+			36 & ConsulterDetailPersonne & idPersonne &  adresse, revenu, impot, dateNaissance, Liste<Client> \\ \arrayrulecolor{lightgray}\hline
+			37 & MettreAJourPersonne & idPersonne, nom, prenom, adresse, revenu, impot, dateNaissance &  void \\ \arrayrulecolor{lightgray}\hline
+			38 & RecupererPersonne & nom, prenom, trancheAge, adresse &  Personne \\ \arrayrulecolor{lightgray}\hline
+			39 & AjouterPersonne & idClient, idPersonne &  void \\ \arrayrulecolor{lightgray}\hline
+			40 & CreerEtAjouterNouvellePersonne & idClient, nom, prenom, dateNaissance, adresse, revenus, impots &  void \\ \arrayrulecolor{lightgray}\hline
+			41 & RetirerPersonne & idClient, idPersonne &  void \\ \arrayrulecolor{lightgray}\hline
+			42 & MAJEnteteDossier & idClient, denomination, adressePostale &  void \\ \arrayrulecolor{lightgray}\hline
+			43 & ObtenirProduits & idClient &  Liste<Compte, Produit> \\ \arrayrulecolor{lightgray}\hline
+			44 & ObtenirDetailCompte & idCompte &  numero, description, historique \\ \arrayrulecolor{lightgray}\hline
+			45 & ObtenirDetailProduit & idProduit &  solde, découvert, interet \\ \arrayrulecolor{lightgray}\hline
+			46 & MAJComptesConcurrence & idClient, txtComptesConcurrence &  void \\ \arrayrulecolor{lightgray}\hline
+			47 & ConsulterRelationsBanqueClient & idClient &  technique de contact, incidents, reclamations,Liste<PropositionCommerciale>, Liste<Contact>, Liste<Evenement> \\ \arrayrulecolor{lightgray}\hline
+			48 & RechercherTousLesClients & idClient, noCompte, denomination, idAgence, texteRecherche &  Liste<Client> \\ \arrayrulecolor{lightgray}\hline
+			49 & ObtenirDossierClient & idClient &  Client \\ \arrayrulecolor{lightgray}\hline
 \arrayrulecolor{black}\hline
 		\end{tabular}
 	}

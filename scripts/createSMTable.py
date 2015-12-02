@@ -10,7 +10,7 @@ print("\t\\noindent\\resizebox{15cm}{!}{");
 print("\t\t\\begin{tabular}{P{0.8cm}P{5.5cm}P{6cm}P{6cm}}");
 print("\\hline Num & Nom & Arguments & Valeur de retour \\\\ \\hline");
 # PRINT CONTENT
-COUNTER=0;
+COUNTER=1;
 with open('../diagram/variables.puml', 'r') as f:
     for l in f:
         if "!define SM_" in l:

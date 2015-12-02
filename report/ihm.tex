@@ -16,7 +16,7 @@ Les vues de l'IHM sont présentées dans les pages suivantes.
 \begin{shaded}
 \textbf{Note: } Les tableaux récapitulant les SMA des différentes vues sont présentés par IHM. Si des services sont redondants, ils ont le même numéro et ne sont pas répétés dans le tableau. \\
 
-Les cas d'utilisation des IHM sont indiqués en haut à gauche de chaque vue. La description des CU n'a pas été reportée en dessous des fenêtres. Dans le cas de manipulation qui ne sont pas immédiatement visibles, ou qui auraient engendrées une trop grosse redondance des vues, nous avons placé des commentaires sur les bords.
+Les cas d'utilisation des IHM sont indiqués en haut à gauche de chaque vue. La description des CU n'a pas été reportée en dessous des fenêtres. Dans le cas de manipulations qui ne sont pas immédiatement visibles, ou qui auraient engendrées une trop grosse redondance des vues, nous avons placé des commentaires sur les bords.
 \end{shaded}
 
 \includepdf[scale=0.8,angle=90,pages={2-9},pagecommand=\subsection*{IHM client}]{figures/IHM.pdf}
@@ -30,32 +30,31 @@ Les cas d'utilisation des IHM sont indiqués en haut à gauche de chaque vue. La
 Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU10 - Recherche des clients}  \\
-1.1 & Bouton Rechercher & PAS DE SMA \\
+1.1 & Bouton Rechercher & SM46 - RechercherClient \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU10 - Résultats recherche clients} \\ 
-1.2 & Bouton Rechercher  & PAS DE SMA       \\             
-1.3 & Bouton Voir le client & ObtenirClientEtAgence \newline ConsulterBilanClient \\
+1.1 & Bouton Rechercher  & SM46 - RechercherClient       \\             
+1.2 & Bouton Voir le client & SM34 - ObtenirClientEtAgence, SM35 - ConsulterBilanClient \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU10 - Bilan - Dossier Client}  \\
-1.4 & bouton oeil  & ConsulterDetailPersonne \\
-1.5 & bouton crayon  & ConsulterDetailPersonne \\
-1.6 & bouton poubelle  & SupprimerPersonne \\
-1.7 & onglet Produits  & ObtenirProduits \\
-1.8 & onglet Relations  & ConsulterRelationsBanqueClient \\
+1.3 & Bouton œil & SM36 - ConsulterDetailPersonne \\
+1.4 & Bouton crayon & SM36 - ConsulterDetailPersonne \\
+1.5 & Bouton poubelle & SM41 - RetirerPersonne \\
+1.6 & Onglet Produits & SM43 - ObtenirProduits \\
+1.7 & Onglet Relations & SM47 - ConsulterRelationsBanqueClient \\
 \rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU10 - Bilan - Dossier Client- Mode modification} \\ 
-1.9 & Bouton Ajouter une personne  &  AjouterPersonne ou \newline CreerEtAjouterPersonne  \\             
-1.10 & Bouton Enlever du client & SupprimerPersonne \\
-1.11 & Bouton Valider & MAJEnteteDossier \\
+\multicolumn{3}{l}{CU10 - Bilan - Dossier Client - Mode modification} \\ 
+1.8 & Bouton Ajouter une personne  & SM39 - AjouterPersonne ou SM40 - CreerEtAjouterPersonne  \\             
+1.9 & Bouton Enlever du client & SM41 - RetirerPersonne \\
+1.10 & Bouton Valider & SM42 - MAJEnteteDossier \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU10 - Produits - Dossier client}  \\
-1.12 & onglet Bilan & ConsulterBilanClient \\
-1.13 & Bouton oeil & ConsulterDetailProduit \\
-1.14 & Bouton Modifier (puis valider) & MAJComptesConcurrence \\
+1.11 & Onglet Bilan & SM35 - ConsulterBilanClient \\
+1.12 & Bouton Modifier (puis Valider) & SM46 - MAJComptesConcurrence \\
 \rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU10 - Détail produit - Dossier client} \\ 
-\rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU10 - Relations - Dossier client} \\ \hline
+\multicolumn{3}{l}{CU10 - Relations - Dossier client} \\ 
+1.6 & Onglet Produits & SM43 - ObtenirProduits \\
+1.11 & Onglet Bilan & SM35 - ConsulterBilanClient
 \end{tabular}
 \end{table}
 
@@ -65,12 +64,22 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 \begin{table}[H]
 \centering
 \caption{SMA - IHM Personnes}
-\begin{tabular}{ll}
+\begin{tabular}{p{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
 \hline
-\multicolumn{1}{c}{Num Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
-\multicolumn{2}{c}{CU2 - Affectation contact}              \\
-                                 &                         \\
-                                 &                         \\ \hline
+Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU10 - Recherche Personnes}  \\
+2.1 & Bouton Rechercher & SM38 - RecupererPersonne \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU10 - Resultats recherche personne}  \\
+2.2 & Bouton Voir la personne & SM36 - ConsulterDetailPersonne \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU10 - Detail personne}  \\
+2.3 & Bouton Voir le client & SM34 - ObtenirClientEtAgence, SM35 - ConsulterBilanClient \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU10 - Detail personne - Mode modification}  \\
+2.3 & Bouton Voir le client & SM34 - ObtenirClientEtAgence, SM35 - ConsulterBilanClient \\
+2.4 & Bouton Valider & SM37 - MettreAJourPersonne \\
 \end{tabular}
 \end{table}
 
@@ -85,31 +94,29 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU7 - Agenda - Agence}  \\
-3.1 & Bouton Vue Agent & ObtenirAgendaAgent \\
+3.1 & Bouton Vue Agent & SM19 - ObtenirAgendaAgent \\
+3.2 & Agenda - Clic sur jour & SM20 - ObtenirAgendaAgence \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU7 - Agenda - Agent}  \\
-3.2 & Bouton Vue Agence & ObtenirAgendaAgence \\
-3.3 & ComboBox Agent & ObtenirAgendaAgent \\
+3.2 & Agenda - Clic sur jour & - SM19 - ObtenirAgendaAgent \\
+3.3 & Bouton Vue Agence & SM20 - ObtenirAgendaAgence \\
+3.4 & ComboBox Agent & SM19 - ObtenirAgendaAgent \\
 \rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU7 - Agenda - Ajout plage horaire chef d'agence}  \\
-3.4 & Ajouter une activité & ObtenirAgendaAgence \\
-3.3 & ComboBox Agent & ObtenirAgendaAgent \\
-\rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU7 - Agenda - Ajout plage horaire agent}  \\
-\rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU7 - Agenda - Ajout contact}  \\
+\multicolumn{3}{l}{CU7 - Agenda - Ajout contact commercial}  \\
+3.5 & Bouton Ok & SM13 - EnregistrerRdv \\
+3.6 & Bouton Ajouter & SM6 - ObtenirContactsAgent \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU7 - Agenda - Ajout contact spontané}  \\
-\rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU7 - Agenda - Ajout contact - recherche contact}  \\
-\rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU7 - Agenda - Ajout contact spontané - recherche client}  \\
+3.7 & Bouton Ajouter & SM48 - RechercherTousLesClients \\
+3.8 & Bouton Ok & SM17 - CreerContactSpontane, SM18 - CreerRDVSpontane \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU7 - Agenda - Ajout tâche}  \\
-\rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU7 - Agenda - clic tâche}  \\
+3.9 & Ajouter une activité & SM11 - CreerPlageAgenda \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU7 - Agenda - clic rendez-vous}  \\
+3.11 & Bouton Voir les détails & SM22 - ObtenirDetailsRdv \\
+3.12 & Bouton Obtenir lettre de confirmation & SM22 - ObtenirDetailsRdv \\
+3.13 & Bouton Changer la date de rendez-vous & SM23 - ModifierPlageHoraire \\
 \end{tabular}
 \end{table}
 
@@ -118,11 +125,32 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 \begin{table}[H]
 \centering
 \caption{SMA - IHM Contact}
-\begin{tabular}{ll}
+\begin{tabular}{p{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
 \hline
-\multicolumn{1}{c}{Num Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
-\multicolumn{2}{c}{CU2 - Affectation contact}              \\
-                                 &                         \\
-                                 &                         \\ \hline
+Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU4 - Contacts - Agent}  \\
+4.1 & Bouton Grouper les contacts & SM8 - GrouperContacts \\
+4.2 & Combobox agents & SM6 - ObtenirContactsAgent \\
+4.3 & Bouton œil & SM9 - ObtenirDetailsContact\newline SM22 - ObtenirDetailsRdv\\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU4 - Contacts - Agent - Annulation contact}  \\
+4.4 & Bouton Supprimer & SM10 - AnnulerContact \\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU2 - Affectation contact}  \\
+4.5 & Bouton Affecter le contact & SM5 - AffecterContact\\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU8 - Vue contact - Préparation d'un rendez-vous}  \\
+4.6 & Bouton Voir le client & SM34 - ObtenirClientEtAgence \newline SM35 - ConsulterBilanClient \\
+4.7 & Bouton Annuler rendez-vous & SM24 - AnnulerRdv\\
+4.8 & Bouton Obtenir lettre de confirmation & SM22 - ObtenirDetailsRdv \\
+4.9 & Combobox Agent & SM21 - ReaffecterRdv\\
+4.10 & Bouton Enregistrer & SM31 - EnregistrerCompteRenduPreparation, SM30 - AnnoterProposition\\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU9 - Vue contact - Compte rendu entretient - Mode modification}  \\
+4.11 & Bouton Enregistrer & SM33 - EnregistrerRapportActivite\\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU8 - Ajout d'offres}  \\
+4.12 & Bouton Ajouter & SM29 - AjouterPropositionCommerciale\\
 \end{tabular}
 \end{table}
