@@ -7,18 +7,13 @@
 \begin{document}
 \includepdf[pages={1}]{title.pdf}
 
-\listoftodos
-\newpage
-\addcontentsline{toc}{part}{Tables des matières}
 \tableofcontents
-\addcontentsline{toc}{part}{Listes des figures}
 {%
 \let\oldnumberline\numberline%
 \renewcommand{\numberline}{\figurename~\oldnumberline}%
 \renewcommand\listfigurename{Liste des figures}
 \listoffigures%
 }
-\addcontentsline{tot}{part}{Listes des tableaux}
 {%
 \let\oldnumberline\numberline%
 \renewcommand{\numberline}{\tablename~\oldnumberline}%
@@ -54,7 +49,7 @@ Nous avons suivi une démarche en 4 phases :
 architecture.\\
 \end{itemize}
 
-Le document ci-présent est la synthèse de cette démarche. Il reprend l'ensemble des cas d'utilisation étudié, en présentant dans un premier temps, les diagrammes d'activités, et les diagrammes de séquence système. Puis dans un deuxième temps, il présente l'ensemble des IHM qui permettent à l'utilisateur de réaliser ces cas d'utilisation.
+Le document ci-présent est la synthèse de cette démarche. Il reprend l'ensemble des cas d'utilisation étudié, en présentant dans un premier temps, les diagrammes d'activités, et les diagrammes de séquence système. Puis dans un deuxième temps, il présente l'ensemble des IHM qui permettent à l'utilisateur de réaliser ces cas d'utilisation. Enfin, on trouvera le détail des services ainsi qu'une proposition d'architecture pour le projet.
 
 
 \include{conception}
