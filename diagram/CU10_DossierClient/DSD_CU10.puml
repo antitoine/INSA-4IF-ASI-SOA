@@ -95,6 +95,15 @@ opt Relations banque/client
     "ACTEUR_SI" -> Client : SOM_ConsulterInfosRelationClient
     "ACTEUR_SI" -> Contact : SOM_ConsulterPropositionsHistorique
     "ACTEUR_SI" -> Evenement : SOM_ConsulterEvenementsAVenir
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPropositionCommerciale
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact (CU 8)
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerEvenement
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact (CU 8)
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact (CU 8)
 end
 
 @enduml

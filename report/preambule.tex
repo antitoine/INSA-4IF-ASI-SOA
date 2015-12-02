@@ -37,12 +37,6 @@
 \setlength{\headheight}{13.6pt}
 
 
-%%% Equation and float numbering
-\numberwithin{equation}{section}		% Equationnumbering: section.eq#
-\numberwithin{figure}{section}		% Figurenumbering: section.fig#
-\numberwithin{table}{section}		% Tablenumbering: section.tab#
-
-
 %%% Define new commands
 \newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
 \renewcommand{\bf}[1]{\textbf{#1}}
@@ -59,9 +53,8 @@
 \makeatletter
 \def\l@figure{\@dottedtocline{1}{1.5em}{4em}}
 \makeatother
-
+\PassOptionsToPackage{colorlinks=true,linkcolor=darkgray}{hyperref}
 \usepackage{bookmark}
-%\usepackage[hidelinks]{hyperref}
 \usepackage{cases}
 \usepackage{color}
 \usepackage{xcolor}
@@ -188,3 +181,9 @@
       1000 sep={}
   },
 }
+
+
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{ragged2e}
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}

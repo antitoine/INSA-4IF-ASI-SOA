@@ -69,6 +69,15 @@ end
 opt Relations banque/client
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterRelationBanqueClient
     "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ConsulterRelationsBanqueClient
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPropositionCommerciale
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact (CU 8)
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerEvenement
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact (CU 8)
+	
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact (CU 8)
 end
 
 @enduml

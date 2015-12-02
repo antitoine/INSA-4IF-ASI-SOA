@@ -36,6 +36,8 @@ split again
 stop
 split again
 :LB_ConsulterRelationBanqueClient;
+:LB_IdentifierContact (CU 8);
+note right: NOTE_ClicEvtRdvProp
 stop
 end split
 stop

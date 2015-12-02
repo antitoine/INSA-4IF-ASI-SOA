@@ -8,8 +8,7 @@ title Diagramme de séquence détaillé du CU 6 (contacts commerciaux)\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContatcsAgent
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent
-"ACTEUR_SI" -> "Contact" : SOM_ObtenirContactsAgent
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAgent (CU 3)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact (CU 4)
 
