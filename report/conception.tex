@@ -31,7 +31,13 @@ Enfin, une personne ayant le rôle de client n'existe que si cette dernière pos
 
 On retrouve les objets métiers du découpage précédent (\textbf{Client}, \textbf{Produit} et \textbf{Structure}) avec trois autres blocs : \textbf{Agenda}, \textbf{Événement} et \textbf{Contact}. \\
 
-\todo{Expliquer découpage Contact / Agenda / Événement}
+Nous avons dissocié l'entité événement de l'ensemble du domaine des données concernant les contacts, car d'après le cas d'utilisation numéro un, ces derniers sont générés automatiquement en fonction des événements donc ils ont un cycle de vie différent. L'association "Avoir origine" se retrouve avec l'objet métier \textbf{Événement} car on a plus d'accès à partir de l'événement que de l'objet client (du fait du processus de génération automatique). \\
+
+Concernant la planification, nous retrouvons trois entités \textit{Plage agenda}, \textit{Type activité} et \textit{Tâche élémentaire}, c'est pourquoi on retrouve ces entités dans l'objet métier \textbf{Agenda}. Nous avons rajouté l'association \textit{Composer} dans ce bloc car d'après les cas d'utilisations, l'accès aux contacts se fait principalement depuis l'agenda et peu dans l'autre sens. \\
+
+Enfin, nous avons estimé que les entités restantes sont du domaine du \textbf{Contact} et qu'il est plus optimal d'avoir l'ensemble des associations restantes dans cet objet métier car d'après les cas d'utilisation un contact dépend d'un client, un événement, un agent et un ensemble de produit proposés pour ce contact. \\
+
+Afin de simplifier la gestion des entités contacts réalisés et contacts prévus, nous avons fait le choix de nommer cet ensemble \textit{Contact} pour les diagrammes de séquence. On retrouve ainsi pour un contact prévu l'ensemble des contacts réalisés associés. \\
 
 Nous avons fait le choix d'ajouter une association réflexive dans l'entité contact car il faut stocker l'information lorsque plusieurs contacts sont regroupés en un seul. On garde alors l'ensemble des contacts avec les motifs associés et on a cette nouvelle information. \\
 
