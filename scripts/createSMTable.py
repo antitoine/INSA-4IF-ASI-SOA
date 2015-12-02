@@ -1,7 +1,7 @@
 #!/bin/python
 #-!- encoding:utf8 -!-
 
-# !define SOM_ConduireRdv ConduireRdv(idContact)\n: void # LINE TO PARSE EXAMPLE
+# !define SM_ConduireRdv SM1 - ConduireRdv(idContact)\n: void # LINE TO PARSE EXAMPLE
 
 # PRINT HEAD
 print("");
@@ -14,7 +14,7 @@ COUNTER=0;
 with open('../diagram/variables.puml', 'r') as f:
     for l in f:
         if "!define SM_" in l:
-            print("\t\t\t%s & %s & %s & %s \\\\ \\arrayrulecolor{lightgray}\\hline" % (COUNTER, l.split(' ')[2].split('(')[0].replace("\\n", ""), l.split('(')[1].split(')')[0].replace("\\n", " "), l.split(':')[1].replace('\n','').replace("\\n", "")));
+            print("\t\t\t%s & %s & %s & %s \\\\ \\arrayrulecolor{lightgray}\\hline" % (COUNTER, l.split(' ')[4].split('(')[0].replace("\\n", ""), l.split('(')[1].split(')')[0].replace("\\n", " "), l.split(':')[1].replace('\n','').replace("\\n", "")));
             COUNTER+=1;
 # PRINT END
 print("\\arrayrulecolor{black}\\hline")

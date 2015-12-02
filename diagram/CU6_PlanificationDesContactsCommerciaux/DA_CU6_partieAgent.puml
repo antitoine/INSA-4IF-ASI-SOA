@@ -5,10 +5,10 @@ title Diagramme d'activité du CU 6\nPartie Agent\n----
 
 note left: ACTEUR_AGENT
 (*) --> "LB_ListeContatcsAgent"
---> "LB_VoirDetailsContact"
---> "LB_DossierClient"
+--> "LB_DetailsContact (CU 4)"
+--> "LB_DossierClient (CU 10)"
 note right: NOTE_DetailsClient
---> "LB_VoirPlagesLibres"
+--> "LB_VoirPlagesLibres (CU 7)"
 note right: NOTE_PropositionCreneau
 --> "LB_AssocierPlageEtContact"
 --> "LB_EditerLettreConfirmation"

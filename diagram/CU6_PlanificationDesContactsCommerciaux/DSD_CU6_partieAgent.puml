@@ -13,13 +13,9 @@ actor "ACTEUR_USER"
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_DetailContact (CU 4)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirClientContact
-"ACTEUR_SI" -> "Client" : SOM_ObtenirClientContact
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_DossierClient (CU 10)
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_VoirPlagesLibres
-"ACTEUR_SI" -> "Agenda" : SOM_VoirPlagesLibres
+"ACTEUR_USER" -> "ACTEUR_IHM" : LB_VoirPlagesLibres (CU 7)
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerPlageHoraire
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_AssocierPlageEtContact
