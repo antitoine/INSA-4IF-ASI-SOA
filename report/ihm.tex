@@ -3,11 +3,11 @@
 
 \section{Enchainement des Fenêtres - EdF}
 
-La figure suivante présente l'enchainement des fenêtres. Les quatres super-états présents dans le super état Application constituent en réalité les quatres onglets principaux de l'application. Nous avons choisi de représenter l'enchainement des fenêtres sous la forme d'un diagramme d'état qui nous permet de représenter la hierarchie en plus de la navigation contrairement à un simple diagramme de navigation dont la complexité aurait été telle qu'il aurait été illisible.
+La figure suivante présente l’enchaînement des fenêtres. Les quatres super-états présents dans le super état Application constituent en réalité les quatre onglets principaux de l'application. Nous avons choisi de représenter l’enchaînement des fenêtres sous la forme d'un diagramme d'état qui nous permet de représenter la hiérarchie en plus de la navigation contrairement à un simple diagramme de navigation dont la complexité aurait été telle qu'il aurait été illisible.
 
 \begin{figure}[H]
 \noindent\makebox[\textwidth]{\includegraphics[width=18cm]{figures/eps/EdF}}
-\caption{Diagramme d'enchainement des fenêtres}
+\caption{Diagramme d’enchaînement des fenêtres}
 \end{figure}
 
 \section{Présentation des différentes vues}
@@ -66,10 +66,6 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 \multicolumn{3}{l}{CU10 - Produits - Dossier client}  \\
 1.11 & Onglet Bilan & SM35 - ConsulterBilanClient \\
 1.12 & Bouton Modifier (puis Valider) & SM46 - MAJComptesConcurrence \\
-\rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU10 - Relations - Dossier client} \\ 
-1.6 & Onglet Produits & SM43 - ObtenirProduits \\
-1.11 & Onglet Bilan & SM35 - ConsulterBilanClient
 \end{tabular}
 \end{table}
 
@@ -93,7 +89,6 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 2.3 & Bouton Voir le client & SM34 - ObtenirClientEtAgence, SM35 - ConsulterBilanClient \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU10 - Detail personne - Mode modification}  \\
-2.3 & Bouton Voir le client & SM34 - ObtenirClientEtAgence, SM35 - ConsulterBilanClient \\
 2.4 & Bouton Valider & SM37 - MettreAJourPersonne \\
 \end{tabular}
 \end{table}
@@ -126,9 +121,11 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 3.8 & Bouton Ok & SM17 - CreerContactSpontane, SM18 - CreerRDVSpontane \\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU7 - Agenda - Ajout tâche}  \\
-3.9 & Ajouter une activité & SM11 - CreerPlageAgenda \\
+3.9 & Bouton OK & SM11 - CreerPlageAgenda \\
+\multicolumn{3}{l}{CU7 - Agenda - Clic tâche}  \\
+3.10 & Bouton Ajouter un participant & SM11 - CreerPlageAgenda \\
 \rowcolor[gray]{0.9}
-\multicolumn{3}{l}{CU7 - Agenda - clic rendez-vous}  \\
+\multicolumn{3}{l}{CU7 - Agenda - Clic rendez-vous}  \\
 3.11 & Bouton Voir les détails & SM22 - ObtenirDetailsRdv \\
 3.12 & Bouton Obtenir lettre de confirmation & SM22 - ObtenirDetailsRdv \\
 3.13 & Bouton Changer la date de rendez-vous & SM23 - ModifierPlageHoraire \\
@@ -161,6 +158,8 @@ Num & \multicolumn{1}{c}{Nom Contrôle} & \multicolumn{1}{c}{SMA} \\ \hline
 4.7 & Bouton Annuler rendez-vous & SM24 - AnnulerRdv\\
 4.8 & Bouton Obtenir lettre de confirmation & SM22 - ObtenirDetailsRdv \\
 4.9 & Combobox Agent & SM21 - ReaffecterRdv\\
+\rowcolor[gray]{0.9}
+\multicolumn{3}{l}{CU8 - Vue contact - Préparation d'un rendez-vous - Mode modification}  \\
 4.10 & Bouton Enregistrer & SM31 - EnregistrerCompteRenduPreparation, SM30 - AnnoterProposition\\
 \rowcolor[gray]{0.9}
 \multicolumn{3}{l}{CU9 - Vue contact - Compte rendu entretient - Mode modification}  \\
