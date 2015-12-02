@@ -6,6 +6,8 @@ title Diagramme de Séquence Système du CU 4\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeContactsATraiter
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgent
+
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirContactsAffectes
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerContact
