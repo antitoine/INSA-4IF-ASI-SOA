@@ -5,11 +5,12 @@
 title Diagramme de séquence système du CU 7\n----\nActions agenda\n----
 
 actor "ACTEUR_USER"
+
 alt réaffecter rdv
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
 
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
-    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents (CU 2)
 
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ReaffecterRDV

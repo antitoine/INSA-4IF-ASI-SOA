@@ -3,6 +3,7 @@
 !include ../variables.puml
 title Diagramme de séquence système du CU 2\n----
 
+
 actor "ACTEUR_CHEF"
 
 "ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ListeContacts

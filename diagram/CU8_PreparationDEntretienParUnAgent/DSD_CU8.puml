@@ -7,17 +7,14 @@ title Diagramme de séquence système du CU 8\n----
 actor "ACTEUR_USER"
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_IdentifierContact
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContactAvecInfos
+"ACTEUR_IHM" -> "ACTEUR_SI" : SM_IdentifierContact
 "ACTEUR_SI" -> "Contact" : SOM_IdentifierContact
 
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_Ref_DetailContact
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient
-"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDossierClient
-"ACTEUR_SI" -> "Client" : SOM_ObtenirClient
-
 alt Mise à jour client
+	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerClient
+	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterDossierClient (CU 10)
 	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SaisirInfosClient
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_MAJInfos
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_MAJInfos
@@ -33,10 +30,14 @@ else Proposition commerciale
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirDetailsOffre
 	"ACTEUR_SI" -> "Produit" : SOM_ObtenirDetailsOffre
 	
-	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_RedigerProposition
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerPropositionOffre
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_AjouterPropositionCommerciale
 	"ACTEUR_SI" -> "Contact" : SOM_AjouterPropositionCommerciale
+
+	ACTEUR_USER -> ACTEUR_IHM : SAISIE_RedigerProposition
+	ACTEUR_USER -> ACTEUR_IHM : LB_AnnoterProposition
+	ACTEUR_IHM -> ACTEUR_SI : SM_AnnoterProposition
+	ACTEUR_SI -> Contact : SOM_AnnoterProposition
 	
 end
 

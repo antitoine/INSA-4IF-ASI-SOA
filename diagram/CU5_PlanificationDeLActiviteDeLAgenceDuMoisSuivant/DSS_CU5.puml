@@ -3,18 +3,18 @@
 !include ../variables.puml
 title DSS du CU 5\n----
 
-actor "ACTEUR_USER"
+actor "ACTEUR_CHEF"
 
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgenda
-"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ModePlanification
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ConsulterAgenda
+"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_ModePlanification
 alt ajouter une plage
-	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectPlage
-	"ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectActivite
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_CreerPlage
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : SAISIE_SelectPlage
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : SAISIE_SelectActivite
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_CreerPlage
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_CreerPlageAgenda
 
 else terminer la planification
-	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_SortirPlanification
+	"ACTEUR_CHEF" -> "ACTEUR_IHM" : LB_SortirPlanification
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_MettreAJourNbContactsPotentiels
 end
 
