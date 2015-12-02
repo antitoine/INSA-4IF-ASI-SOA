@@ -17,7 +17,11 @@ alt ajouter une plage
 else terminer la planification
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_SortirPlanification
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_MettreAJourNbContactsPotentiels
-	"ACTEUR_SI" -> Structure : SOM_MettreAJourNbContactsPotentiels
+	
+	loop Pour chaque plage agenda
+		"ACTEUR_SI" -> Agenda : SOM_ObtenirTempsPourRdv
+	end
+	Agenda -> Structure : SOM_MettreAJourNbContactsPotentiels
 end
 
 @enduml
