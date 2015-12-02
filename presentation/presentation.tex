@@ -62,13 +62,8 @@
     
     \begin{frame}{Diagramme de séquence détaillé - Action Agenda}
     
-    \transwipe
-\only<1>{    \adjustbox{width=1.1\textwidth, center, trim={0} {.5\height} {0} {0},clip}%
-  {\includegraphics[height=12cm]{../report/figures/eps/DSD_CU7_ActionsAgenda}}}
-\only<2>{\adjustbox{width=1.1\textwidth, center, trim={0} {0} {0} {.5\height},clip}%
-  {\includegraphics[height=12cm]{../report/figures/eps/DSD_CU7_ActionsAgenda}}}
-
-
+   \adjustbox{width=1.1\textwidth, center, trim={0} {.5\height} {0} {0},clip}%
+  {\includegraphics[height=12cm]{../report/figures/eps/DSD_CU7_ActionsAgenda}}
 
     \end{frame}
     
@@ -83,45 +78,130 @@
 \noindent\makebox[\textwidth]{\includegraphics[height=5.5cm]{../report/figures/eps/collaboration}}
     \end{frame}
     
-    \section{2 SM + SOM (Pierre)}
-    \begin{frame}{SMA - Obtenir Détail Agent}
-   \begin{small}
-            \noindent \textit{\textit{Arguments en entrée :}}
-\begin{description}
-\item[idAgent] l'identifiant numérique de  l'agent pour lequel on souhaite obtenir l'agenda. 
-\item[numSemaine] le numéro de la semaine à rechercher, de 1 à 52. 
-\item[annee] l'année pour laquelle on souhaite obtenir l'agenda de la semaine mentionnée en second argument, sous format numérique, à quatre chiffres. \\
-\end{description}
-
-\noindent \textit{Sorties} :
-
-\begin{description}
-\item[Liste<PlageAgenda>] l'ensemble des plages agenda de l'agent ayant l'identifiant idAgent, pour la semaine numSemaine de l'année annee.
-\item[Liste<TacheElementaires>] l'ensemble des tâches élémentaires associées aux plage agenda également retournées. 
-\item[Liste<TypeActivite>] l'ensemble des activités de l'agent qui lui sont affectées sur les plage agenda également retournées. \\
-\end{description}
-   \end{small}
-    \end{frame}
-    \begin{frame}{SMA - Obtenir détails rdv}
-
-\begin{small}
-\noindent \textit{Arguments en entrée :}
-\begin{description}
-\item[idPlageAgenda] l'identifiant de la plage agenda qui représente le rendez-vous que l'on souhaite détailler. \\
-\end{description}
-
-\noindent \textit{Sorties} : 
-\begin{description}
-\item[PlageAgenda] la plage agenda associée à l'identifiant passé en paramètre. 
-\item[Agent] l'agent associé à la plage agenda retournée et, de fait, associé au rendez-vous que l'on souhaite détailler. 
-\item[Contact] le contact qui est associé à la plage agenda retournée et qui doit être (ou à été) réalisé durant ce créneau horaire.
-\item[MotifDeContact] le motif du contact de la plage agenda possédant l'identifiant passé en paramètre. 
-\item[Client] le client concerné par le rendez-vous. \\
-\end{description}
-\end{small}
+    \begin{frame}{Architecture}
+\noindent\makebox[\textwidth]{\includegraphics[height=8cm]{../report/figures/architectureServeurs.png}}
     \end{frame}
     
-    \begin{frame}{Bilan du projet}
+\section{2 SM + SOM (Pierre)}
+
+\begin{frame}{SMA - Obtenir Détail Agent}
+\begin{small}
+\noindent Arguments en entrée
+\begin{itemize}
+\item idAgent 
+\item numSemaine 
+\item annee  \\
+\end{itemize}
+
+\noindent Sorties
+\begin{itemize}
+\item Liste<PlageAgenda>
+\item Liste<TacheElementaires>
+\item Liste<TypeActivite>
+\end{itemize}
+\end{small}
+
+\end{frame}
+
+\begin{frame}{SMA - Obtenir détails rdv}
+
+\begin{small}
+\noindent Arguments en entrée
+\begin{itemize}
+\item idPlageAgenda \\
+\end{itemize}
+
+\noindent Sorties
+\begin{itemize}
+\item PlageAgenda 
+\item Agent
+\item Contact
+\item MotifDeContact 
+\item Client 
+\end{itemize}
+\end{small}
+
+\end{frame}
+    
+\begin{frame}{ObtenirDetailsRdv(idPlageAgenda)}
+
+\noindent  Arguments en entrée
+\begin{itemize}
+\item idPlageAgenda  \\
+\end{itemize}
+
+\noindent Sorties 
+\begin{itemize}
+\item PlageAgenda 
+\item idAgent  
+\item idContact
+\item idClient 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{ObtenirDetailsContact(idContact)}
+
+\noindent  Arguments en entrée
+\begin{itemize}
+\item idContact \\
+\end{itemize}
+
+\noindent Sorties
+\begin{itemize}
+\item Contact  
+\item MotifDeContact  
+\item Liste<PropositionCommerciale, idOffre> 
+\item idClient
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{ObtenirClient(idClient)}
+
+\noindent  Arguments en entrée
+\begin{itemize}
+\item idClient \\
+\end{itemize}
+
+
+\noindent Sorties
+\begin{itemize}
+\item Client
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{ObtenirAgent(idAgent)}
+
+\noindent  Arguments en entrée
+\begin{itemize}
+\item idAgent \\ 
+\end{itemize}
+
+\noindent Sorties
+\begin{itemize}
+\item Agent 
+\end{itemize} 
+
+\end{frame}
+
+\begin{frame}{ObtenirDetailOffre(idOffre)}
+
+\noindent  Arguments en entrée 
+\begin{itemize}
+\item idOffre \\
+\end{itemize} 
+
+\noindent Sorties
+\begin{itemize}
+\item Offre 
+\item Liste<Produit>  
+\end{itemize} 
+
+\end{frame}
+    
+\begin{frame}{Bilan du projet}
   \begin{figure}
 	\input{../report/figures/graph/bilan.tex}
   \end{figure}

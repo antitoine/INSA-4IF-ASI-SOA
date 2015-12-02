@@ -17,7 +17,7 @@ Tout ce qui est du domaine de l'humain est dans l'objet métier \textbf{Personne
 
 Ce qui est du domaine des produits et des services sont regroupés dans l'objet métier \textbf{Produit}. On y trouve l'entité produit avec ses offres associées et la segmentation des individus qui est primordiale pour une offre (proximité fonctionnelle). \\
 
-Toute la structuration de la société, soit les agences et les agents y travaillant ont aussi été rapprochés afin de former l'objet métier \textbf{Structure}. Même si le cycle de vie peut différer, on a une proximité fonctionnelle. Ainsi pour limiter les interactions entre blocs nous avons fait le choix de le laisser regroupé ainsi. \\
+Toute la structuration de la société, soit les agences et les agents y travaillant, ont aussi été rapprochés afin de former l'objet métier \textbf{Structure}. Même si le cycle de vie peut différer, on a une proximité fonctionnelle. Ainsi pour limiter les interactions entre blocs nous avons fait le choix de le laisser ainsi regroupé. \\
 
 Enfin, une personne ayant le rôle de client n'existe que si cette dernière possède des comptes, donc la sémantique des données est très proche. On a alors l'objet métier \textbf{Client}. Il est plus pertinent de garder les différentes associations multiples (\textit{0,n}) entre \textbf{Client} et les autres blocs, car c'est lui qui est au centre. On aura par exemple plus de liaison dans le sens \textbf{Client} / \textbf{Produit} que l'inverse.
 
@@ -31,9 +31,9 @@ Enfin, une personne ayant le rôle de client n'existe que si cette dernière pos
 
 On retrouve les objets métiers du découpage précédent (\textbf{Client}, \textbf{Produit} et \textbf{Structure}) avec trois autres blocs : \textbf{Agenda}, \textbf{Événement} et \textbf{Contact}. \\
 
-Nous avons dissocié l'entité événement de l'ensemble des données concernant les contacts, car d'après le cas d'utilisation numéro un, ces derniers sont générés automatiquement en fonction des événements donc ils ont un cycle de vie différent. L'association "Avoir origine" se retrouve avec l'objet métier \textbf{Événement} car nous avons plus d'accès à partir de l'événement que de l'objet client (du fait du processus de génération automatique). Enfin, l'objet métier \textbf{Événement} est réutilisé dans l'ensemble du système d'information et l'association \textit{générer} n'a de sens que pour le domaine des contacts, donc l'association a plus sa place avec l'objet métier \textbf{Contact}. \\
+Nous avons dissocié l'entité événement de l'ensemble des données concernant les contacts. Selon le cas d'utilisation numéro un, ces derniers sont générés automatiquement en fonction des événements. Ainsi, ils ont un cycle de vie différent. L'association \og Avoir origine \fg{} se retrouve avec l'objet métier \textbf{Événement} car nous avons plus d'accès à partir de l'événement que de l'objet client (du fait du processus de génération automatique). Enfin, l'objet métier \textbf{Événement} est réutilisé dans l'ensemble du système d'information et l'association \textit{générer} n'a de sens que pour le domaine des contacts, donc l'association a plus sa place avec l'objet métier \textbf{Contact}. \\
 
-Concernant la planification, nous retrouvons trois entités \textit{Plage agenda}, \textit{Type activité} et \textit{Tâche élémentaire}, c'est pourquoi on retrouve ces entités dans l'objet métier \textbf{Agenda}. Nous avons rajouté l'association \textit{Composer} dans ce bloc car d'après les cas d'utilisation, l'accès aux contacts se fait principalement depuis l'agenda et peu dans l'autre sens. \\
+Concernant la planification, nous retrouvons trois entités \textit{Plage agenda}, \textit{Type activité} et \textit{Tâche élémentaire}, c'est pourquoi nous retrouvons ces entités dans l'objet métier \textbf{Agenda}. Nous avons rajouté l'association \textit{Composer} dans ce bloc car d'après les cas d'utilisation, l'accès aux contacts se fait principalement depuis l'agenda et peu dans l'autre sens. \\
 
 Enfin, nous avons estimé que les entités restantes sont du domaine du \textbf{Contact} et qu'il est plus optimal d'avoir l'ensemble des associations restantes dans cet objet métier car d'après les cas d'utilisation un contact dépend d'un client, d'un événement, d'un agent, d'un agenda et d'un ensemble de produits proposés pour ce contact mais on ne retrouve pas les dépendances inverses. \\
 
@@ -41,7 +41,7 @@ Afin de simplifier la gestion des entités contacts réalisés et contacts prév
 
 Nous avons fait le choix d'ajouter une association réflexive dans l'entité contact prévu car il faut stocker l'information lorsque plusieurs contacts sont regroupés en un seul (cas d'utilisation numéro quatre). \\
 
-Pour terminer, pour des raisons pratiques, il est intéressant d'avoir les informations sur le temps au niveau d'un contact réalisé, notamment le moment du rendez-vous effectué, c'est pourquoi nous avons ajouté l'association "Effectuer le" entre contact réalisé et tâche élémentaire pour pouvoir la garder. \\
+Pour terminer, pour des raisons pratiques, il est intéressant d'avoir les informations sur le temps au niveau d'un contact réalisé, notamment le moment du rendez-vous effectué, c'est pourquoi nous avons ajouté l'association \og Effectuer le \fg{} entre contact réalisé et tâche élémentaire pour pouvoir la garder. \\
 
 \section{Diagramme d’état de l'objet métier \bf{contact}}
 
@@ -51,7 +51,7 @@ Le cas nominal concernant l'objet métier \sc{Contact} est le suivant, l'objet e
 
 Quelques cas particuliers peuvent intervenir dans la vie de l'objet. Un \sc{Contact} peut être créé directement dans l'état \bf{RDV PRIS} sur contact spontané de la part du client. De même l'agent peut annuler le rendez-vous dans les états \bf{RDV PRIS} et \bf{PREPARE} faire passer l'objet \sc{Contact} dans l'état \bf{AFFECTE}. \\
 
-Enfin, l'agent peut annuler définitivement le contact depuis les états contenus dans le super état \bf{EN TRAITEMENT} ce qui a pour effet de faire passer l'objet \sc{Contact} dans l'état \bf{ANNULE} où il n'évolue plus. Le client a aussi la possibilité de reporter un rendez-vous ou l'annuler pour une panification ultérieure, mais en aucun cas cela annule complètement le contact. On reste dans l'état \bf{PREPARE} ou on revient dans l'état \bf{AFFECTE} si l'ont est dans \bf{RDV PRIS}.
+Enfin, l'agent peut annuler définitivement le contact depuis les états contenus dans le super état \bf{EN TRAITEMENT} ce qui a pour effet de faire passer l'objet \sc{Contact} dans l'état \bf{ANNULE} où il n'évolue plus. Le client a aussi la possibilité de reporter un rendez-vous ou l'annuler pour une panification ultérieure, mais en aucun cas cela annule complètement le contact. On reste dans l'état \bf{PREPARE} ou on revient dans l'état \bf{AFFECTE} si l'on est dans \bf{RDV PRIS}.
 
 \begin{figure}[H]
 \noindent\makebox[\textwidth]{\includegraphics[width=18cm]{figures/eps/diag_etats_contact}}
