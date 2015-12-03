@@ -10,7 +10,11 @@ alt réaffecter rdv
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerRDV
 
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ListeAgents
-    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgents (CU 2)
+    "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgentsDisponibles
+    "ACTEUR_SI" -> Structure : SOM_ObtenirAgentsStructure
+    Structure -> Agenda : SOM_VerifierAgentDisponible
+
+
 
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
     "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ReaffecterRDV

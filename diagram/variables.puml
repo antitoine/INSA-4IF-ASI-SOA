@@ -212,12 +212,12 @@
 !define SM_VoirPlagesLibres SM16 - ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
 !define SM_CreerContactSpontane SM17 - CreerContactSpontane(idClient, idAgent, motifContact)\n: void
 !define SM_CreerRDVSpontane SM18 - CreerRDVSpontane(idContact, dateDeb, dateFin, commentaire)\n: void
-!define SM_ObtenirAgendaAgent SM19 - ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>
-!define SM_ObtenirAgendaQuotidien SM20 - ObtenirAgendaAgence(dateJour, Liste<idAgent>)\n: Liste<Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>>
+!define SM_ObtenirAgendaAgent SM19 - ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire, Client>>
+!define SM_ObtenirAgendaQuotidien SM20 - ObtenirAgendaAgence(dateJour, Liste<idAgent>)\n: Liste<Agent, Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire, Client>>>
 !define SM_ReaffecterRdv SM21 - ReaffecterRdv(idTacheElementaire, idAgent)\n: void
 !define SM_ObtenirDetailsRdv SM22 - ObtenirDetailsRdv(idTacheElementaire)\n: PlageAgenda, TacheElementaire, Agent, Contact,\nMotifDeContact, Client
 !define SM_ModifierPlageHoraire SM23 - ModifierPlageHoraire(idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin) \n: PlageAgenda
-!define SM_AnnulerRdv SM24 - AnnulerRdv(idTacheElementaire, idContact)\n: void
+!define SM_AnnulerRdv SM24 - AnnulerRdv(idTacheElementaire)\n: void
 !define SM_IdentifierContact SM25 - IdentifierContact(idContact)\n: Contact
 !define SM_MAJInfos SM26 - MAJInfos(denomination, adresse, idClient)\n: void
 !define SM_ObtenirOffres SM27 - ObtenirOffres(void)\n: Liste<Offre>
@@ -243,7 +243,7 @@
 !define SM_ConsulterRelationsBanqueClient SM47 - ConsulterRelationsBanqueClient(idClient)\n: technique de contact, incidents, reclamations,\nListe<PropositionCommerciale>, Liste<Contact>, Liste<Evenement>
 !define SM_RechercherTousLesClients SM48 - RechercherTousLesClients(idClient, noCompte, denomination, idAgence, texteRecherche)\n: Liste<Client>
 !define SM_ObtenirDossierClient SM49 - ObtenirDossierClient(idClient)\n: Client
-
+!define SM_ObtenirAgentsDisponibles SM50 - ObtenirAgentsDisponibles(idAgence, idPlageAgenda)\n: Liste<Agent>
 '''''''''''''''''''''''''
 ' Services Objet Metier '
 '''''''''''''''''''''''''
@@ -280,7 +280,7 @@
 !define SOM_ObtenirDetailsContact ObtenirDetailsContact(idContact)\n: Contact, MotifDeContact, idClient, idAgent,\nListe<PropositionCommerciale, idOffre>
 !define SOM_ObtenirResumeContact ObtenirResumeContact(idContact)\n: Contact, MotifDeContact, idClient, idAgent
 !define SOM_ObtenirContactsAgent ObtenirContactsAgent(idAgent)\n: Liste<Contact>
-!define SOM_AnnulerRdvContact AnnulerRdv(idTacheElementaire, idContact)\n: void
+!define SOM_AnnulerRdvContact AnnulerRdv(idTacheElementaire)\n: void
 !define SOM_CreerContactSpontane CreerContactSpontane(idClient, idAgent, motifContact)\n: void
 !define SOM_EditerLettreConfirmation EnregistrerLettreConfirmationRdv(idContact, texteLettre)\n: void
 !define SOM_ConsulterPropositionsHistorique ConsulterPropositionsHistorique(idClient)\n: Liste<PropositionCommerciale>, Liste<Contact>
@@ -290,6 +290,7 @@
 !define SOM_ObtenirPropositionCommerciale ObtenirPropositionCommerciale(idContact)\n: Liste<PropositionCommerciale, annotations>
 !define SOM_EnregistrerRapportActivite EnregistrerRapportActivite(idContact)\n: void
 !define SOM_AnnoterProposition AnnoterProposition(annotations, idPropositionCommerciale)\n: void
+!define SOM_ObtenirContactClient ObtenirClientDuContact(idContact)\n: idClient
 
 ' SOM Produit
 !define SOM_DetailOffre ObtenirDetailOffre(idOffre)\n: Offre, Liste<Produit>
@@ -305,17 +306,18 @@
 !define SOM_MettreAJourNbContactsAffectes MettreAJourNbContactsAffectes(idAncienAgent, idNouvelAgent)\n: void
 !define SOM_ObtenirDetailsOffre ObtenirDetailsOffre(idOffre)\n: Liste<Produit>, commentairesOffre
 !define SOM_ObtenirAgenceDuClient ObtenirAgenceDuClient(idClient)\n: Agence
+!define SOM_ObtenirAgentsDisponibles ObtenirAgentsDisponibles(idAgence, idPlageAgenda)\n: Liste<Agent>
 
 ' SOM Agenda
 !define SOM_CreerPlageAgenda CreerPlageAgenda(idAgent, idActivite, datePlageHoraireDeb, datePlageHoraireFin)\n: void
 !define SOM_DetailPlageAgenda DetailPlageAgenda(idPlageAgenda)\n: PlageAgenda
 !define SOM_ObtenirTempsPourRdv ObtenirTempsPourRdv(Liste<idPlageAgenda>)\n: tempsPourRdv
-!define SOM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>
-!define SOM_ObtenirAgendaQuotidien ObtenirAgendaAgentQuotidien(dateJour, idAgent)\n: Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>
+!define SOM_ObtenirAgendaAgent ObtenirAgendaAgent(idAgent, numSemaine, annee)\n: Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire, idContact>>
+!define SOM_ObtenirAgendaQuotidien ObtenirAgendaAgentQuotidien(dateJour, idAgent)\n: Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire, idContact>>
 !define SOM_ReaffecterRdv ReaffecterRdv(idTacheElementaire, idAgent)\n: void
-!define SOM_ObtenirDetailsRdv ObtenirDetailsRdv(idTacheElementaire)\n: PlageAgenda, TacheElementaire, idAgent, idContact, idClient
+!define SOM_ObtenirDetailsRdv ObtenirDetailsRdv(idTacheElementaire)\n: PlageAgenda, TacheElementaire, idAgent, idContact
 !define SOM_ModifierPlageHoraire ModifierPlageHoraire(idPlageAgenda, datePlageHoraireDeb, datePlageHoraireFin)\n: PlageAgenda
-!define SOM_AnnulerRdv AnnulerRdv(idTacheElementaire, idContact)\n: void
+!define SOM_AnnulerRdv AnnulerRdv(idTacheElementaire)\n: void
 !define SOM_VoirPlagesLibres ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
 !define SOM_CreerRDVSpontane CreerRDVSpontane(idContact, dateDeb, dateFin, commentaire)\n: void
 !define SOM_TraiterEvt RecupererEvenementsATraiter()\n: Liste<Evenement, idClient>
@@ -333,6 +335,7 @@
 !define SOM_VoirPlagesLibres ObtenirPlagesLibres(idAgent)\n: Liste<PlageAgenda>
 !define SOM_AssocierPlageContact EnregistrerRdv(idContact, jour, heureDeb, heureFin)\n: void
 !define SOM_ObtenirDateRdv ObtenirDateRdv(idContact)\n: PlageAgenda
+!define SOM_VerifierAgentDisponible VerifierAgentsDisponibles(Liste<idAgent>, idPlageAgenda)\n: Liste<Agent>
 
 ' SOM Evenement
 !define SOM_ConsulterEvenementsAVenir ConsulterEvenementsAVenir(idClient)\n: Liste<Evenement>

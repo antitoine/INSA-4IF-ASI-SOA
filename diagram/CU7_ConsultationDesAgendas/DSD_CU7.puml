@@ -9,6 +9,8 @@ actor "ACTEUR_USER"
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaHebdoDeLAgent
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 "ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
+Agenda -> Contact : SOM_ObtenirContactClient
+Contact -> Client : SOM_ObtenirClient
 "ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 
 alt changer agent
@@ -18,15 +20,11 @@ alt changer agent
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerAgent
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerAgent
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
-	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
-    "ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 
 else changer semaine
     "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerSemaine
 	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerSemaine
 	"ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
-	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
-    "ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 
 else actions sur plages horaires
 
@@ -41,16 +39,14 @@ else agenda de l'agence
 	loop Pour chaque agent
         	"ACTEUR_SI" -> Structure : SOM_ObtenirAgent
         	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
+        	Agenda -> Contact : SOM_ObtenirContactClient
+            Contact -> Client : SOM_ObtenirClient
     end
     
 	alt changer date
         "ACTEUR_USER" -> "ACTEUR_IHM" : SAISIE_SelectionnerDate
     	"ACTEUR_USER" -> "ACTEUR_IHM" : LB_ChangerDate
         "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaQuotidien
-        loop Pour chaque agent
-        	"ACTEUR_SI" -> Structure : SOM_ObtenirAgent
-        	"ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaQuotidien
-        end
         
     else actions sur plages horaires
         ref over "ACTEUR_USER", "ACTEUR_IHM"  : LB_ActionsAgenda
