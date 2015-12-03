@@ -97,28 +97,27 @@ Ce service métier applicatif permet d'obtenir le détail des activités et tâc
 \noindent \textit{Sorties} :
 
 \begin{description}
-\item[Liste<PlageAgenda>] l'ensemble des plages agenda de l'agent ayant l'identifiant idAgent, pour la semaine numSemaine de l'année annee.
-\item[Liste<TacheElementaires>] l'ensemble des tâches élémentaires associées aux plage agenda également retournées. 
-\item[Liste<TypeActivite>] l'ensemble des activités de l'agent qui lui sont affectées sur les plage agenda également retournées. \\
+\item[Agent] l'agent associé à l'identifiant passé en premier paramètre.
+\item[Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>] l'ensemble des plages agenda de l'agent ayant l'identifiant idAgent, pour la semaine numSemaine de l'année annee, avec les activités et les tâches élémentaires associées. \\
 \end{description}
-
 
 \begin{shaded}
 \textbf{SOM associés} : Toutes les informations retournées par ce service métier applicatif étant contenues dans le seul bloc Agenda, un seul SOM est nécessaire. De fait, ce dernier dispose de la même signature que le SMA et a pour objectif de récupérer les différentes entités qui correspondent à l'identifiant d'agent spécifié pour la semaine et l'année précisées. 
 \end{shaded}
 
-\subsection{SMA : ObtenirDetailsRdv(idPlageAgenda)} 
+\subsection{SMA : ObtenirDetailsRdv(idTacheElementaire)} 
 
-Ce service métier applicatif permet de retourner les informations détaillées d'un rendez-vous associé à une plage horaire spécifique.\\
+Ce service métier applicatif permet de retourner les informations détaillées d'un rendez-vous associé à une tâche élémentaire spécifique.\\
 
-\noindent \textit{Arguments en entrée :}
+\noindent \textit{Argument en entrée :}
 \begin{description}
-\item[idPlageAgenda] l'identifiant de la plage agenda qui représente le rendez-vous que l'on souhaite détailler. \\
+\item[idTacheElementaire] l'identifiant de la tâche élémentaire qui représente le rendez-vous que l'on souhaite détailler. \\
 \end{description}
 
 \noindent \textit{Sorties} : 
 \begin{description}
-\item[PlageAgenda] la plage agenda associée à l'identifiant passé en paramètre. 
+\item[TacheElementaire] la tâche élémentaire associée à l'identifiant passé en paramètre.
+\item[PlageAgenda] la plage agenda associée à la tâche élémentaire également retournée.
 \item[Agent] l'agent associé à la plage agenda retournée et, de fait, associé au rendez-vous que l'on souhaite détailler. 
 \item[Contact] le contact qui est associé à la plage agenda retournée et qui doit être (ou à été) réalisé durant ce créneau horaire.
 \item[MotifDeContact] le motif du contact de la plage agenda possédant l'identifiant passé en paramètre. 
@@ -132,28 +131,29 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 \end{shaded}
 
 
-\subsubsection{ObtenirDetailsRdv(idPlageAgenda)}
+\subsubsection{ObtenirDetailsRdv(idTacheElementaire)}
 
-\noindent \textit{Arguments en entrée :}
+\noindent \textit{Argument en entrée :}
 \begin{description}
-\item[idPlageAgenda] l'identifiant de la plage agenda qui représente de le rendez-vous à détailler. \\
+\item[idTacheElementaire] l'identifiant de la tâche élémentaire qui représente le rendez-vous à détailler. \\
 \end{description}
 
 \noindent \textit{Sorties} : 
 \begin{description}
-\item[PlageAgenda] la plage agenda présente dans le bloc Agenda, qui correspond à l'identifiant passé en paramètre. 
+\item[TacheElementaire] la tâche élémentaire présente dans le bloc Agenda, qui correspond à l'identifiant passé en paramètre.
+\item[PlageAgenda] la plage agenda présente dans le bloc Agenda, qui correspond à la tâche élémentaire également retournée.
 \item[idAgent] l'identifiant de l'agent associé à la plage agenda, qui sera utilisé pour retrouver l'agent dans le bloc Structure. 
 \item[idContact] l'identifiant du contact associé à la page agenda, qui sera utilisé pour retourner le contact et le motif de contact.
 \item[idClient] l'identifiant du client relié au contact associé au rendez-vous, qui sera utilisé par le bloc Client à travers le bloc Contact. \\
 \end{description}
 
 \begin{shaded}
-\textbf{2.} Afin d'obtenir les details associés au contact relié à la plage agenda récupérée dans le bloc Agenda,  le bloc Contact est interrogé grâce à l'identifiant contact connu dans le bloc Agenda. Le service objet entier utilisé est le suivant :
+\textbf{2.} Afin d'obtenir les détails associés au contact relié à la tâche élémentaire récupérée dans le bloc Agenda, le bloc Contact est interrogé grâce à l'identifiant contact connu dans le bloc Agenda. Le service objet entier utilisé est le suivant :
 \end{shaded}
 
-\subsubsection{ObtenirDetailsContact(idContact)}
+\subsubsection{ObtenirResumeContact(idContact)}
 
-\noindent \textit{Arguments en entrée :}
+\noindent \textit{Argument en entrée :}
 \begin{description}
 \item[idContact] l'identifiant du contact pour lequel on souhaite obtenir les informations détaillées. \\
 \end{description}
@@ -161,9 +161,9 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 \noindent \textit{Sorties} :
 \begin{description}
 \item[Contact] l'entité contact possédant l'identifiant passé en paramètre. 
-\item[MotifDeContact] le motif de contact associé à l'entité contact qui possède l'identifiant passe en paramètre. 
-\item[Liste<PropositionCommerciale, idOffre>] l'ensemble des propositions commerciales qui ont été sélectionnées pour le contact également retourné. Si aucune proposition commerciale n'est reliée à ce contact, il s'agit d'une liste vide. Les identifiant des offres associées aux propositions commerciales sont également retournées. 
-\item[idClient] l'identifiant du client qui est rattaché à l'entité contact retournée, permettant d'obtenir par la suite plus d'informations sur le client via le bloc Client. \\
+\item[MotifDeContact] le motif de contact associé à l'entité contact qui possède l'identifiant passe en paramètre.  
+\item[idClient] l'identifiant du client qui est rattaché à l'entité contact retournée, permettant d'obtenir par la suite plus d'informations sur le client via le bloc Client. 
+\item[idClient] l'identifiant de l'agent qui est rattaché au contact, permettant si besoin est de récupérer l'entité associée dans le bloc Structure par la suite. \\
 \end{description}
 
 \begin{shaded}
@@ -172,13 +172,13 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 
 \subsubsection{ObtenirClient(idClient)}
 
-\noindent \textit{Arguments en entrée :}
+\noindent \textit{Argument en entrée :}
 \begin{description}
 \item[idClient] l'identifiant du client pour lequel on souhaite obtenir plus d'informations. \\
 \end{description}
 
 
-\noindent \textit{Sorties} :
+\noindent \textit{Sortie} :
 \begin{description}
 \item[Client] l'entité client associée à l'identifiant passée en paramètre et qui correspond au client concerné par le rendez-vous.\\
 \end{description}
@@ -190,33 +190,17 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 
 \subsubsection{ObtenirAgent(idAgent)}
 
-\noindent \textit{Arguments en entrée :}
+\noindent \textit{Argument en entrée :}
 \begin{description}
 \item[idAgent] l'identifiant de l'agent qui s'occupe du rendez-vous que l'on souhaite détailler. \\
 \end{description}
 
-\noindent \textit{Sorties} :
+\noindent \textit{Sortie} :
 \begin{description}
 \item[Agent] l'entité agent associé à l'identifiant passé en paramètre et trouvé dans le bloc Structure. \\
 \end{description} 
 
-\begin{shaded}
-\textbf{5.} Enfin, pour chaque offre associée aux propositions commerciales du contact rattaché au rendez-vous, le bloc Produit est interrogé. Cela est dû à l'appel du SOM ObtenirDetailsContact. 
-\end{shaded}
 
-
-\subsubsection{ObtenirDetailOffre(idOffre)}
-
-\noindent \textit{Arguments en entrée :} 
-\begin{description}
-\item[idOffre] l'identifiant de l'offre à détailler, qui est associée à une proposition commerciale reliée au contact du rendez-vous. \\
-\end{description} 
-
-\noindent \textit{Sorties} :
-\begin{description}
-\item[Offre] l'entité offre qui correspond à l'identifiant passé en paramètre, récupéré dans le bloc Produit. 
-\item[Liste<Produit>] l'ensemble des produits qui sont reliés à l'offre retournée.
-\end{description} 
 \restoregeometry
 \subsection{Listes complètes des services}
 \input{table_SM}

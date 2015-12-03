@@ -95,9 +95,8 @@
 
 \noindent Sorties
 \begin{itemize}
-\item Liste<PlageAgenda>
-\item Liste<TacheElementaires>
-\item Liste<TypeActivite>
+\item Agent
+\item Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>
 \end{itemize}
 \end{small}
 
@@ -108,11 +107,12 @@
 \begin{small}
 \noindent Arguments en entrée
 \begin{itemize}
-\item idPlageAgenda \\
+\item idTacheElementaire \\
 \end{itemize}
 
 \noindent Sorties
 \begin{itemize}
+\item TacheElementaire
 \item PlageAgenda 
 \item Agent
 \item Contact
@@ -123,15 +123,16 @@
 
 \end{frame}
     
-\begin{frame}{ObtenirDetailsRdv(idPlageAgenda)}
+\begin{frame}{ObtenirDetailsRdv(idTacheElementaire)}
 
-\noindent  Arguments en entrée
+\noindent  Argument en entrée
 \begin{itemize}
-\item idPlageAgenda  \\
+\item idTacheElementaire  \\
 \end{itemize}
 
 \noindent Sorties 
 \begin{itemize}
+\item TacheElementaire
 \item PlageAgenda 
 \item idAgent  
 \item idContact
@@ -140,9 +141,9 @@
 
 \end{frame}
 
-\begin{frame}{ObtenirDetailsContact(idContact)}
+\begin{frame}{ObtenirResumeContact(idContact)}
 
-\noindent  Arguments en entrée
+\noindent  Argument en entrée
 \begin{itemize}
 \item idContact \\
 \end{itemize}
@@ -151,21 +152,21 @@
 \begin{itemize}
 \item Contact  
 \item MotifDeContact  
-\item Liste<PropositionCommerciale, idOffre> 
 \item idClient
+\item idAgent
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}{ObtenirClient(idClient)}
 
-\noindent  Arguments en entrée
+\noindent  Argument en entrée
 \begin{itemize}
 \item idClient \\
 \end{itemize}
 
 
-\noindent Sorties
+\noindent Sortie
 \begin{itemize}
 \item Client
 \end{itemize}
@@ -174,29 +175,14 @@
 
 \begin{frame}{ObtenirAgent(idAgent)}
 
-\noindent  Arguments en entrée
+\noindent  Argument en entrée
 \begin{itemize}
 \item idAgent \\ 
 \end{itemize}
 
-\noindent Sorties
+\noindent Sortie
 \begin{itemize}
 \item Agent 
-\end{itemize} 
-
-\end{frame}
-
-\begin{frame}{ObtenirDetailOffre(idOffre)}
-
-\noindent  Arguments en entrée 
-\begin{itemize}
-\item idOffre \\
-\end{itemize} 
-
-\noindent Sorties
-\begin{itemize}
-\item Offre 
-\item Liste<Produit>  
 \end{itemize} 
 
 \end{frame}
