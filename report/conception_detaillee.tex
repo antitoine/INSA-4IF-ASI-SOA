@@ -98,12 +98,59 @@ Ce service métier applicatif permet d'obtenir le détail des activités et tâc
 
 \begin{description}
 \item[Agent] l'agent associé à l'identifiant passé en premier paramètre.
-\item[Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire>>] l'ensemble des plages agenda de l'agent ayant l'identifiant idAgent, pour la semaine numSemaine de l'année annee, avec les activités et les tâches élémentaires associées. \\
+\item[Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire, Client>>] l'ensemble des plages agenda de l'agent ayant l'identifiant idAgent, pour la semaine numSemaine de l'année annee, avec les activités et les tâches élémentaires associées. Pour chaque tâche élémentaire, le client correspondant est également retourné, permettant ainsi d'obtenir les informations générales sur ce dernier. \\
 \end{description}
 
 \begin{shaded}
-\textbf{SOM associés} : Toutes les informations retournées par ce service métier applicatif étant contenues dans le seul bloc Agenda, un seul SOM est nécessaire. De fait, ce dernier dispose de la même signature que le SMA et a pour objectif de récupérer les différentes entités qui correspondent à l'identifiant d'agent spécifié pour la semaine et l'année précisées. 
+\textbf{SOM associés}\\
+\textbf{1.} : Dans un premier temps, le bloc Agenda est interrogé, permettant de retourner les plages agenda, les activités ainsi que les tâches élémentaires associées à l'identifiant agent passé en paramètre. Le SOM correspondant est le suivant : 
 \end{shaded}
+
+\subsubsection{ObtenirAgendaAgent(idAgent, numSemaine, annee)}
+
+\noindent \textit{Argument en entrée :}
+\begin{description}
+\item[idAgent] l'identifiant numérique de l'agent pour lequel on souhaite obtenir l'agenda. 
+\item[numSemaine] le numéro de la semaine à rechercher, de 1 à 52. 
+\item[annee] l'année pour laquelle on souhaite obtenir l'agenda de la semaine mentionnée en second argument, sous format numérique, à quatre chiffres. \\
+\end{description}
+
+\noindent \textit{Sorties} :
+\begin{description}
+\item[Liste<PlageAgenda, TypeActivite, Liste<TacheElementaire, idContact>>] la liste des plage agenda, des types d'activité et des tâches élémentaires associées. Pour chaque tâche élémentaire retournée, l'identifiant du contact associé est également retourné, permettant ainsi de récupérer le contact en interrogeant le bloc Contact par la suite. \\
+\end{description}
+
+\begin{shaded}
+\textbf{2.} : Après avoir obtenu une tâche élémentaire grâce au bloc Agenda, le bloc Contact est interrogé afin d'obtenir l'identifiant du client qui est concerné par la plage horaire que l'on souhaite décrire. Le SOM ci-dessous nous permet d'obtenir cet identifiant.
+\end{shaded}
+
+\subsubsection{ObtenirClientDuContact(idContact)}
+
+\noindent \textit{Argument en entrée :}
+\begin{description}
+\item[idContact] l'identifiant du contact à rechercher dans le bloc Contact, qui a été retourné dans notre cas par le SOM ObtenirAgendaAgent \\
+\end{description}
+
+\noindent \textit{Sortie} :
+\begin{description}
+\item[idClient] l'identifiant du client associé au contact, permettant par la suite d'obtenir l'entité client correspondante en interrogeant le bloc Client. \\
+\end{description}
+
+\begin{shaded}
+\textbf{3.} : Enfin, le bloc Client est interrogé afin d'obtenir l'entité éponyme, associée à l'identifiant obtenu grâce au SOM précédent.
+\end{shaded}
+
+\subsubsection{ObtenirClient(idClient)}
+
+\noindent \textit{Argument en entrée :}
+\begin{description}
+\item[idClient] l'identifiant du client à rechercher dans le bloc Client, qui a été retourné dans notre cas par le SOM ObtenirClientDuContact. \\
+\end{description}
+
+\noindent \textit{Sortie} :
+\begin{description}
+\item[Client] l'entité client correspondant à l'identifiant passé en paramètre. \\
+\end{description}
 
 \subsection{SMA : ObtenirDetailsRdv(idTacheElementaire)} 
 
@@ -143,8 +190,7 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 \item[TacheElementaire] la tâche élémentaire présente dans le bloc Agenda, qui correspond à l'identifiant passé en paramètre.
 \item[PlageAgenda] la plage agenda présente dans le bloc Agenda, qui correspond à la tâche élémentaire également retournée.
 \item[idAgent] l'identifiant de l'agent associé à la plage agenda, qui sera utilisé pour retrouver l'agent dans le bloc Structure. 
-\item[idContact] l'identifiant du contact associé à la page agenda, qui sera utilisé pour retourner le contact et le motif de contact.
-\item[idClient] l'identifiant du client relié au contact associé au rendez-vous, qui sera utilisé par le bloc Client à travers le bloc Contact. \\
+\item[idContact] l'identifiant du contact associé à la page agenda, qui sera utilisé pour retourner le contact et le motif de contact. \\
 \end{description}
 
 \begin{shaded}
@@ -163,7 +209,7 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 \item[Contact] l'entité contact possédant l'identifiant passé en paramètre. 
 \item[MotifDeContact] le motif de contact associé à l'entité contact qui possède l'identifiant passe en paramètre.  
 \item[idClient] l'identifiant du client qui est rattaché à l'entité contact retournée, permettant d'obtenir par la suite plus d'informations sur le client via le bloc Client. 
-\item[idClient] l'identifiant de l'agent qui est rattaché au contact, permettant si besoin est de récupérer l'entité associée dans le bloc Structure par la suite. \\
+\item[idAgent] l'identifiant de l'agent qui est rattaché au contact, permettant si besoin est de récupérer l'entité associée dans le bloc Structure par la suite. \\
 \end{description}
 
 \begin{shaded}

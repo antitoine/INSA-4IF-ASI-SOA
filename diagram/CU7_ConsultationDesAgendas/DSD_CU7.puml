@@ -9,8 +9,10 @@ actor "ACTEUR_USER"
 "ACTEUR_USER" -> "ACTEUR_IHM" : LB_ConsulterAgendaHebdoDeLAgent
 "ACTEUR_IHM" -> "ACTEUR_SI" : SM_ObtenirAgendaAgent
 "ACTEUR_SI" -> Agenda : SOM_ObtenirAgendaAgent
-Agenda -> Contact : SOM_ObtenirContactClient
-Contact -> Client : SOM_ObtenirClient
+loop Pour chaque tâche élémentaire
+    Agenda -> Contact : SOM_ObtenirContactClient
+    Contact -> Client : SOM_ObtenirClient
+end
 "ACTEUR_SI" -> Structure : SOM_ObtenirAgent
 
 alt changer agent
