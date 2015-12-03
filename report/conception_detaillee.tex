@@ -87,7 +87,10 @@
 
 \newgeometry{height=10in}.
 \section{Spécification des services}
+\modification{Modifications des spécifications pour être en accord avec les changements faits dans les DSD. \\ Les blocs sont aussi précisés}
+
 \subsection{SMA : ObtenirAgendaAgent(idAgent, numSemaine, annee)}
+
 Ce service métier applicatif permet d'obtenir le détail des activités et tâches élémentaires d'un agent pour une semaine en particulier, tout en détaillant les plages horaires associées, permettant ainsi d'obtenir son agenda hebdomadaire. \\
 
 \noindent \textit{\textit{Arguments en entrée :}}
@@ -111,6 +114,8 @@ Ce service métier applicatif permet d'obtenir le détail des activités et tâc
 
 \subsubsection{ObtenirAgendaAgent(idAgent, numSemaine, annee)}
 
+\noindent \textit{Bloc : } Agenda\\
+
 \noindent \textit{Argument en entrée :}
 \begin{description}
 \item[idAgent] l'identifiant numérique de l'agent pour lequel on souhaite obtenir l'agenda. 
@@ -129,6 +134,9 @@ Ce service métier applicatif permet d'obtenir le détail des activités et tâc
 
 \subsubsection{ObtenirClientDuContact(idContact)}
 
+\noindent \textit{Bloc : } Contact \\
+
+
 \noindent \textit{Argument en entrée :}
 \begin{description}
 \item[idContact] l'identifiant du contact à rechercher dans le bloc Contact, qui a été retourné dans notre cas par le SOM ObtenirAgendaAgent \\
@@ -144,6 +152,7 @@ Ce service métier applicatif permet d'obtenir le détail des activités et tâc
 \end{shaded}
 
 \subsubsection{ObtenirClient(idClient)}
+\noindent \textit{Bloc : } Client \\
 
 \noindent \textit{Argument en entrée :}
 \begin{description}
@@ -182,6 +191,7 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 
 
 \subsubsection{ObtenirDetailsRdv(idTacheElementaire)}
+\noindent \textit{Bloc : } Agenda \\
 
 \noindent \textit{Argument en entrée :}
 \begin{description}
@@ -201,6 +211,7 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 \end{shaded}
 
 \subsubsection{ObtenirResumeContact(idContact)}
+\noindent \textit{Bloc : } Contact \\
 
 \noindent \textit{Argument en entrée :}
 \begin{description}
@@ -220,6 +231,7 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 \end{shaded}
 
 \subsubsection{ObtenirClient(idClient)}
+\noindent \textit{Bloc : } Client \\
 
 \noindent \textit{Argument en entrée :}
 \begin{description}
@@ -238,6 +250,7 @@ Ce service métier applicatif permet de retourner les informations détaillées 
 
 
 \subsubsection{ObtenirAgent(idAgent)}
+\noindent \textit{Bloc : } Structure \\
 
 \noindent \textit{Argument en entrée :}
 \begin{description}
